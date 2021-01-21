@@ -7,13 +7,15 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DiscountController;
+use App\Http\Controllers\Admin\ManagmentController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
-
+//route Admin
 Route::prefix('/p-admin')->group(function () {
     Route::get('dashboard',[AdminController::class,'index'])->name('dashboard');
     Route::resource('posts', PostController::class);
@@ -25,4 +27,10 @@ Route::prefix('/p-admin')->group(function () {
     Route::resource('attributes', AttributeController::class);
     Route::resource('brands', BrandController::class);
     Route::resource('sliders', SliderController::class);
+    Route::resource('managment', ManagmentController::class);
 });
+
+
+
+//route Frontend
+Route::get('/', [HomeController::class,'index']);

@@ -24,7 +24,7 @@
 
             <div class="form-group">
                 <label for="name_product" class="font_black">نام محصول </label>
-                <select class="form-control sel2" id="name_product">
+                <select class="form-control sel2 p-2" id="name_product">
                     <option>انتخاب نام محصول</option>
                     <option>صفحه کلاچ</option>
                     <option>هدلایت</option>
@@ -56,7 +56,7 @@
 
 
 
-            <div class="form-group col-lg-6 col-md-8 col-sm-12 p-0" style="position: relative;">
+            <div class="form-group col-lg-7 col-md-8 col-sm-12 p-0" style="position: relative;">
                 <label for="start_date" class="font_black">تاریخ شروع </label>
                 <input type="text" class="form-control date_picker" id="start_date" value=""
                        placeholder="تاریخ شروع کد تخفیف را وارد نمایید">
@@ -64,7 +64,7 @@
 
             </div>
 
-            <div class="form-group col-lg-6 col-md-8 col-sm-12 p-0" style="position: relative;">
+            <div class="form-group col-lg-7 col-md-8 col-sm-12 p-0" style="position: relative;">
                 <label for="end_date" class="font_black">تاریخ پایان </label>
                 <input type="text" class="form-control date_picker" id="end_date" value=""
                        placeholder="تاریخ پایان کد تخفیف را وارد نمایید">

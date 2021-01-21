@@ -508,6 +508,7 @@
                 </li>
 
 
+
                 <li class="menu">
                     <a href="#categories" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
@@ -594,6 +595,14 @@
                     </a>
                 </li>
 
+                <li class="menu">
+                    <a href="{{route('managment.index')}}" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <i class="fas fa-user-tie"></i>
+                            <span> مدیریت</span>
+                        </div>
+                    </a>
+                </li>
 
 
 
