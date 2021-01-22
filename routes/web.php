@@ -34,3 +34,9 @@ Route::prefix('/p-admin')->group(function () {
 
 //route Frontend
 Route::get('/', [HomeController::class,'index']);
+Route::get('/cart', [HomeController::class,'cart'])->name('cart');
+Route::get('/product_detail', [HomeController::class,'product_detail'])->name('product.detail');
+Route::get('/login', [HomeController::class,'login'])->name('login');
+Route::get('/register', [HomeController::class,'register'])->name('register');
+Route::get('/contact', [HomeController::class,'contact'])->name('contact');
+Route::get('/aboutUs', [HomeController::class,'aboutUs'])->name('aboutUs');

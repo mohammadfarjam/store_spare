@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Ejon - Electronics eCommerce HTML Template" >
+    <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Ejon - Electronics eCommerce HTML Template">
     <meta name="description" content="Ejon - Electronics eCommerce HTML Template">
     <meta name="author" content="Barat Hadian">
 
@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="/Frontend/assets/css/responsive.css">
     <!-- RTL CSS -->
     <link rel="stylesheet" href="/Frontend/assets/css/rtl.css">
+{{--    custom style frontend--}}
+    <link rel="stylesheet" href="/Frontend/css/style_front.css">
 
     <title>BM موتور</title>
 
@@ -73,11 +75,13 @@
                             <div class="modal-newsletter-wrap">
                                 <div class="content">
                                     <h3>مشترک شدن در خبرنامه ما</h3>
-                                    <p>برای دریافت آخرین به روزرسانی ها و پیشنهادات ، برای لیست پستی ما ثبت نام کنید.</p>
+                                    <p>برای دریافت آخرین به روزرسانی ها و پیشنهادات ، برای لیست پستی ما ثبت نام
+                                        کنید.</p>
                                 </div>
 
                                 <form class="newsletter-form">
-                                    <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL" required autocomplete="off">
+                                    <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL"
+                                           required autocomplete="off">
 
                                     <button type="submit">مشترک شدن</button>
                                 </form>
@@ -106,7 +110,8 @@
                                 </ul>
 
                                 <p class="comment-form-cookies-consent">
-                                    <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
+                                    <input type="checkbox" value="yes" name="wp-comment-cookies-consent"
+                                           id="wp-comment-cookies-consent">
                                     <label for="wp-comment-cookies-consent">این پنجره را دوباره نشان ندهید</label>
                                 </p>
                             </div>
@@ -124,7 +129,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-{{--            جای ارسال رایگان--}}
+                {{--            جای ارسال رایگان--}}
             </div>
 
             <div class="col-lg-6 text-right">
@@ -135,7 +140,8 @@
 
                     <li>
                         <i class='bx bxs-lock-alt'></i>
-                        <span><a href="login.html">ورود</a> یا <a href="register.html">ثبت نام</a></span>
+                        <span><a href="{{route('login')}}">ورود</a> یا <a
+                                href="{{route('register')}}">ثبت نام</a></span>
                     </li>
                 </ul>
             </div>
@@ -151,7 +157,7 @@
             <div class="col-lg-3">
                 <div class="middle-header-logo">
                     <a href="index.html">
-                        <img src="Frontend/image/logo.jpg" width="100" alt="image">
+                        <img src="Frontend/image/logo.png" width="100" alt="image">
                     </a>
                 </div>
             </div>
@@ -187,7 +193,7 @@
                 <ul class="middle-header-optional">
                     <li><a href="wishlist.html"><i class="flaticon-heart"></i></a></li>
                     <li>
-                        <a href="cart.html"><i class="flaticon-shopping-cart"></i><span>2</span></a>
+                        <a href="{{route('cart')}}"><i class="flaticon-shopping-cart"></i><span>2</span></a>
                     </li>
                     <li>275000 تومان</li>
                 </ul>
@@ -204,7 +210,7 @@
             <div class="main-responsive-menu">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="assets/img/logo-2.png" alt="logo">
+                        <img src="/frontend/image/logo.png" alt="logo">
                     </a>
                 </div>
             </div>
@@ -291,7 +297,7 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                 اکسسوری خودرو
+                                اکسسوری خودرو
                                 <i class='bx bx-chevron-down'></i>
                             </a>
                             <ul class="dropdown-menu">
@@ -307,7 +313,11 @@
 
 
                         <li class="nav-item">
-                            <a href="contact.html" class="nav-link">تماس با ما</a>
+                            <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('aboutUs')}}" class="nav-link"> درباره ما</a>
                         </li>
                     </ul>
 
@@ -350,16 +360,15 @@
     </div>
 </div>
 <!-- End Navbar Area -->
-
 <!-- Start Main Slider Area -->
-<div class="home-slides owl-carousel owl-theme">
-    <div class="main-slider-item">
+<div class="home-slides owl-carousel owl-theme mt-5">
+    <div class="main-slider-item ">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
-                            <div class="main-slider-content">
+                            <div class="main-slider-content" style="margin-right: 25px;">
                                 <b>پیشنهاد فروش ویژه</b>
                                 <h1>چراغ عقب 207 برند کروز</h1>
 
@@ -390,7 +399,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
-                            <div class="main-slider-content">
+                            <div class="main-slider-content" style="margin-right: 25px;">
                                 <b>پیشنهاد فروش بزرگ</b>
                                 <h1>دیسک و صفحه عظام </h1>
 
@@ -405,7 +414,7 @@
                         </div>
 
                         <div class="col-lg-6">
-                            <div class="main-slider-image">
+                            <div class="main-slider-image" >
                                 <img src="/frontend/image/safe.jpg" alt="image">
                             </div>
                         </div>
@@ -421,7 +430,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
-                            <div class="main-slider-content">
+                            <div class="main-slider-content" style="margin-right: 25px;">
                                 <b>پیشنهاد فروش بزرگ</b>
                                 <h1>کمک فنر جلو روغنی</h1>
 
@@ -458,7 +467,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="overview-image">
-                                <img src="assets/img/overview/overview-1.png" alt="image">
+                                <img src="frontend/image/cheragh_207.png" alt="image">
                             </div>
                         </div>
 
@@ -498,7 +507,7 @@
 
                         <div class="col-lg-4">
                             <div class="overview-image">
-                                <img src="assets/img/overview/overview-2.png" alt="image">
+                                <img src="frontend/image/battry.png" alt="image">
                             </div>
                         </div>
                     </div>
@@ -578,8 +587,8 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-arrivals-products">
                     <div class="arrivals-products-image">
-                        <a href="products-details.html">
-                            <img src="/frontend/image/komak.jpg" alt="image"></a>
+                        <a href="{{route('product.detail')}}">
+                            <img src="/frontend/image/komak.jpg" alt="image" class="custom_size_img"></a>
                         <div class="tag">جدید</div>
                         <ul class="arrivals-action">
                             <li>
@@ -591,14 +600,15 @@
                                 <a href="wishlist.html"><i class="flaticon-heart"></i></a>
                             </li>
                             <li>
-                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i
+                                        class="flaticon-view"></i></a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="arrivals-products-content">
                         <h3>
-                            <a href="products-details.html">کمک فنر جلو</a>
+                            <a href="{{route('product.detail')}}">کمک فنر جلو</a>
                         </h3>
                         <ul class="rating">
                             <li><i class='bx bxs-star'></i></li>
@@ -615,8 +625,8 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-arrivals-products">
                     <div class="arrivals-products-image">
-                        <a href="products-details.html">
-                            <img src="/frontend/image/lent.jpg" alt="image">
+                        <a href="{{route('product.detail')}}">
+                            <img src="/frontend/image/lent.jpg" alt="image" class="custom_size_img">
                         </a>
                         <div class="tag">فروش</div>
                         <ul class="arrivals-action">
@@ -629,14 +639,15 @@
                                 <a href="wishlist.html"><i class="flaticon-heart"></i></a>
                             </li>
                             <li>
-                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i
+                                        class="flaticon-view"></i></a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="arrivals-products-content">
                         <h3>
-                            <a href="products-details.html">لنت پارس  </a>
+                            <a href="{{route('product.detail')}}">لنت پارس </a>
                         </h3>
                         <ul class="rating">
                             <li><i class='bx bxs-star'></i></li>
@@ -653,8 +664,8 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-arrivals-products">
                     <div class="arrivals-products-image">
-                        <a href="products-details.html">
-                            <img src="/frontend/image/cheragh_aghab.jpg" alt="image">
+                        <a href="{{route('product.detail')}}">
+                            <img src="/frontend/image/cheragh_aghab.jpg" alt="image" class="custom_size_img">
                         </a>
                         <div class="tag">فروش</div>
                         <ul class="arrivals-action">
@@ -667,14 +678,15 @@
                                 <a href="wishlist.html"><i class="flaticon-heart"></i></a>
                             </li>
                             <li>
-                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i
+                                        class="flaticon-view"></i></a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="arrivals-products-content">
                         <h3>
-                            <a href="products-details.html">چراغ خطر عقب پراید</a>
+                            <a href="{{route('product.detail')}}">چراغ خطر عقب پراید</a>
                         </h3>
                         <ul class="rating">
                             <li><i class='bx bxs-star'></i></li>
@@ -691,8 +703,8 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-arrivals-products">
                     <div class="arrivals-products-image">
-                        <a href="products-details.html">
-                            <img src="/frontend/image/tasme.jpg" alt="image"></a>
+                        <a href="{{route('product.detail')}}">
+                            <img src="/frontend/image/tasme.jpg" alt="image" class="custom_size_img"></a>
                         <div class="tag">جدید</div>
                         <ul class="arrivals-action">
                             <li>
@@ -704,14 +716,15 @@
                                 <a href="wishlist.html"><i class="flaticon-heart"></i></a>
                             </li>
                             <li>
-                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i
+                                        class="flaticon-view"></i></a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="arrivals-products-content">
                         <h3>
-                            <a href="products-details.html">تسمه تایم</a>
+                            <a href="{{route('product.detail')}}">تسمه تایم</a>
                         </h3>
                         <ul class="rating">
                             <li><i class='bx bxs-star'></i></li>
@@ -729,6 +742,110 @@
 </section>
 <!-- End Arrivals Products Area -->
 
+
+<!-- Start Offer Products Area -->
+<section class="offer-products-area pb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>پیشنهاد ویژه</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-offer-products">
+                    <div class="offer-products-image">
+                        <a href="{{route('product.detail')}}">
+                            <img src="frontend/image/cheragh_207.png" alt="image" style="height: 240px;">
+                        </a>
+                        <div class="tag">٪20-</div>
+                    </div>
+
+                    <div class="offer-products-content">
+                        <h3>
+                            <a href="{{route('product.detail')}}">جراغ خطر عقب 207</a>
+                        </h3>
+                        <div class="price">
+                            <span class="new-price">400000 تومان</span>
+                            <span class="old-price">500000 تومان</span>
+                        </div>
+                        <ul class="rating">
+                            <li>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="single-offer-products">
+                    <div class="offer-products-image">
+                        <a href="{{route('product.detail')}}">
+                            <img src="frontend/image/tasme.jpg" alt="image" style="height: 240px;">
+                        </a>
+                        <div class="tag">٪50-</div>
+                    </div>
+
+                    <div class="offer-products-content">
+                        <h3>
+                            <a href="{{route('product.detail')}}">تسمه تایم </a>
+                        </h3>
+                        <div class="price">
+                            <span class="new-price">150000 تومان</span>
+                            <span class="old-price">75000 تومان</span>
+                        </div>
+                        <ul class="rating">
+                            <li>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                <div class="single-offer-products">
+                    <div class="offer-products-image">
+                        <a href="{{route('product.detail')}}">
+                            <img src="frontend/image/battry.jpg" alt="image" style="height: 240px;">
+                        </a>
+                        <div class="tag">٪30-</div>
+                    </div>
+
+                    <div class="offer-products-content">
+                        <h3>
+                            <a href="{{route('product.detail')}}">باتری 63 آمپر</a>
+                        </h3>
+                        <div class="price">
+                            <span class="new-price">999000 تومان</span>
+                            <span class="old-price">700000 تومان</span>
+                        </div>
+                        <ul class="rating">
+                            <li>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Offer Products Area -->
+
+
 <!-- Start Special Products Area -->
 <section class="special-products-area pb-70">
     <div class="container">
@@ -744,7 +861,7 @@
                         <div class="single-special-products">
                             <div class="special-products-image">
                                 <a href="products-details.html">
-                                    <img src="/frontend/image/sham.jpg" alt="image">
+                                    <img src="/frontend/image/sham.jpg" alt="image" class="custom_size_img">
                                 </a>
                                 <div class="tag">جدید</div>
                                 <ul class="special-action">
@@ -757,7 +874,8 @@
                                         <a href="wishlist.html"><i class="flaticon-heart"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                                        <a href="#" data-toggle="modal" data-target="#productsQuickView"><i
+                                                class="flaticon-view"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -780,9 +898,9 @@
 
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-special-products">
-                            <div class="special-products-image">
+                            <div class="special-products-image" >
                                 <a href="products-details.html">
-                                    <img src="/frontend/image/battry.jpg" alt="image">
+                                    <img src="/frontend/image/battry.jpg" alt="image" class="custom_size_img">
                                 </a>
                                 <div class="tag">جدید</div>
                                 <ul class="special-action">
@@ -795,14 +913,15 @@
                                         <a href="wishlist.html"><i class="flaticon-heart"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                                        <a href="#" data-toggle="modal" data-target="#productsQuickView"><i
+                                                class="flaticon-view"></i></a>
                                     </li>
                                 </ul>
                             </div>
 
                             <div class="special-products-content">
                                 <h3>
-                                    <a href="products-details.html">باتری 65 وات</a>
+                                    <a href="products-details.html">باتری 65 آمپر</a>
                                 </h3>
                                 <ul class="rating">
                                     <li><i class='bx bxs-star'></i></li>
@@ -820,7 +939,7 @@
                         <div class="single-special-products">
                             <div class="special-products-image">
                                 <a href="products-details.html">
-                                    <img src="/frontend/image/ring_piston.jpg" alt="image">
+                                    <img src="/frontend/image/ring_piston.jpg" alt="image" class="custom_size_img" >
                                 </a>
                                 <div class="tag">جدید</div>
                                 <ul class="special-action">
@@ -833,7 +952,8 @@
                                         <a href="wishlist.html"><i class="flaticon-heart"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                                        <a href="#" data-toggle="modal" data-target="#productsQuickView"><i
+                                                class="flaticon-view"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -858,7 +978,7 @@
                         <div class="single-special-products">
                             <div class="special-products-image">
                                 <a href="products-details.html">
-                                    <img src="/frontend/image/silandr.jpg" alt="image">
+                                    <img src="/frontend/image/silandr.jpg" alt="image" class="custom_size_img">
                                 </a>
                                 <div class="tag">جدید</div>
                                 <ul class="special-action">
@@ -871,7 +991,8 @@
                                         <a href="wishlist.html"><i class="flaticon-heart"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                                        <a href="#" data-toggle="modal" data-target="#productsQuickView"><i
+                                                class="flaticon-view"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -910,7 +1031,7 @@
                 <div class="single-blog">
                     <div class="blog-image">
                         <a href="#">
-                            <img src="/frontend/image/check_oil.jpg" alt="image">
+                            <img src="/frontend/image/check_oil.jpg" alt="image" style="height: 300px;">
                         </a>
                     </div>
 
@@ -922,7 +1043,10 @@
                         <div class="post-meta">
                             <a href="#">مدیر</a> / 20 دی 1399
                         </div>
-                        <p>اکثر خودروها به جز برخی از مدل‌ها به سیستم فرمان هیدرولیک مجهز هستند که این امکان را برای رانندگان به‌وجود می‌آورد تا رانندگان، بتوانند با کیفیت بهتر و راحت‌تر به چرخاندن فرمان اقدام کنند. سیستم هیدرولیک فرمان از یک چرخ دنده و یک پینیون و یک پینیون و یک پیستون در داخل پنیون تشکیل شده است...</p>
+                        <p>اکثر خودروها به جز برخی از مدل‌ها به سیستم فرمان هیدرولیک مجهز هستند که این امکان را برای
+                            رانندگان به‌وجود می‌آورد تا رانندگان، بتوانند با کیفیت بهتر و راحت‌تر به چرخاندن فرمان اقدام
+                            کنند. سیستم هیدرولیک فرمان از یک چرخ دنده و یک پینیون و یک پینیون و یک پیستون در داخل پنیون
+                            تشکیل شده است...</p>
                     </div>
                 </div>
             </div>
@@ -931,19 +1055,24 @@
                 <div class="single-blog">
                     <div class="blog-image">
                         <a href="blog-details.html">
-                            <img src="/frontend/image/207.jpg" alt="image">
+                            <img src="/frontend/image/207.jpg" alt="image" style="height: 300px;">
                         </a>
                     </div>
 
                     <div class="blog-content">
                         <span>دانستنی ها</span>
                         <h3>
-                            <a href="blog-details.html">هر آنچه که درباره پژو 207i سقف شیشه ای ( پانوراما ) باید بدانید!</a>
+                            <a href="blog-details.html">هر آنچه که درباره پژو 207i سقف شیشه ای ( پانوراما ) باید
+                                بدانید!</a>
                         </h3>
                         <div class="post-meta">
                             <a href="#">مدیر</a> / 20 دی1399
                         </div>
-                        <p>ایران خودرو به عنوان یکی از اصلی‌ترین قطب‌های خودروسازی ایران مشغول فعالیت است و تلاش می‌کند تا با تولیدات خلاقانه و نوآورانه با کیفیت، از رقبا داخلی سبقت بگیرد. پژو 207i سقف شیشه ای یا پانوراما یکی از محصولات جدید ایران خودرو محسوب می‌شود که اخیرا رونمایی شده و به بازار خودرو ایران عرضه شده است. این مدل خودرو در واقع همان خودرو 207 بوده که به جای سقف فلزی از سقف شیشه‌ای در ساخت آن استفاده شده است...</p>
+                        <p>ایران خودرو به عنوان یکی از اصلی‌ترین قطب‌های خودروسازی ایران مشغول فعالیت است و تلاش می‌کند
+                            تا با تولیدات خلاقانه و نوآورانه با کیفیت، از رقبا داخلی سبقت بگیرد. پژو 207i سقف شیشه ای یا
+                            پانوراما یکی از محصولات جدید ایران خودرو محسوب می‌شود که اخیرا رونمایی شده و به بازار خودرو
+                            ایران عرضه شده است. این مدل خودرو در واقع همان خودرو 207 بوده که به جای سقف فلزی از سقف
+                            شیشه‌ای در ساخت آن استفاده شده است...</p>
                     </div>
                 </div>
             </div>
@@ -952,7 +1081,7 @@
                 <div class="single-blog">
                     <div class="blog-image">
                         <a href="blog-details.html">
-                            <img src="/frontend/image/start_car.jpg" alt="image">
+                            <img src="/frontend/image/start_car.jpg" alt="image" style="height: 300px;">
                         </a>
                     </div>
 
@@ -964,7 +1093,9 @@
                         <div class="post-meta">
                             <a href="#">مدیر</a> / 20 دی 1399
                         </div>
-                        <p>یکی از اتفاقاتی که در هنگام رانندگی اصلا انتظار آن را نداریم، خاموش شدن اتومبیل است. گاهی اوضاع حتی از این هم بدتر خواهد بود و خودرو در بعد از استارت زدن یا گاز دادن خاموش می‌شود. به همین دلیل در چنین شرایطی باید دلایل خاموش شدن خودرو پس از استارت زدن را پیدا کنیم...</p>
+                        <p>یکی از اتفاقاتی که در هنگام رانندگی اصلا انتظار آن را نداریم، خاموش شدن اتومبیل است. گاهی
+                            اوضاع حتی از این هم بدتر خواهد بود و خودرو در بعد از استارت زدن یا گاز دادن خاموش می‌شود. به
+                            همین دلیل در چنین شرایطی باید دلایل خاموش شدن خودرو پس از استارت زدن را پیدا کنیم...</p>
                     </div>
                 </div>
             </div>
@@ -979,31 +1110,31 @@
         <div class="partner-slider owl-carousel owl-theme">
             <div class="partner-item">
                 <a href="#">
-                    <img src="assets/img/partner/partner-1.png" alt="image">
+                    <img src="/frontend/image/crouse.png" alt="image">
                 </a>
             </div>
 
             <div class="partner-item">
                 <a href="#">
-                    <img src="assets/img/partner/partner-2.png" alt="image">
+                    <img src="frontend/image/arian.png" alt="image">
                 </a>
             </div>
 
             <div class="partner-item">
                 <a href="#">
-                    <img src="assets/img/partner/partner-3.png" alt="image">
+                    <img src="frontend/image/runco.png" alt="image">
                 </a>
             </div>
 
             <div class="partner-item">
                 <a href="#">
-                    <img src="assets/img/partner/partner-4.png" alt="image">
+                    <img src="frontend/image/toyota.png" alt="image">
                 </a>
             </div>
 
             <div class="partner-item">
                 <a href="#">
-                    <img src="assets/img/partner/partner-5.png" alt="image">
+                    <img src="frontend/image/faghihi.png" alt="image">
                 </a>
             </div>
         </div>
@@ -1122,7 +1253,8 @@
                         </div>
 
                         <form class="newsletter-form" data-toggle="validator">
-                            <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL" required autocomplete="off">
+                            <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL" required
+                                   autocomplete="off">
 
                             <button type="submit">مشترک شدن</button>
                             <div id="validator-newsletter" class="form-result"></div>
@@ -1139,7 +1271,7 @@
 <div class="copyright-area">
     <div class="container">
         <div class="copyright-area-content">
-            <p>کپی رایت © 1399. تمام حقوق قالب محفوظ است. طراحی توسط <a href="https://www.rtl-theme.com/author/barat/?aff=barat" target="_blank" rel="nofollow">Barat Hadian</a></p>
+            <p>کپی رایت © 1399. تمام حقوق قالب محفوظ است. </p>
         </div>
     </div>
 </div>
@@ -1163,16 +1295,16 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="products-details-image">
                         <ul class="products-details-image-slides">
-                            <li><img src="assets/img/quick-view/quick-view-1.jpg" alt="image"></li>
-                            <li><img src="assets/img/quick-view/quick-view-2.jpg" alt="image"></li>
-                            <li><img src="assets/img/quick-view/quick-view-3.jpg" alt="image"></li>
+                            <li><img src="" alt="image"></li>
+                            <li><img src="" alt="image"></li>
+                            <li><img src="" alt="image"></li>
                         </ul>
 
                         <div class="slick-thumbs">
                             <ul>
-                                <li><img src="assets/img/quick-view/quick-view-1.jpg" alt="image"></li>
-                                <li><img src="assets/img/quick-view/quick-view-2.jpg" alt="image"></li>
-                                <li><img src="assets/img/quick-view/quick-view-3.jpg" alt="image"></li>
+                                <li><img src="" alt="image"></li>
+                                <li><img src="" alt="image"></li>
+                                <li><img src="" alt="image"></li>
                             </ul>
                         </div>
                     </div>
@@ -1196,7 +1328,9 @@
                             <span class="old-price">150000 تومان</span>
                             <span class="new-price">75000 تومان</span>
                         </div>
-                        <p>لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است.</p>
+                        <p>لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم
+                            ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم
+                            ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است.</p>
 
                         <ul class="products-info">
                             <li><span>موجودی:</span> <a href="#">در انبار</a></li>
@@ -1293,5 +1427,7 @@
 <script src="/Frontend/assets/js/wow.min.js"></script>
 <!-- Custom JS -->
 <script src="/Frontend/assets/js/main.js"></script>
+
+
 </body>
 </html>
