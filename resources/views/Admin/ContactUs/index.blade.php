@@ -37,6 +37,11 @@
             <input type="text" class="form-control" id="instagram" value="" placeholder="آدرس اینستاگرام فروشگاه را وارد نمایید" max="11">
         </div>
 
+        <div class="form-group">
+            <label for="instagram" class="font_black">Signal</label>
+            <input type="text" class="form-control" id="instagram" value="" placeholder="آدرس سیگنال فروشگاه را وارد نمایید" max="11">
+        </div>
+
 
         <div class="form-group d-flex flex-row justify-content-end mt-5 mb-5">
             <button class="btn btn-success">ثبت اطلاعات</button>

@@ -48,7 +48,7 @@
 
 
             <div class="form-group">
-                <label for="price" class="font_black"> قیمت محصول</label>
+                <label for="price" class="font_black"> قیمت محصول (تومان)</label>
                 <input type="text" class="form-control" id="price" value="" placeholder="قیمت محصول را وارد نمایید">
             </div>
             {{--form-group--}}

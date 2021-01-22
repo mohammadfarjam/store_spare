@@ -56,99 +56,7 @@
 </div>
 <!-- End Preloader Area -->
 
-<!-- Start Newsletter Modal -->
-<div class="modal-newsletter-area">
-    <div class="modal fade" id="newsletter-modal" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal">
-                    <i class="bx bx-x"></i>
-                </button>
 
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-5 p-0">
-                            <div class="modal-newsletter-image"></div>
-                        </div>
-
-                        <div class="col-lg-7 col-sm-7 p-0">
-                            <div class="modal-newsletter-wrap">
-                                <div class="content">
-                                    <h3>مشترک شدن در خبرنامه ما</h3>
-                                    <p>برای دریافت آخرین به روزرسانی ها و پیشنهادات ، برای لیست پستی ما ثبت نام
-                                        کنید.</p>
-                                </div>
-
-                                <form class="newsletter-form">
-                                    <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL"
-                                           required autocomplete="off">
-
-                                    <button type="submit">مشترک شدن</button>
-                                </form>
-
-                                <ul class="modal-social">
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-facebook'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-pinterest-alt'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-twitter'></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <p class="comment-form-cookies-consent">
-                                    <input type="checkbox" value="yes" name="wp-comment-cookies-consent"
-                                           id="wp-comment-cookies-consent">
-                                    <label for="wp-comment-cookies-consent">این پنجره را دوباره نشان ندهید</label>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Newsletter Modal -->
-
-<!-- Start Top Header Area -->
-<div class="top-header-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                {{--            جای ارسال رایگان--}}
-            </div>
-
-            <div class="col-lg-6 text-right">
-                <ul class="top-header-optional">
-                    <li>
-
-                    </li>
-
-                    <li>
-                        <i class='bx bxs-lock-alt'></i>
-                        <span><a href="{{route('login')}}">ورود</a> یا <a
-                                href="{{route('register')}}">ثبت نام</a></span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Top Header Area -->
 
 <!-- Start Middle Header Area -->
 <div class="middle-header-area">
@@ -321,15 +229,11 @@
                         </li>
                     </ul>
 
-                    <div class="others-option d-flex align-items-center">
-                        <div class="option-item">
-                                    <span>
-                                        تلفن:
-                                        <a href="#">12345678-021</a>
-                                    </span>
-                        </div>
-                    </div>
+
                 </div>
+                <i class='bx bxs-lock-alt'></i>
+                <span><a href="{{route('login')}}">ورود</a> یا <a
+                        href="{{route('register')}}">ثبت نام</a></span>
             </nav>
         </div>
     </div>
@@ -338,9 +242,10 @@
         <div class="container">
             <div class="dot-menu">
                 <div class="inner">
-                    <div class="circle circle-one"></div>
-                    <div class="circle circle-two"></div>
-                    <div class="circle circle-three"></div>
+                    <i class='bx bxs-lock-alt'></i>
+{{--                    <div class="circle circle-one"></div>--}}
+{{--                    <div class="circle circle-two"></div>--}}
+{{--                    <div class="circle circle-three"></div>--}}
                 </div>
             </div>
 
@@ -349,8 +254,9 @@
                     <div class="others-option d-flex align-items-center">
                         <div class="option-item">
                                     <span>
-                                        تلفن:
-                                        <a href="tel:16545676789">12345678-021</a>
+                                        <i class='bx bxs-lock-alt'></i>
+                        <span><a href="{{route('login')}}">ورود</a> یا <a
+                                href="{{route('register')}}">ثبت نام</a></span>
                                     </span>
                         </div>
                     </div>
@@ -475,10 +381,10 @@
                             <div class="overview-content">
                                 <h3>پیشنهاد ویژه تخفیف</h3>
                                 <p>برای جشنواره 12-12</p>
-                                <span>499000 تومان</span>
+                                <span>499,000 تومان</span>
 
                                 <div class="overview-btn">
-                                    <a href="#" class="default-btn">
+                                    <a href="{{route('product.detail')}}" class="default-btn">
                                         <i class="flaticon-shopping-cart"></i>
                                         خرید کنید
                                         <span></span>
@@ -491,7 +397,7 @@
             </div>
 
             <div class="col-lg-6 col-md-6">
-                <div class="single-overview-item">
+                <div class="single-overview-item" style="height: 330px">
                     <div class="row align-items-center">
                         <div class="col-lg-8">
                             <div class="overview-content">
@@ -500,14 +406,14 @@
                                 <span>50% تخفیف</span>
 
                                 <div class="overview-btn">
-                                    <a href="#" class="overview-btn-one">مشاهده محصول</a>
+                                    <a href="{{route('product.detail')}}" class="overview-btn-one">مشاهده محصول</a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-4">
                             <div class="overview-image">
-                                <img src="frontend/image/battry.png" alt="image">
+                                <img src="frontend/image/sham2.png" alt="image">
                             </div>
                         </div>
                     </div>
@@ -617,7 +523,7 @@
                             <li><i class='bx bxs-star'></i></li>
                             <li><i class='bx bxs-star'></i></li>
                         </ul>
-                        <span>99000 تومان</span>
+                        <span>99,000 تومان</span>
                     </div>
                 </div>
             </div>
@@ -656,7 +562,7 @@
                             <li><i class='bx bxs-star'></i></li>
                             <li><i class='bx bxs-star'></i></li>
                         </ul>
-                        <span>175000 تومان</span>
+                        <span>175,000 تومان</span>
                     </div>
                 </div>
             </div>
@@ -695,7 +601,7 @@
                             <li><i class='bx bxs-star'></i></li>
                             <li><i class='bx bxs-star'></i></li>
                         </ul>
-                        <span>175000 تومان</span>
+                        <span>175,000 تومان</span>
                     </div>
                 </div>
             </div>
@@ -733,7 +639,7 @@
                             <li><i class='bx bxs-star'></i></li>
                             <li><i class='bx bxs-star'></i></li>
                         </ul>
-                        <span>75000 تومان</span>
+                        <span>75,000 تومان</span>
                     </div>
                 </div>
             </div>
@@ -765,8 +671,8 @@
                             <a href="{{route('product.detail')}}">جراغ خطر عقب 207</a>
                         </h3>
                         <div class="price">
-                            <span class="new-price">400000 تومان</span>
-                            <span class="old-price">500000 تومان</span>
+                            <span class="new-price">400,000 تومان</span>
+                            <span class="old-price">500,000 تومان</span>
                         </div>
                         <ul class="rating">
                             <li>
@@ -795,8 +701,8 @@
                             <a href="{{route('product.detail')}}">تسمه تایم </a>
                         </h3>
                         <div class="price">
-                            <span class="new-price">150000 تومان</span>
-                            <span class="old-price">75000 تومان</span>
+                            <span class="new-price">150,000 تومان</span>
+                            <span class="old-price">75,000 تومان</span>
                         </div>
                         <ul class="rating">
                             <li>
@@ -825,8 +731,8 @@
                             <a href="{{route('product.detail')}}">باتری 63 آمپر</a>
                         </h3>
                         <div class="price">
-                            <span class="new-price">999000 تومان</span>
-                            <span class="old-price">700000 تومان</span>
+                            <span class="new-price">999,000 تومان</span>
+                            <span class="old-price">700,000 تومان</span>
                         </div>
                         <ul class="rating">
                             <li>
@@ -860,7 +766,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-special-products">
                             <div class="special-products-image">
-                                <a href="products-details.html">
+                                <a href="{{route('product.detail')}}">
                                     <img src="/frontend/image/sham.jpg" alt="image" class="custom_size_img">
                                 </a>
                                 <div class="tag">جدید</div>
@@ -891,7 +797,7 @@
                                     <li><i class='bx bxs-star'></i></li>
                                     <li><i class='bx bxs-star'></i></li>
                                 </ul>
-                                <span>700000 تومان</span>
+                                <span>700,000 تومان</span>
                             </div>
                         </div>
                     </div>
@@ -899,7 +805,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-special-products">
                             <div class="special-products-image" >
-                                <a href="products-details.html">
+                                <a href="{{route('product.detail')}}">
                                     <img src="/frontend/image/battry.jpg" alt="image" class="custom_size_img">
                                 </a>
                                 <div class="tag">جدید</div>
@@ -921,7 +827,7 @@
 
                             <div class="special-products-content">
                                 <h3>
-                                    <a href="products-details.html">باتری 65 آمپر</a>
+                                    <a href="{{route('product.detail')}}">باتری 65 آمپر</a>
                                 </h3>
                                 <ul class="rating">
                                     <li><i class='bx bxs-star'></i></li>
@@ -930,7 +836,7 @@
                                     <li><i class='bx bxs-star'></i></li>
                                     <li><i class='bx bxs-star'></i></li>
                                 </ul>
-                                <span>500000 تومان</span>
+                                <span>500,000 تومان</span>
                             </div>
                         </div>
                     </div>
@@ -938,7 +844,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-special-products">
                             <div class="special-products-image">
-                                <a href="products-details.html">
+                                <a href="{{route('product.detail')}}">
                                     <img src="/frontend/image/ring_piston.jpg" alt="image" class="custom_size_img" >
                                 </a>
                                 <div class="tag">جدید</div>
@@ -969,7 +875,7 @@
                                     <li><i class='bx bxs-star'></i></li>
                                     <li><i class='bx bxs-star'></i></li>
                                 </ul>
-                                <span>1175000 تومان</span>
+                                <span>1,175,000 تومان</span>
                             </div>
                         </div>
                     </div>
@@ -977,7 +883,7 @@
                     <div class="col-lg-3 col-sm-6 ">
                         <div class="single-special-products">
                             <div class="special-products-image">
-                                <a href="products-details.html">
+                                <a href="{{route('product.detail')}}">
                                     <img src="/frontend/image/silandr.jpg" alt="image" class="custom_size_img">
                                 </a>
                                 <div class="tag">جدید</div>
@@ -1008,7 +914,7 @@
                                     <li><i class='bx bxs-star'></i></li>
                                     <li><i class='bx bxs-star'></i></li>
                                 </ul>
-                                <span>1175000 تومان</span>
+                                <span>1,175,000 تومان</span>
                             </div>
                         </div>
                     </div>

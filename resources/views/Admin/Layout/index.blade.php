@@ -490,12 +490,49 @@
 
 
                 <li class="menu">
-                    <a href="{{route('comments.index')}}" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#comments" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
-                            <i class="far fa-comments"></i>
-                            <span> نظرات</span>
+                            <i class="fas fa-comments"></i>
+                            <span>نظرات</span>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-chevron-right">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
                         </div>
                     </a>
+                    <ul class="collapse submenu list-unstyled" id="comments" data-parent="#accordionExample">
+                        <li>
+                            <a href="{{route('users.index')}}">نظرات محصولات </a>
+                        </li>
+                        <li>
+                            <a href="{{route('comments_contactUs.index')}}"> نظرات تماس با ما </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu">
+                    <a href="#status" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <i class="fas fa-info-circle"></i>
+                            <span>وضعیت</span>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-chevron-right">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+                    <ul class="collapse submenu list-unstyled" id="status" data-parent="#accordionExample">
+                        <li>
+                            <a href="{{route('products.sold')}}"> کالاهای فروخته شده </a>
+                        </li>
+
+                    </ul>
                 </li>
 
                 <li class="menu">

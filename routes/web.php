@@ -4,12 +4,14 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CommentContactUsController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\ManagmentController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\StatusProductSoldController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +30,8 @@ Route::prefix('/p-admin')->group(function () {
     Route::resource('brands', BrandController::class);
     Route::resource('sliders', SliderController::class);
     Route::resource('managment', ManagmentController::class);
+    Route::resource('comments_contactUs', CommentContactUsController::class);
+    Route::get('products_sold', [StatusProductSoldController::class,'index'])->name('products.sold');
 });
 
 

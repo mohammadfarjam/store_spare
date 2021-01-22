@@ -44,7 +44,7 @@
 
 <body>
 
-<!-- Start Preloader Area -->
+<!-<!-- Start Preloader Area -->
 <div class="preloader">
     <div class="loader">
         <div class="sbl-half-circle-spin">
@@ -54,95 +54,7 @@
 </div>
 <!-- End Preloader Area -->
 
-<!-- Start Newsletter Modal -->
-<div class="modal-newsletter-area">
-    <div class="modal fade" id="newsletter-modal" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal">
-                    <i class="bx bx-x"></i>
-                </button>
 
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-5 p-0">
-                            <div class="modal-newsletter-image"></div>
-                        </div>
-
-                        <div class="col-lg-7 col-sm-7 p-0">
-                            <div class="modal-newsletter-wrap">
-                                <div class="content">
-                                    <h3>مشترک شدن در خبرنامه ما</h3>
-                                    <p>برای دریافت آخرین به روزرسانی ها و پیشنهادات ، برای لیست پستی ما ثبت نام کنید.</p>
-                                </div>
-
-                                <form class="newsletter-form">
-                                    <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL" required autocomplete="off">
-
-                                    <button type="submit">مشترک شدن</button>
-                                </form>
-
-                                <ul class="modal-social">
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-facebook'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-pinterest-alt'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-twitter'></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <p class="comment-form-cookies-consent">
-                                    <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
-                                    <label for="wp-comment-cookies-consent">این پنجره را دوباره نشان ندهید</label>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Newsletter Modal -->
-
-<!-- Start Top Header Area -->
-<div class="top-header-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                {{--            جای ارسال رایگان--}}
-            </div>
-
-            <div class="col-lg-6 text-right">
-                <ul class="top-header-optional">
-                    <li>
-
-                    </li>
-
-                    <li>
-                        <i class='bx bxs-lock-alt'></i>
-                        <span><a href="login.html">ورود</a> یا <a href="register.html">ثبت نام</a></span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Top Header Area -->
 
 <!-- Start Middle Header Area -->
 <div class="middle-header-area">
@@ -187,7 +99,7 @@
                 <ul class="middle-header-optional">
                     <li><a href="wishlist.html"><i class="flaticon-heart"></i></a></li>
                     <li>
-                        <a href="cart.html"><i class="flaticon-shopping-cart"></i><span>2</span></a>
+                        <a href="{{route('cart')}}"><i class="flaticon-shopping-cart"></i><span>2</span></a>
                     </li>
                     <li>275000 تومان</li>
                 </ul>
@@ -204,7 +116,7 @@
             <div class="main-responsive-menu">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="assets/img/logo-2.png" alt="logo">
+                        <img src="/frontend/image/logo.png" alt="logo">
                     </a>
                 </div>
             </div>
@@ -307,19 +219,19 @@
 
 
                         <li class="nav-item">
-                            <a href="contact.html" class="nav-link">تماس با ما</a>
+                            <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('aboutUs')}}" class="nav-link"> درباره ما</a>
                         </li>
                     </ul>
 
-                    <div class="others-option d-flex align-items-center">
-                        <div class="option-item">
-                                    <span>
-                                        تلفن:
-                                        <a href="#">12345678-021</a>
-                                    </span>
-                        </div>
-                    </div>
+
                 </div>
+                <i class='bx bxs-lock-alt'></i>
+                <span><a href="{{route('login')}}">ورود</a> یا <a
+                        href="{{route('register')}}">ثبت نام</a></span>
             </nav>
         </div>
     </div>
@@ -328,9 +240,10 @@
         <div class="container">
             <div class="dot-menu">
                 <div class="inner">
-                    <div class="circle circle-one"></div>
-                    <div class="circle circle-two"></div>
-                    <div class="circle circle-three"></div>
+                    <i class='bx bxs-lock-alt'></i>
+                    {{--                    <div class="circle circle-one"></div>--}}
+                    {{--                    <div class="circle circle-two"></div>--}}
+                    {{--                    <div class="circle circle-three"></div>--}}
                 </div>
             </div>
 
@@ -339,8 +252,9 @@
                     <div class="others-option d-flex align-items-center">
                         <div class="option-item">
                                     <span>
-                                        تلفن:
-                                        <a href="tel:16545676789">12345678-021</a>
+                                        <i class='bx bxs-lock-alt'></i>
+                        <span><a href="{{route('login')}}">ورود</a> یا <a
+                                href="{{route('register')}}">ثبت نام</a></span>
                                     </span>
                         </div>
                     </div>
@@ -357,11 +271,6 @@
     <div class="container">
         <div class="page-title-content">
             <h2>سبد خرید</h2>
-
-            <ul>
-                <li><a href="index.html">صفحه اصلی</a></li>
-                <li>سبد خرید</li>
-            </ul>
         </div>
     </div>
 </div>
@@ -400,7 +309,7 @@
                                 </td>
 
                                 <td class="product-price">
-                                    <span class="unit-amount">250000 تومان</span>
+                                    <span class="unit-amount">250,000 تومان</span>
                                 </td>
 
                                 <td class="product-quantity">
@@ -412,7 +321,7 @@
                                 </td>
 
                                 <td class="product-subtotal">
-                                    <span class="subtotal-amount">250000 تومان</span>
+                                    <span class="subtotal-amount">250,000 تومان</span>
                                 </td>
                             </tr>
 
@@ -430,7 +339,7 @@
                                 </td>
 
                                 <td class="product-price">
-                                    <span class="unit-amount">200000 تومان</span>
+                                    <span class="unit-amount">200,000 تومان</span>
                                 </td>
 
                                 <td class="product-quantity">
@@ -442,7 +351,7 @@
                                 </td>
 
                                 <td class="product-subtotal">
-                                    <span class="subtotal-amount">200000 تومان</span>
+                                    <span class="subtotal-amount">200,000 تومان</span>
                                 </td>
                             </tr>
 
@@ -460,7 +369,7 @@
                                 </td>
 
                                 <td class="product-price">
-                                    <span class="unit-amount">200000 تومان</span>
+                                    <span class="unit-amount">200,000 تومان</span>
                                 </td>
 
                                 <td class="product-quantity">
@@ -472,7 +381,7 @@
                                 </td>
 
                                 <td class="product-subtotal">
-                                    <span class="subtotal-amount">200000 تومان</span>
+                                    <span class="subtotal-amount">200,000 تومان</span>
                                 </td>
                             </tr>
 
@@ -505,10 +414,10 @@
                     <h3>مجموع سبد خرید</h3>
 
                     <ul>
-                        <li>زیرمجموعه خرید <span>599000 تومان</span></li>
-                        <li>کرایه حمل <span>30000 تومان</span></li>
-                        <li>مجموع خرید <span>599000 تومان</span></li>
-                        <li>مجموع پرداختی <span>599000 تومان</span></li>
+                        <li>زیرمجموعه خرید <span>599,000 تومان</span></li>
+                        <li>کرایه حمل <span>30,000 تومان</span></li>
+                        <li>مجموع خرید <span>599,000 تومان</span></li>
+                        <li>مجموع پرداختی <span>599,000 تومان</span></li>
                     </ul>
 
                     <a href="#" class="default-btn">
