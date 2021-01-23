@@ -36,6 +36,9 @@
     <link rel="stylesheet" href="/Frontend/assets/css/responsive.css">
     <!-- RTL CSS -->
     <link rel="stylesheet" href="/Frontend/assets/css/rtl.css">
+    {{--    custom style frontend--}}
+    <link rel="stylesheet" href="/Frontend/css/style_front.css">
+
 
     <title>BM موتور</title>
 
@@ -273,58 +276,130 @@
 <div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
-            <h2>ثبت نام</h2>
+            <h2>وبلاگ</h2>
         </div>
     </div>
 </div>
 <!-- End Page Banner -->
 
-<!-- Start Register Area -->
-<section class="register-area ptb-50">
+<!-- Start Blog Area -->
+<section class="blog-area bg-color pt-50 pb-50">
     <div class="container">
-        <div class="register-form">
-            <h2>ثبت نام</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-blog">
+                    <div class="blog-image">
+                        <a href="{{route('detail.news')}}">
+                            <img src="frontend/image/check_oil.jpg" alt="image" class="max_height_img_news">
+                        </a>
+                    </div>
 
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="نام">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="آدرس ایمیل">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="تلفن">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="گذرواژه">
-                </div>
-
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="checkme">
-                            <label class="form-check-label" for="checkme">نمایش گذرواژه؟</label>
+                    <div class="blog-content">
+                        <span> آموزش</span>
+                        <h3>
+                            <a href="blog-details.html">نحوه چک کردن روغن هیدرولیک فرمان چگونه است؟</a>
+                        </h3>
+                        <div class="post-meta">
+                            <a href="#">مدیر</a> / 20 دی1399
                         </div>
+                        <p>اکثر خودروها به جز برخی از مدل‌ها به سیستم فرمان هیدرولیک مجهز هستند که این امکان را برای رانندگان به‌وجود می‌آورد تا رانندگان، بتوانند با کیفیت بهتر و راحت‌تر به چرخاندن فرمان اقدام کنند. سیستم هیدرولیک فرمان از یک چرخ دنده و یک پینیون و یک پینیون و یک پیستون در داخل پنیون تشکیل شده است...</p>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-blog">
+                    <div class="blog-image">
+                        <a href="{{route('detail.news')}}"><img src="frontend/image/207.jpg" alt="image" class="max_height_img_news"></a>
+                    </div>
 
-                <button type="submit">ثبت نام</button>
-            </form>
+                    <div class="blog-content">
+                        <span> دانستنی ها</span>
+                        <h3>
+                            <a href="blog-details.html">هر آنچه که درباره پژو 207i سقف شیشه ای ( پانوراما ) باید بدانید!</a>
+                        </h3>
+                        <div class="post-meta">
+                            <a href="#">مدیر</a> / 20 دی1399
+                        </div>
+                        <p>ایران خودرو به عنوان یکی از اصلی‌ترین قطب‌های خودروسازی ایران مشغول فعالیت است و تلاش می‌کند تا با تولیدات خلاقانه و نوآورانه با کیفیت، از رقبا داخلی سبقت بگیرد...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-blog">
+                    <div class="blog-image">
+                        <a href="{{route('detail.news')}}"><img src="frontend/image/start_car.jpg" alt="image" class="max_height_img_news"></a>
+                    </div>
 
-            <div class="important-text">
-                <p>حساب کاربری دارید؟ <a href="login.html">وارد شوید!</a></p>
+                    <div class="blog-content">
+                        <span> آموزش</span>
+                        <h3>
+                            <a href="blog-details.html">دلایل خاموش شدن خودرو بعد از استارت زدن چیست؟</a>
+                        </h3>
+                        <div class="post-meta">
+                            <a href="#">مدیر</a> / 20 دی1399
+                        </div>
+                        <p>یکی از اتفاقاتی که در هنگام رانندگی اصلا انتظار آن را نداریم، خاموش شدن اتومبیل است. گاهی اوضاع حتی از این هم بدتر خواهد بود و خودرو در بعد از استارت زدن یا گاز دادن خاموش می‌شود...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-blog">
+                    <div class="blog-image">
+                        <a href="{{route('detail.news')}}">
+                            <img src="frontend/image/check_oil.jpg" alt="image" class="max_height_img_news">
+                        </a>
+                    </div>
+
+                    <div class="blog-content">
+                        <span> آموزش</span>
+                        <h3>
+                            <a href="blog-details.html">نحوه چک کردن روغن هیدرولیک فرمان چگونه است؟</a>
+                        </h3>
+                        <div class="post-meta">
+                            <a href="#">مدیر</a> / 20 دی1399
+                        </div>
+                        <p>اکثر خودروها به جز برخی از مدل‌ها به سیستم فرمان هیدرولیک مجهز هستند که این امکان را برای رانندگان به‌وجود می‌آورد تا رانندگان، بتوانند با کیفیت بهتر و راحت‌تر به چرخاندن فرمان اقدام کنند. سیستم هیدرولیک فرمان از یک چرخ دنده و یک پینیون و یک پینیون و یک پیستون در داخل پنیون تشکیل شده است...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-blog">
+                    <div class="blog-image">
+                        <a href="{{route('detail.news')}}"><img src="frontend/image/207.jpg" alt="image" class="max_height_img_news"></a>
+                    </div>
+
+                    <div class="blog-content">
+                        <span> دانستنی ها</span>
+                        <h3>
+                            <a href="blog-details.html">هر آنچه که درباره پژو 207i سقف شیشه ای ( پانوراما ) باید بدانید!</a>
+                        </h3>
+                        <div class="post-meta">
+                            <a href="#">مدیر</a> / 20 دی1399
+                        </div>
+                        <p>ایران خودرو به عنوان یکی از اصلی‌ترین قطب‌های خودروسازی ایران مشغول فعالیت است و تلاش می‌کند تا با تولیدات خلاقانه و نوآورانه با کیفیت، از رقبا داخلی سبقت بگیرد...</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-12 col-md-12">
+                <div class="pagination-area">
+                    <a href="#" class="prev page-numbers">
+                        <i class='flaticon-right-arrow'></i>
+                    </a>
+                    <a href="#" class="page-numbers current">1</a>
+                    <span class="page-numbers " aria-current="page">2</span>
+                    <a href="#" class="page-numbers">3</a>
+                    <a href="#" class="page-numbers">4</a>
+                    <a href="#" class="next page-numbers">
+                        <i class='flaticon-left-arrow'></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End Register Area -->
-
-
-
-
+<!-- End Blog Area -->
 
 <!-- Start Support Area -->
 <section class="support-area">

@@ -457,7 +457,7 @@
             <ul class="list-unstyled menu-categories" id="accordionExample">
 
                 <li class="menu">
-                    <a href="#" aria-expanded="true" class="dropdown-toggle">
+                    <a href="{{route('dashboard')}}" aria-expanded="true" class="dropdown-toggle">
                         <div class="active">
                             <i class="fas fa-tachometer-alt"></i>
                             <span> داشبورد</span>

@@ -3,3 +3,7 @@
     height: 210px!important;
     display: inline-block;
 }
+.max_height_img_news{
+    max-height: 260px!important;
+    width: 100%;
+}

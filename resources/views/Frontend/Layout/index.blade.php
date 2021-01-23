@@ -64,7 +64,7 @@
         <div class="row align-items-center">
             <div class="col-lg-3">
                 <div class="middle-header-logo">
-                    <a href="index.html">
+                    <a href="{{route('/')}}">
                         <img src="Frontend/image/logo.png" width="100" alt="image">
                     </a>
                 </div>
@@ -99,11 +99,11 @@
 
             <div class="col-lg-3">
                 <ul class="middle-header-optional">
-                    <li><a href="wishlist.html"><i class="flaticon-heart"></i></a></li>
+                    <li><a href="{{'wishlist'}}"><i class="flaticon-heart"></i></a></li>
                     <li>
                         <a href="{{route('cart')}}"><i class="flaticon-shopping-cart"></i><span>2</span></a>
                     </li>
-                    <li>275000 تومان</li>
+                    <li>275,000 تومان</li>
                 </ul>
             </div>
         </div>
@@ -138,20 +138,19 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{route('products')}}" class="nav-link">
                                             لوازم مصرفی
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{route('products')}}" class="nav-link">
                                             جلوبندی و تعلیق
-                                            <option value="2"> روغن موتور و ضد یخ</option>
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{route('products')}}" class="nav-link">
                                             روغن موتور و ضد یخ
                                         </a>
                                     </li>
@@ -166,7 +165,7 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">خانه </a>
+                            <a href="{{route('/')}}" class="nav-link active">خانه </a>
                         </li>
 
 
@@ -177,11 +176,11 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">لنت ترمز</a>
+                                    <a href="{{route('products')}}" class="nav-link">لنت ترمز</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">کمک فنر</a>
+                                    <a href="{{route('products')}}" class="nav-link">کمک فنر</a>
                                 </li>
 
                                 <li class="nav-item">
@@ -191,11 +190,11 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="products-details.html" class="nav-link">منو 1</a>
+                                            <a href="#" class="nav-link">منو 1</a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a href="products-details-sidebar.html" class="nav-link"> منو 2</a>
+                                            <a href="#" class="nav-link"> منو 2</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -210,15 +209,18 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">کف پوش خودرو</a>
+                                    <a href="{{route('products')}}" class="nav-link">کف پوش خودرو</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">واکس و پولیش </a>
+                                    <a href="{{route('products')}}" class="nav-link">واکس و پولیش </a>
                                 </li>
                             </ul>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="{{route('news')}}" class="nav-link">اخبار</a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
@@ -266,6 +268,9 @@
     </div>
 </div>
 <!-- End Navbar Area -->
+
+
+
 <!-- Start Main Slider Area -->
 <div class="home-slides owl-carousel owl-theme mt-5">
     <div class="main-slider-item ">
@@ -279,7 +284,7 @@
                                 <h1>چراغ عقب 207 برند کروز</h1>
 
                                 <div class="slider-btn">
-                                    <a href="#" class="default-btn">
+                                    <a href="{{route('product.detail')}}" class="default-btn">
                                         <i class="flaticon-shopping-cart"></i>
                                         خرید کنید
                                         <span></span>
@@ -310,7 +315,7 @@
                                 <h1>دیسک و صفحه عظام </h1>
 
                                 <div class="slider-btn">
-                                    <a href="#" class="default-btn">
+                                    <a href="{{route('product.detail')}}" class="default-btn">
                                         <i class="flaticon-shopping-cart"></i>
                                         خرید کنید
                                         <span></span>
@@ -342,7 +347,7 @@
 
 
                                 <div class="slider-btn">
-                                    <a href="#" class="default-btn">
+                                    <a href="{{route('product.detail')}}" class="default-btn">
                                         <i class="flaticon-shopping-cart"></i>
                                         خرید کنید
                                         <span></span>

@@ -217,6 +217,9 @@
                             </ul>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="{{route('news')}}" class="nav-link">اخبار</a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>

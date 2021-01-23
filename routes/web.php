@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CommentContactUsController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\ManagmentController;
 use App\Http\Controllers\Admin\PostController;
@@ -32,15 +33,20 @@ Route::prefix('/p-admin')->group(function () {
     Route::resource('managment', ManagmentController::class);
     Route::resource('comments_contactUs', CommentContactUsController::class);
     Route::get('products_sold', [StatusProductSoldController::class,'index'])->name('products.sold');
+    Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
 });
 
 
 
 //route Frontend
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class,'index'])->name('/');
 Route::get('/cart', [HomeController::class,'cart'])->name('cart');
 Route::get('/product_detail', [HomeController::class,'product_detail'])->name('product.detail');
 Route::get('/login', [HomeController::class,'login'])->name('login');
 Route::get('/register', [HomeController::class,'register'])->name('register');
 Route::get('/contact', [HomeController::class,'contact'])->name('contact');
 Route::get('/aboutUs', [HomeController::class,'aboutUs'])->name('aboutUs');
+Route::get('/news', [HomeController::class,'news'])->name('news');
+Route::get('/detail_news', [HomeController::class,'detail_news'])->name('detail.news');
+Route::get('/wishlist', [HomeController::class,'wishlist'])->name('wishlist');
+Route::get('/products', [HomeController::class,'products'])->name('products');

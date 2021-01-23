@@ -35,4 +35,21 @@ class HomeController extends Controller
     {
         return view('Frontend.aboutUs.index');
     }
+
+    public function news()
+    {
+        return view('Frontend.News.index');
+    }
+    public function detail_news()
+    {
+        return view('Frontend.Detail_news.index');
+    }
+    public function wishlist()
+    {
+        return view('Frontend.WishList.index');
+    }
+    public function products()
+    {
+        return view('Frontend.Products.index');
+    }
 }

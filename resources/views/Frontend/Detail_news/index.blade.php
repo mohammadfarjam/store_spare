@@ -269,58 +269,241 @@
 
 
 
+
 <!-- Start Page Banner -->
 <div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
-            <h2>ثبت نام</h2>
+            <h2>جزئیات اخبار</h2>
         </div>
     </div>
 </div>
 <!-- End Page Banner -->
 
-<!-- Start Register Area -->
-<section class="register-area ptb-50">
+<!-- Start Blog Details Area -->
+<section class="blog-details-area ptb-50">
     <div class="container">
-        <div class="register-form">
-            <h2>ثبت نام</h2>
+        <div class="row">
+            <div class="col-lg-7 col-md-12">
+                <div class="blog-details-desc">
+                    <div class="article-image">
+                        <img src="frontend/image/207.jpg" alt="image">
+                    </div>
 
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="نام">
-                </div>
+                    <div class="article-content">
+                        <div class="details-content">
+                            <span>دانستی ها</span>
+                            <h3>
+                                <a href="#">هر آنچه که درباره پژو 207i سقف شیشه ای ( پانوراما ) باید بدانید!</a>
+                            </h3>
+                            <div class="post-meta">
+                                <a href="#">مدیر</a> / 20 دی 1399
+                            </div>
+                            <p>ایران خودرو به عنوان یکی از اصلی‌ترین قطب‌های خودروسازی ایران مشغول فعالیت است و تلاش می‌کند تا با تولیدات خلاقانه و نوآورانه با کیفیت، از رقبا داخلی سبقت بگیرد. پژو 207i سقف شیشه ای یا پانوراما یکی از محصولات جدید ایران خودرو محسوب می‌شود که اخیرا رونمایی شده و به بازار خودرو ایران عرضه شده است. این مدل خودرو در واقع همان خودرو 207 بوده که به جای سقف فلزی از سقف شیشه‌ای در ساخت آن استفاده شده است.</p>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="آدرس ایمیل">
-                </div>
+                    <div class="article-footer">
+                        <div class="article-tags">
+{{--                                   no thing--}}
+                        </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="تلفن">
-                </div>
+                        <div class="article-share">
+                            <ul class="social">
+                                <li><span>اشتراک گذاری:</span></li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class='bx bxl-facebook'></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class='bx bxl-twitter'></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class='bx bxl-instagram'></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="گذرواژه">
-                </div>
+                    <div class="comments-area">
+                        <h3 class="comments-title">نظرات</h3>
 
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="checkme">
-                            <label class="form-check-label" for="checkme">نمایش گذرواژه؟</label>
+                        <ol class="comment-list">
+                            <li class="comment">
+                                <div class="comment-body">
+                                    <footer class="comment-meta">
+                                        <div class="comment-author vcard">
+                                            <img src="Admin/user_image/user1.png" class="avatar" alt="image">
+                                            <b class="fn">الناز خیری</b>
+                                        </div>
+                                        <div class="comment-metadata">
+                                            <a href="#">
+                                                <span>24 دی 1399 در 10:59 صبح</span>
+                                            </a>
+                                        </div>
+                                    </footer>
+                                    <div class="comment-content">
+                                        <p>آیا سقف این ماشین در تصادفات اونقدر محکم و نشکن هست که به خود سرنشینان هم آسیب نزنه؟</p>
+                                    </div>
+                                    <div class="reply">
+                                        <a href="#" class="comment-reply-link"><i class='bx bx-reply'></i> پاسخ</a>
+                                    </div>
+                                </div>
+
+                                <div class="comment-body">
+                                    <footer class="comment-meta">
+                                        <div class="comment-author vcard">
+                                            <img src="Admin/user_image/user2.jpg" class="avatar" alt="image">
+                                            <b class="fn">علی نظری</b>
+                                        </div>
+                                        <div class="comment-metadata">
+                                            <a href="#">
+                                                <span>24 دی 1399 در 10:59 صبح</span>
+                                            </a>
+                                        </div>
+                                    </footer>
+                                    <div class="comment-content">
+                                        <p>خیلی ممنون بابت اخباری که در سایت قرار می دهید</p>
+                                    </div>
+                                    <div class="reply">
+                                        <a href="#" class="comment-reply-link"><i class='bx bx-reply'></i> پاسخ</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <div class="comment-respond">
+                            <h3 class="comment-reply-title">نظر بدهید</h3>
+
+                            <form class="comment-form">
+                                <p class="comment-notes">
+                                    <span id="email-notes">آدرس ایمیل شما منتشر نخواهد شد.</span>
+                                    قسمتهای مورد نیاز علامت گذاری شده اند
+                                    <span class="required">*</span>
+                                </p>
+                                <p class="comment-form-author">
+                                    <label>نام</label>
+                                    <input type="text" id="author" name="author" required="required">
+                                </p>
+                                <p class="comment-form-email">
+                                    <label>ایمیل</label>
+                                    <input type="email" id="email" name="email" required="required">
+                                </p>
+                                <p class="comment-form-url">
+                                    <label>وبسایت</label>
+                                    <input type="url" id="url" name="url">
+                                </p>
+                                <p class="comment-form-comment">
+                                    <label>نظر</label>
+                                    <textarea name="comment" id="comment" cols="45" rows="5" maxlength="65525" required="required"></textarea>
+                                </p>
+                                <p class="comment-form-cookies-consent">
+                                    <input type="checkbox" value="yes">
+                                    <label for="wp-comment-cookies-consent">نام ، ایمیل و وب سایت من را برای دفعه بعدی که نظر می دهم در این مرورگر ذخیره کنید.</label>
+                                </p>
+                                <p class="form-submit">
+                                    <input type="submit" name="submit" id="submit" class="submit" value="ارسال نظر">
+                                </p>
+                            </form>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <button type="submit">ثبت نام</button>
-            </form>
+            <div class="col-lg-5 col-md-12">
+                <aside class="widget-area">
+                    <div class="widget widget_ejon_posts_thumb">
+                        <h3 class="widget-title">پست های محبوب</h3>
 
-            <div class="important-text">
-                <p>حساب کاربری دارید؟ <a href="login.html">وارد شوید!</a></p>
+                        <article class="item">
+                            <a href="#" class="thumb">
+                                <span class="fullimage cover" role="img">
+                                    <img src="frontend/image/207.jpg">
+                                </span>
+                            </a>
+                            <div class="info">
+                                <h4 class="title usmall">
+                                    <a href="{{route('detail.news')}}">  دلایل خاموش شدن خودرو </a>
+                                </h4>
+                                <span>20 دی 1399</span>
+                            </div>
+                        </article>
+                        <article class="item">
+                            <a href="#" class="thumb">
+                                <span class="fullimage cover" role="img">
+                                    <img src="frontend/image/check_oil.jpg">
+                                </span>
+                            </a>
+                            <div class="info">
+                                <h4 class="title usmall">
+                                    <a href="{{route('detail.news')}}"> نحوه چک کردن روغن هیدرولیک </a>
+                                </h4>
+                                <span>20 دی 1399</span>
+                            </div>
+                        </article>
+                        <article class="item">
+                            <a href="#" class="thumb">
+                                <span class="fullimage cover" role="img">
+                                    <img src="frontend/image/start_car.jpg">
+                                </span>
+                            </a>
+                            <div class="info">
+                                <h4 class="title usmall">
+                                    <a href="{{route('detail.news')}}">  دلایل خاموش شدن خودرو </a>
+                                </h4>
+                                <span>20 دی 1399</span>
+                            </div>
+                        </article>
+                        <article class="item">
+                            <a href="#" class="thumb">
+                                <span class="fullimage cover" role="img">
+                                    <img src="frontend/image/check_oil.jpg">
+                                </span>
+                            </a>
+                            <div class="info">
+                                <h4 class="title usmall">
+                                    <a href="{{route('detail.news')}}"> نحوه چک کردن روغن هیدرولیک </a>
+                                </h4>
+                                <span>20 دی 1399</span>
+                            </div>
+                        </article>
+                        <article class="item">
+                            <a href="#" class="thumb">
+                                <span class="fullimage cover" role="img">
+                                    <img src="frontend/image/207.jpg">
+                                </span>
+                            </a>
+                            <div class="info">
+                                <h4 class="title usmall">
+                                    <a href="{{route('detail.news')}}">  دلایل خاموش شدن خودرو </a>
+                                </h4>
+                                <span>20 دی 1399</span>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <div class="widget widget_tag_cloud">
+                        <h3 class="widget-title">برچسب های محبوب</h3>
+
+                        <div class="tagcloud">
+                            <a href="#">207i</a>
+                            <a href="#">خودرو</a>
+                            <a href="#">207 سقف شیشه ای</a>
+                            <a href="#">ایران خودرو</a>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
     </div>
 </section>
-<!-- End Register Area -->
+<!-- End Blog Details Area -->
 
 
 

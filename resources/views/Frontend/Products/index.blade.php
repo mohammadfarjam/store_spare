@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Ejon - Electronics eCommerce HTML Template" >
+    <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Ejon - Electronics eCommerce HTML Template">
     <meta name="description" content="Ejon - Electronics eCommerce HTML Template">
     <meta name="author" content="Barat Hadian">
 
@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="/Frontend/assets/css/responsive.css">
     <!-- RTL CSS -->
     <link rel="stylesheet" href="/Frontend/assets/css/rtl.css">
+    {{--    custom style frontend--}}
+    <link rel="stylesheet" href="/Frontend/css/style_front.css">
 
     <title>BM موتور</title>
 
@@ -43,6 +45,7 @@
 </head>
 
 <body>
+
 <!-- Start Preloader Area -->
 <div class="preloader">
     <div class="loader">
@@ -61,7 +64,7 @@
         <div class="row align-items-center">
             <div class="col-lg-3">
                 <div class="middle-header-logo">
-                    <a href="index.html">
+                    <a href="{{route('/')}}">
                         <img src="Frontend/image/logo.png" width="100" alt="image">
                     </a>
                 </div>
@@ -96,11 +99,11 @@
 
             <div class="col-lg-3">
                 <ul class="middle-header-optional">
-                    <li><a href="wishlist.html"><i class="flaticon-heart"></i></a></li>
+                    <li><a href="{{'wishlist'}}"><i class="flaticon-heart"></i></a></li>
                     <li>
                         <a href="{{route('cart')}}"><i class="flaticon-shopping-cart"></i><span>2</span></a>
                     </li>
-                    <li>275000 تومان</li>
+                    <li>275,000 تومان</li>
                 </ul>
             </div>
         </div>
@@ -135,20 +138,19 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{route('products')}}" class="nav-link">
                                             لوازم مصرفی
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{route('products')}}" class="nav-link">
                                             جلوبندی و تعلیق
-                                            <option value="2"> روغن موتور و ضد یخ</option>
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{route('products')}}" class="nav-link">
                                             روغن موتور و ضد یخ
                                         </a>
                                     </li>
@@ -163,7 +165,7 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">خانه </a>
+                            <a href="{{route('/')}}" class="nav-link active">خانه </a>
                         </li>
 
 
@@ -174,11 +176,11 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">لنت ترمز</a>
+                                    <a href="{{route('products')}}" class="nav-link">لنت ترمز</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">کمک فنر</a>
+                                    <a href="{{route('products')}}" class="nav-link">کمک فنر</a>
                                 </li>
 
                                 <li class="nav-item">
@@ -188,11 +190,11 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="products-details.html" class="nav-link">منو 1</a>
+                                            <a href="#" class="nav-link">منو 1</a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a href="products-details-sidebar.html" class="nav-link"> منو 2</a>
+                                            <a href="#" class="nav-link"> منو 2</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -207,11 +209,11 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">کف پوش خودرو</a>
+                                    <a href="{{route('products')}}" class="nav-link">کف پوش خودرو</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">واکس و پولیش </a>
+                                    <a href="{{route('products')}}" class="nav-link">واکس و پولیش </a>
                                 </li>
                             </ul>
                         </li>
@@ -273,120 +275,274 @@
 <div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
-            <h2>ثبت نام</h2>
+            <h2>محصولات</h2>
         </div>
     </div>
 </div>
 <!-- End Page Banner -->
 
-<!-- Start Register Area -->
-<section class="register-area ptb-50">
+<!-- Start Shop Area -->
+<section class="shop-area bg-ffffff pt-50 pb-50">
     <div class="container">
-        <div class="register-form">
-            <h2>ثبت نام</h2>
-
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="نام">
+        <div class="products-filter-options">
+            <div class="row align-items-center">
+                <div class="col-lg-9 col-md-9">
+                    <p>نمایش 1 - 18 از 100</p>
                 </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="آدرس ایمیل">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="تلفن">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="گذرواژه">
-                </div>
-
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="checkme">
-                            <label class="form-check-label" for="checkme">نمایش گذرواژه؟</label>
-                        </div>
-                    </div>
-                </div>
-
-                <button type="submit">ثبت نام</button>
-            </form>
-
-            <div class="important-text">
-                <p>حساب کاربری دارید؟ <a href="login.html">وارد شوید!</a></p>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Register Area -->
-
-
-
-
-
-<!-- Start Support Area -->
-<section class="support-area">
-    <div class="container">
-        <div class="support-inner-box">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-support">
-                        <div class="icon">
-                            <i class="flaticon-free-shipping"></i>
-                        </div>
-
-                        <div class="support-content">
-                            <h3>ارسال رایگان به سراسر جهان</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-support">
-                        <div class="icon">
-                            <i class="flaticon-return"></i>
-                        </div>
-
-                        <div class="support-content">
-                            <h3>بازده 30 روزه پول</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-support">
-                        <div class="icon">
-                            <i class="flaticon-security"></i>
-                        </div>
-
-                        <div class="support-content">
-                            <h3>پرداخت 100٪ مطمئن</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-support">
-                        <div class="icon">
-                            <i class="flaticon-support"></i>
-                        </div>
-
-                        <div class="support-content">
-                            <h3>24/7 پشتیبانی مشتری</h3>
-                        </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="products-ordering-list">
+                        <select>
+                            <option>بر اساس قیمت: گران به ارزان</option>
+                            <option>مرتب سازی پیش فرض</option>
+                            <option>بر اساس محبوبیت</option>
+                            <option>بر اساس میزان امتیاز</option>
+                            <option>بر اساس آخرین ها</option>
+                            <option>بر اساس قیمت: ارزان به گران</option>
+                        </select>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-shop-products">
+                    <div class="shop-products-image">
+                        <a href="products-details.html">
+                            <img src="frontend/image/tasme.jpg" alt="image" class="custom_size_img"></a>
+                        <div class="tag">جدید</div>
+                        <ul class="shop-action">
+                            <li>
+                                <a href="#">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="flaticon-heart"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shop-products-content">
+                        <h3>
+                            <a href="{{'product.detail'}}">محصول اول</a>
+                        </h3>
+                        <ul class="rating">
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                        </ul>
+                        <span>150,000 تومان</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-shop-products">
+                    <div class="shop-products-image">
+                        <a href="products-details.html">
+                            <img src="frontend/image/battry.jpg" alt="image" class="custom_size_img"></a>
+                        <div class="tag">جدید</div>
+                        <ul class="shop-action">
+                            <li>
+                                <a href="#">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="flaticon-heart"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shop-products-content">
+                        <h3>
+                            <a href="{{'product.detail'}}">محصول دوم</a>
+                        </h3>
+                        <ul class="rating">
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                        </ul>
+                        <span>150,000 تومان</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-shop-products">
+                    <div class="shop-products-image">
+                        <a href="products-details.html">
+                            <img src="frontend/image/lent.jpg" alt="image" class="custom_size_img"></a>
+                        <div class="tag">جدید</div>
+                        <ul class="shop-action">
+                            <li>
+                                <a href="#">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="flaticon-heart"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shop-products-content">
+                        <h3>
+                            <a href="{{'product.detail'}}">محصول سوم</a>
+                        </h3>
+                        <ul class="rating">
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                        </ul>
+                        <span>150,000 تومان</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-shop-products">
+                    <div class="shop-products-image">
+                        <a href="products-details.html">
+                            <img src="frontend/image/sham.jpg" alt="image" class="custom_size_img"></a>
+                        <div class="tag">جدید</div>
+                        <ul class="shop-action">
+                            <li>
+                                <a href="#">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="flaticon-heart"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shop-products-content">
+                        <h3>
+                            <a href="{{'product.detail'}}">محصول چهارم</a>
+                        </h3>
+                        <ul class="rating">
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                        </ul>
+                        <span>150,000 تومان</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-shop-products">
+                    <div class="shop-products-image">
+                        <a href="products-details.html">
+                            <img src="frontend/image/battry.jpg" alt="image" class="custom_size_img"></a>
+                        <div class="tag">جدید</div>
+                        <ul class="shop-action">
+                            <li>
+                                <a href="#">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="flaticon-heart"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shop-products-content">
+                        <h3>
+                            <a href="{{'product.detail'}}">محصول پنجم</a>
+                        </h3>
+                        <ul class="rating">
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                        </ul>
+                        <span>150,000 تومان</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-shop-products">
+                    <div class="shop-products-image">
+                        <a href="products-details.html">
+                            <img src="frontend/image/lent.jpg" alt="image" class="custom_size_img"></a>
+                        <div class="tag">جدید</div>
+                        <ul class="shop-action">
+                            <li>
+                                <a href="#">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="flaticon-heart"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#productsQuickView"><i class="flaticon-view"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shop-products-content">
+                        <h3>
+                            <a href="{{'product.detail'}}">محصول ششم</a>
+                        </h3>
+                        <ul class="rating">
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                            <li><i class='bx bxs-star'></i></li>
+                        </ul>
+                        <span>150,000 تومان</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-12 col-md-12">
+                <div class="pagination-area">
+                    <a href="#" class="prev page-numbers">
+                        <i class='flaticon-right-arrow'></i>
+                    </a>
+                    <a href="#" class="page-numbers current">1</a>
+                    <span class="page-numbers " aria-current="page">2</span>
+                    <a href="#" class="page-numbers">3</a>
+                    <a href="#" class="page-numbers">4</a>
+                    <a href="#" class="next page-numbers">
+                        <i class='flaticon-left-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-<!-- End Support Area -->
-
-
-
-
+<!-- End Shop Area -->
 
 <!-- Start Footer Area -->
 <section class="footer-area pt-100 pb-70">
@@ -499,7 +655,8 @@
                         </div>
 
                         <form class="newsletter-form" data-toggle="validator">
-                            <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL" required autocomplete="off">
+                            <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL" required
+                                   autocomplete="off">
 
                             <button type="submit">مشترک شدن</button>
                             <div id="validator-newsletter" class="form-result"></div>
@@ -516,7 +673,7 @@
 <div class="copyright-area">
     <div class="container">
         <div class="copyright-area-content">
-            <p>کپی رایت © 1399. تمام حقوق قالب محفوظ است.  </p>
+            <p>کپی رایت © 1399. تمام حقوق قالب محفوظ است. </p>
         </div>
     </div>
 </div>
@@ -540,16 +697,16 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="products-details-image">
                         <ul class="products-details-image-slides">
-                            <li><img src="assets/img/quick-view/quick-view-1.jpg" alt="image"></li>
-                            <li><img src="assets/img/quick-view/quick-view-2.jpg" alt="image"></li>
-                            <li><img src="assets/img/quick-view/quick-view-3.jpg" alt="image"></li>
+                            <li><img src="" alt="image"></li>
+                            <li><img src="" alt="image"></li>
+                            <li><img src="" alt="image"></li>
                         </ul>
 
                         <div class="slick-thumbs">
                             <ul>
-                                <li><img src="assets/img/quick-view/quick-view-1.jpg" alt="image"></li>
-                                <li><img src="assets/img/quick-view/quick-view-2.jpg" alt="image"></li>
-                                <li><img src="assets/img/quick-view/quick-view-3.jpg" alt="image"></li>
+                                <li><img src="" alt="image"></li>
+                                <li><img src="" alt="image"></li>
+                                <li><img src="" alt="image"></li>
                             </ul>
                         </div>
                     </div>
@@ -573,7 +730,9 @@
                             <span class="old-price">150000 تومان</span>
                             <span class="new-price">75000 تومان</span>
                         </div>
-                        <p>لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است.</p>
+                        <p>لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم
+                            ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم
+                            ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است.</p>
 
                         <ul class="products-info">
                             <li><span>موجودی:</span> <a href="#">در انبار</a></li>
@@ -670,5 +829,7 @@
 <script src="/Frontend/assets/js/wow.min.js"></script>
 <!-- Custom JS -->
 <script src="/Frontend/assets/js/main.js"></script>
+
+
 </body>
 </html>

@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Ejon - Electronics eCommerce HTML Template" >
+    <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Ejon - Electronics eCommerce HTML Template">
     <meta name="description" content="Ejon - Electronics eCommerce HTML Template">
     <meta name="author" content="Barat Hadian">
 
@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="/Frontend/assets/css/responsive.css">
     <!-- RTL CSS -->
     <link rel="stylesheet" href="/Frontend/assets/css/rtl.css">
+    {{--    custom style frontend--}}
+    <link rel="stylesheet" href="/Frontend/css/style_front.css">
 
     <title>BM موتور</title>
 
@@ -96,11 +98,11 @@
 
             <div class="col-lg-3">
                 <ul class="middle-header-optional">
-                    <li><a href="wishlist.html"><i class="flaticon-heart"></i></a></li>
+                    <li><a href="{{'wishlist'}}"><i class="flaticon-heart"></i></a></li>
                     <li>
                         <a href="{{route('cart')}}"><i class="flaticon-shopping-cart"></i><span>2</span></a>
                     </li>
-                    <li>275000 تومان</li>
+                    <li>275,000 تومان</li>
                 </ul>
             </div>
         </div>
@@ -268,125 +270,152 @@
 <!-- End Navbar Area -->
 
 
-
 <!-- Start Page Banner -->
 <div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
-            <h2>ثبت نام</h2>
+            <h2>لیست علاقه مندیها</h2>
         </div>
     </div>
 </div>
 <!-- End Page Banner -->
 
-<!-- Start Register Area -->
-<section class="register-area ptb-50">
+<!-- Start Wishlist Area -->
+<section class="wishlist-area ptb-50">
     <div class="container">
-        <div class="register-form">
-            <h2>ثبت نام</h2>
-
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="نام">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="آدرس ایمیل">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="تلفن">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="گذرواژه">
-                </div>
-
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="checkme">
-                            <label class="form-check-label" for="checkme">نمایش گذرواژه؟</label>
-                        </div>
-                    </div>
-                </div>
-
-                <button type="submit">ثبت نام</button>
-            </form>
-
-            <div class="important-text">
-                <p>حساب کاربری دارید؟ <a href="login.html">وارد شوید!</a></p>
+        <div class="wishlist-table table-responsive">
+            <div class="wishlist-title">
+                <h2>علاقه مندیهای من</h2>
             </div>
+
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <td class="product-remove">
+                        <a href="#" class="remove">
+                            <i class='bx bx-x'></i>
+                        </a>
+                    </td>
+
+                    <td class="product-thumbnail">
+                        <a href="{{route('product.detail')}}">
+                            <img src="frontend/image/tasme.jpg" alt="item">
+                        </a>
+                    </td>
+
+                    <td class="product-name">
+                        <a href="{{route('product.detail')}}">تسمه تایم</a>
+                    </td>
+
+                    <td class="product-price">
+                        <span class="unit-amount">75,000 تومان</span>
+                    </td>
+
+                    <td class="product-btn">
+                        <a href="#" class="default-btn">
+                            <i class="flaticon-shopping-cart"></i>
+                            افزودن به سبد خرید
+                            <span></span>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="product-remove">
+                        <a href="#" class="remove">
+                            <i class='bx bx-x'></i>
+                        </a>
+                    </td>
+
+                    <td class="product-thumbnail">
+                        <a href="{{route('product.detail')}}">
+                            <img src="frontend/image/safe.jpg" alt="item">
+                        </a>
+                    </td>
+
+                    <td class="product-name">
+                        <a href="{{route('product.detail')}}">دیسک و صفحه</a>
+                    </td>
+
+                    <td class="product-price">
+                        <span class="unit-amount">1,200,000 تومان</span>
+                    </td>
+
+                    <td class="product-btn">
+                        <a href="#" class="default-btn">
+                            <i class="flaticon-shopping-cart"></i>
+                            افزودن به سبد خرید
+                            <span></span>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="product-remove">
+                        <a href="#" class="remove">
+                            <i class='bx bx-x'></i>
+                        </a>
+                    </td>
+
+                    <td class="product-thumbnail">
+                        <a href="{{route('product.detail')}}">
+                            <img src="frontend/image/lent.jpg" alt="item">
+                        </a>
+                    </td>
+
+                    <td class="product-name">
+                        <a href="{{route('product.detail')}}">لنت جلو</a>
+                    </td>
+
+                    <td class="product-price">
+                        <span class="unit-amount">230,000 تومان</span>
+                    </td>
+
+                    <td class="product-btn">
+                        <a href="#" class="default-btn">
+                            <i class="flaticon-shopping-cart"></i>
+                            افزودن به سبد خرید
+                            <span></span>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="product-remove">
+                        <a href="#" class="remove">
+                            <i class='bx bx-x'></i>
+                        </a>
+                    </td>
+
+                    <td class="product-thumbnail">
+                        <a href="{{route('product.detail')}}">
+                            <img src="frontend/image/sham.jpg" alt="item">
+                        </a>
+                    </td>
+
+                    <td class="product-name">
+                        <a href="{{route('product.detail')}}"> شمع نور</a>
+                    </td>
+
+                    <td class="product-price">
+                        <span class="unit-amount">200,000 تومان</span>
+                    </td>
+
+                    <td class="product-btn">
+                        <a href="#" class="default-btn">
+                            <i class="flaticon-shopping-cart"></i>
+                            افزودن به سبد خرید
+                            <span></span>
+                        </a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
         </div>
     </div>
 </section>
-<!-- End Register Area -->
-
-
-
-
-
-<!-- Start Support Area -->
-<section class="support-area">
-    <div class="container">
-        <div class="support-inner-box">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-support">
-                        <div class="icon">
-                            <i class="flaticon-free-shipping"></i>
-                        </div>
-
-                        <div class="support-content">
-                            <h3>ارسال رایگان به سراسر جهان</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-support">
-                        <div class="icon">
-                            <i class="flaticon-return"></i>
-                        </div>
-
-                        <div class="support-content">
-                            <h3>بازده 30 روزه پول</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-support">
-                        <div class="icon">
-                            <i class="flaticon-security"></i>
-                        </div>
-
-                        <div class="support-content">
-                            <h3>پرداخت 100٪ مطمئن</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-support">
-                        <div class="icon">
-                            <i class="flaticon-support"></i>
-                        </div>
-
-                        <div class="support-content">
-                            <h3>24/7 پشتیبانی مشتری</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Support Area -->
-
-
-
-
+<!-- End Wishlist Area -->
 
 <!-- Start Footer Area -->
 <section class="footer-area pt-100 pb-70">
@@ -499,7 +528,8 @@
                         </div>
 
                         <form class="newsletter-form" data-toggle="validator">
-                            <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL" required autocomplete="off">
+                            <input type="email" class="input-newsletter" placeholder="آدرس ایمیل" name="EMAIL" required
+                                   autocomplete="off">
 
                             <button type="submit">مشترک شدن</button>
                             <div id="validator-newsletter" class="form-result"></div>
@@ -516,7 +546,7 @@
 <div class="copyright-area">
     <div class="container">
         <div class="copyright-area-content">
-            <p>کپی رایت © 1399. تمام حقوق قالب محفوظ است.  </p>
+            <p>کپی رایت © 1399. تمام حقوق قالب محفوظ است. </p>
         </div>
     </div>
 </div>
@@ -540,16 +570,16 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="products-details-image">
                         <ul class="products-details-image-slides">
-                            <li><img src="assets/img/quick-view/quick-view-1.jpg" alt="image"></li>
-                            <li><img src="assets/img/quick-view/quick-view-2.jpg" alt="image"></li>
-                            <li><img src="assets/img/quick-view/quick-view-3.jpg" alt="image"></li>
+                            <li><img src="" alt="image"></li>
+                            <li><img src="" alt="image"></li>
+                            <li><img src="" alt="image"></li>
                         </ul>
 
                         <div class="slick-thumbs">
                             <ul>
-                                <li><img src="assets/img/quick-view/quick-view-1.jpg" alt="image"></li>
-                                <li><img src="assets/img/quick-view/quick-view-2.jpg" alt="image"></li>
-                                <li><img src="assets/img/quick-view/quick-view-3.jpg" alt="image"></li>
+                                <li><img src="" alt="image"></li>
+                                <li><img src="" alt="image"></li>
+                                <li><img src="" alt="image"></li>
                             </ul>
                         </div>
                     </div>
@@ -573,7 +603,9 @@
                             <span class="old-price">150000 تومان</span>
                             <span class="new-price">75000 تومان</span>
                         </div>
-                        <p>لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است.</p>
+                        <p>لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم
+                            ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم
+                            ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است.</p>
 
                         <ul class="products-info">
                             <li><span>موجودی:</span> <a href="#">در انبار</a></li>
@@ -670,5 +702,7 @@
 <script src="/Frontend/assets/js/wow.min.js"></script>
 <!-- Custom JS -->
 <script src="/Frontend/assets/js/main.js"></script>
+
+
 </body>
 </html>

@@ -43,8 +43,7 @@
 </head>
 
 <body>
-
-<!-<!-- Start Preloader Area -->
+<!-- Start Preloader Area -->
 <div class="preloader">
     <div class="loader">
         <div class="sbl-half-circle-spin">
@@ -217,6 +216,9 @@
                             </ul>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="{{route('news')}}" class="nav-link">اخبار</a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
