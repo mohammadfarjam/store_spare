@@ -7,20 +7,32 @@
     <div class='col-lg-8 col-md-12 col-sm-12'>
 
         <div class="form-group">
-            <label for="address_company" class="font_black">  آدرس فروشگاه</label>
-            <input type="text" class="form-control" id="address_company" value="" placeholder="آدرس فروشگاه را وارد نمایید">
+            <label for="address_company" class="font_black">  نشانی </label>
+            <input type="text" class="form-control" id="address_company" value="" placeholder="نشانی را وارد نمایید">
         </div>
 
         <div class="form-group">
-            <label for="email_company" class="font_black">  ایمیل فروشگاه</label>
-            <input type="email" class="form-control" id="email_company" value="" placeholder="ایمیل فروشگاه را وارد نمایید">
+            <label for="email_company" class="font_black">  ایمیل </label>
+            <input type="email" class="form-control" id="email_company" value="" placeholder="ایمیل را وارد نمایید">
         </div>
 
 
         <div class="form-group">
-            <label for="tel_company" class="font_black"> شماره تماس فروشگاه</label>
-            <input type="text" class="form-control" id="tel_company" value="" placeholder="شماره تماس فروشگاه را وارد نمایید" maxlength="11">
+            <label for="tel_company" class="font_black"> شماره تلفن </label>
+            <input type="text" class="form-control" id="tel_company" value="" placeholder="شماره تماس را وارد نمایید" maxlength="11">
         </div>
+
+
+        <div class="form-group">
+            <label for="fax" class="font_black"> شماره فکس</label>
+            <input type="text" class="form-control" id="fax" value="" placeholder="شماره فکس را وارد نمایید" maxlength="11">
+        </div>
+
+        <div class="form-group">
+            <label for="time_working" class="font_black">  ساعت کاری</label>
+            <input type="text" class="form-control" id="time_working" value="" placeholder="ساعت کاری فروشگاه را وارد نمایید" >
+        </div>
+
 
         <div class="form-group">
             <label for="telegram" class="font_black">Telegram</label>
@@ -34,12 +46,12 @@
 
         <div class="form-group">
             <label for="instagram" class="font_black">Instagram</label>
-            <input type="text" class="form-control" id="instagram" value="" placeholder="آدرس اینستاگرام فروشگاه را وارد نمایید" max="11">
+            <input type="text" class="form-control" id="instagram" value="" placeholder="آدرس اینستاگرام فروشگاه را وارد نمایید" >
         </div>
 
         <div class="form-group">
             <label for="instagram" class="font_black">Signal</label>
-            <input type="text" class="form-control" id="instagram" value="" placeholder="آدرس سیگنال فروشگاه را وارد نمایید" max="11">
+            <input type="text" class="form-control" id="instagram" value="" placeholder="آدرس سیگنال فروشگاه را وارد نمایید" >
         </div>
 
 

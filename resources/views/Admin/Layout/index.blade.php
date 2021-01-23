@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>پنل مدیریت </title>
-{{--    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>--}}
+{{--    <link rel="icon" type="image/x-icon" href="/Admin/assets/img/favicon.ico"/>--}}
 {{--    <link href="/Admin/assets/css/loader.css" rel="stylesheet" type="text/css"/>--}}
 {{--    <script src="/Admin/assets/js/loader.js"></script>--}}
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -24,9 +24,11 @@
 @yield('style')
 
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-{{--    <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">--}}
-{{--    <link href="assets/css/dashboard/dash_1.css" rel="stylesheet" type="text/css"/>--}}
-<!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link href="/Admin/plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
+    <link href="/Admin/assets/css/dashboard/dash_1.css" rel="stylesheet" type="text/css"/>
+{{--    <link href="/Admin/assets/css/dashboard/dash_2.css" rel="stylesheet" type="text/css" />--}}
+
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 </head>
 <body class="sidebar-noneoverflow">
@@ -662,6 +664,14 @@
                                 <li>
                                     <a href="{{route('contactUs.index')}}"> تماس با ما</a>
                                 </li>
+
+                                <li>
+                                    <a href="{{route('sms.index')}}"> ارسال پیامک</a>
+                                </li>
+
+                                <li>
+                                    <a href="#">درگاه پرداخت</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -671,7 +681,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
                             <ul class="collapse list-unstyled sub-submenu" id="sm3" data-parent="#setting">
                                 <li>
-                                    <a href="#"> null</a>
+                                    <a href="{{route('name_store.index')}}"> نام فروشگاه</a>
                                 </li>
                             </ul>
                         </li>
@@ -699,6 +709,7 @@
     <!--  BEGIN CONTENT AREA  -->
     <div id="content" class="main-content bg_w">
         <div class="layout-px-spacing">
+
             @yield('content')
         </div>
 
@@ -734,9 +745,11 @@
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-{{--<script src="/Admin/plugins/apex/apexcharts.min.js"></script>--}}
-{{--<script src="/Admin/assets/js/dashboard/dash_1.js"></script>--}}
-<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+<script src="/Admin/plugins/apex/apexcharts.min.js"></script>
+<script src="/Admin/assets/js/dashboard/dash_1.js"></script>
+{{--    <script src="/Admin/assets/js/dashboard/dash_2.js"></script>--}}
 
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+@yield('script')
 </body>
 </html>
