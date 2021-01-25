@@ -14,7 +14,7 @@ class CommentContactUsController extends Controller
      */
     public function index()
     {
-        return view('Admin.comments_cantactUs.index');
+        return view('Admin.comments_contactUs.index');
     }
 
     /**

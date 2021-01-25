@@ -99,3 +99,11 @@
 /*end style card in dashboard*/
 
 
+
+
+.description_comment_contactUs{
+    width: 100%;
+    min-height: 120px;
+    padding: 10px;
+    overflow-y: auto;
+}

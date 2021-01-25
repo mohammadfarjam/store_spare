@@ -1,4 +1,8 @@
 @extends('Admin.Layout.index')
+@section('style')
+    <link href="/Admin/plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
+    <link href="/Admin/assets/css/dashboard/dash_1.css" rel="stylesheet" type="text/css"/>
+@endsection
 @section('content')
     <p class="f20 m-5"> داشبورد</p>
 
@@ -73,8 +77,10 @@
 
 
 
+
+
     <div class="row mt-5">
-        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 ">
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
             <p class="f13 m-3 p-0">سفارشات اخیر</p>
             <div class="table-responsive pt-3 col-xl-12 col-lg-12 col-md-12 col-sm-12 p-0">
                 <table class="table table-bordered table-striped mb-4">
@@ -94,7 +100,6 @@
                     <tbody>
 
                     <tr class="text-center">
-
                         <td>1</td>
                         <td>BS1234</td>
                         <td>چراغ جلو خودرو گازار مدل JT123</td>
@@ -114,7 +119,6 @@
                         <td>در حال پردازش</td>
                     </tr>
                     <tr class="text-center">
-
                         <td>2</td>
                         <td>BS9632</td>
                         <td> کمک فنر خودرو</td>
@@ -191,7 +195,6 @@
                         <td>در حال پردازش</td>
                     </tr>
                     <tr class="text-center">
-
                         <td>6</td>
                         <td>BS9632</td>
                         <td> کمک فنر خودرو</td>
@@ -231,7 +234,6 @@
                         <td>ارسال شده</td>
                     </tr>
                     <tr class="text-center">
-
                         <td>8</td>
                         <td>BS1458</td>
                         <td>لنت ترمز</td>
@@ -249,17 +251,16 @@
                         <td>1</td>
                         <td>145,000 تومان</td>
                         <td>ارسال شده</td>
-
                     </tr>
                     </tbody>
                 </table>
             </div>
             {{--        table-responsive--}}
         </div>
-        {{--    col-xl-6 col-lg-12 col-md-12 col-sm-12--}}
+        {{-- col-lg-12 col-md-12 col-sm-12--}}
 
 
-        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 ">
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
 
             <p class="f13 m-3 p-0">کاربران جدید</p>
 
@@ -402,7 +403,7 @@
             </div>
             {{--        table-responsive--}}
         </div>
-        {{--    col-xl-6 col-lg-12 col-md-12 col-sm-12--}}
+        {{--  col-lg-12 col-md-12 col-sm-12--}}
 
     </div>
     {{--row--}}
@@ -523,4 +524,10 @@
         </table>
     </div>
 
+@endsection
+
+@section('script')
+
+    <script src="/Admin/plugins/apex/apexcharts.min.js"></script>
+    <script src="/Admin/assets/js/dashboard/dash_1.js"></script>
 @endsection

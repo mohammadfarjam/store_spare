@@ -1,5 +1,3 @@
-
-
 @extends('Admin.Layout.index')
 
 @section('style')
@@ -7,16 +5,14 @@
     <link href="/Admin/plugins/sweetalerts/sweetalert.css" rel="stylesheet" type="text/css"/>
     <link href="/Admin/assets/css/components/custom-sweetalert.css" rel="stylesheet" type="text/css"/>
     <link href="/Admin/assets/css/elements/custom-pagination.css" rel="stylesheet" type="text/css"/>
+    <link href="/Admin/css/select2.min.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="/Admin/css/persian_datepicker.min.css">
 @endsection
 @section('content')
 
-    <p class="f20 m-4">پنل نظرات تماس با ما</p>
+    <p class="f20 m-4">نظرات تماس با ما</p>
 
     <div class="mt-5 d-flex flex-row">
-        <a href="#" class="mr-2"><button class="btn btn_green custom_box_shadow mb-3"><i class="far fa-envelope mr-2"></i>ارسال ایمیل </button></a>
-
-        <a href="#" class="mr-2"><button class="btn btn_green custom_box_shadow mb-3"><i class="far fa-comment-alt mr-2"></i> ارسال پیامک</button></a>
 
         <a href="#" class="mr-2">
             <button class="btn custom_box_shadow btn_green"><i class="fas fa-file-excel mr-2"></i> افزودن اکسل
@@ -33,7 +29,7 @@
 
     <div class="mt-5 mb-2 col-12 mx-auto d-flex flex-row justify-content-between">
         <div class="d-flex">
-            <p class="p-1 mt-3"><i class="fas fa-search mr-2"></i>نتایج یافت شده:154 کاربر</p>
+            <p class="p-1 mt-3"><i class="fas fa-search mr-2"></i>نتایج یافت شده:154 نظر</p>
         </div>
 
 
@@ -48,6 +44,8 @@
             </div>
         </div>
         {{--        mt-2 d-flex flex-row--}}
+
+
     </div>
     {{--d-flex flex-row--}}
 
@@ -65,32 +63,35 @@
                 <th>  موضوع </th>
                 <th>تاریخ درج پیام</th>
                 <th>متن نظر</th>
+                <th>وضعیت</th>
                 <th>عملیات</th>
                 <th>علامت گذاری</th>
             </tr>
             </thead>
-
             <tbody>
             <tr class="text-center align-items-center">
                 <td>#</td>
-                <td><input type="text" class="form-control custom_box_shadow p-1 input_fast_search" name="" value=""
-                           placeholder=" "></td>
+                <td><input type="text" class="form-control custom_box_shadow p-1 input_fast_search" name="" value="" placeholder=" "></td>
+
+                <td><input type="text" class="form-control custom_box_shadow p-1 input_fast_search" name="" value="" placeholder=" "></td>
+
+                <td><input type="text" class="form-control custom_box_shadow p-1 input_fast_search" name="" value="" placeholder=" "></td>
+
+                <td><input type="text" class="form-control custom_box_shadow p-1 input_fast_search" name="" value="" placeholder=" "></td>
+
+
+                <td><input type="text" class="form-control custom_box_shadow p-1 input_fast_search date_picker" name="" value="" placeholder=" "></td>
+
+
+                <td><input type="text" class="form-control custom_box_shadow p-1 input_fast_search" name="" value="" placeholder=""></td>
+
                 <td>
                     <select name="" class="form-control p-1" id="" style="min-width: 90px">
                         <option  selected>همه</option>
-                        <option>مدیر</option>
-                        <option>کاربر عادی</option>
+                        <option>پاسخ داده شده</option>
+                        <option>در انتظار پاسخ </option>
                     </select>
                 </td>
-
-                <td><input type="text" class="form-control custom_box_shadow p-1 input_fast_search date_picker" name="" value=""
-                           placeholder=" "></td>
-
-
-                <td><input type="text" class="form-control custom_box_shadow p-1 input_fast_search" name="" value=""
-                           placeholder=""></td>
-
-
 
                 <td>
                     <button class="btn-sm btn-danger remove_all_marked_data" title="حذف"><i class="fas fa-trash"></i>
@@ -114,14 +115,18 @@
                         <p class="align-self-center mb-0">مونا</p>
                     </div>
                 </td>
-                <td>مدیر</td>
+                <td>test@gmail.com</td>
+                <td>09121234567</td>
+                <td>نمایندگی فروش</td>
                 <td>1399/12/12</td>
-                <td>120</td>
+                <td>من میخواستم نماینده فروش شما بشم چطوری میتونم این کار رو انجام بدم؟</td>
+                <td><span class="badge badge-success">پاسخ داده شده</span></td>
                 <td class="text-center">
                     <div class="d-flex flex-row justify-content-center">
-                        <a href="{{route('users.edit',1)}}">
-                            <button class="btn-sm btn-warning " title="ویرایش"><i class="far fa-edit"></i></button>
-                        </a>
+
+                            <button type="button" class="btn-sm btn-info " title="پاسخ" data-toggle="modal" data-target="#replay_comment_contactUs">
+                                <i class="fas fa-reply"></i></button>
+
                         <button class="btn-sm btn-danger warning confirm" title="حذف"><i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -144,14 +149,16 @@
                         <p class="align-self-center mb-0">رضا</p>
                     </div>
                 </td>
-                <td>نویسنده</td>
+                <td>test@gmail.com</td>
+                <td>09121234567</td>
+                <td>انتقاد از شیوه ارسال کالا</td>
                 <td>1399/12/12</td>
-                <td>32</td>
+                <td>من خیلی لذت بردم از خریدم چون سریع به دستم رسید</td>
+                <td><span class="badge badge-success">پاسخ داده شده</span></td>
                 <td class="text-center">
                     <div class="d-flex flex-row justify-content-center">
-                        <a href="{{route('posts.edit',1)}}">
-                            <button class="btn-sm btn-warning " title="ویرایش"><i class="far fa-edit"></i></button>
-                        </a>
+                        <button type="button" class="btn-sm btn-info " title="پاسخ" data-toggle="modal" data-target="#replay_comment_contactUs">
+                            <i class="fas fa-reply"></i></button>
                         <button class="btn-sm btn-danger warning confirm" title="حذف"><i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -174,14 +181,16 @@
                         <p class="align-self-center mb-0">پویا</p>
                     </div>
                 </td>
-                <td>کاربر عادی</td>
+                <td>test@gmail.com</td>
+                <td>09121234567</td>
+                <td>سرعت ارسال کالا</td>
                 <td>1399/02/02</td>
-                <td>0</td>
+                <td>سرعت ارسال کالا رو بیشتر کنید</td>
+                <td><span class="badge badge-success">پاسخ داده شده</span></td>
                 <td class="text-center">
                     <div class="d-flex flex-row justify-content-center">
-                        <a href="{{route('posts.edit',1)}}">
-                            <button class="btn-sm btn-warning " title="ویرایش"><i class="far fa-edit"></i></button>
-                        </a>
+                        <button type="button" class="btn-sm btn-info " title="پاسخ" data-toggle="modal" data-target="#replay_comment_contactUs">
+                            <i class="fas fa-reply"></i></button>
                         <button class="btn-sm btn-danger warning confirm" title="حذف"><i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -204,14 +213,16 @@
                         <p class="align-self-center mb-0">امیر</p>
                     </div>
                 </td>
-                <td>کاربر عادی</td>
+                <td>test@gmail.com</td>
+                <td>09121234567</td>
+                <td>ظاهر ساییتون عالیه</td>
                 <td>1399/10/14</td>
-                <td>5</td>
+                <td>ظاهر و قالب سایتتون خیلی خوب و عالیه کاربر راحت میتونه محصولش رو پیدا کنه و خریداری کنه</td>
+                <td><span class="badge badge-warning">در انتظار پاسخ</span></td>
                 <td class="text-center">
                     <div class="d-flex flex-row justify-content-center">
-                        <a href="{{route('posts.edit',1)}}">
-                            <button class="btn-sm btn-warning " title="ویرایش"><i class="far fa-edit"></i></button>
-                        </a>
+                        <button type="button" class="btn-sm btn-info " title="پاسخ" data-toggle="modal" data-target="#replay_comment_contactUs">
+                            <i class="fas fa-reply"></i></button>
                         <button class="btn-sm btn-danger warning confirm" title="حذف"><i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -234,14 +245,16 @@
                         <p class="align-self-center mb-0">ریحانه</p>
                     </div>
                 </td>
-                <td>کاربر عادی</td>
+                <td>test@gmail.com</td>
+                <td>09121234567</td>
+                <td>انتقاد از شیوه ارسال کالا</td>
                 <td>1399/11/04</td>
-                <td>74</td>
+                <td>من خیلی لذت بردم از خریدم چون سریع به دستم رسید</td>
+                <td><span class="badge badge-warning">در انتظار پاسخ</span></td>
                 <td class="text-center">
                     <div class="d-flex flex-row justify-content-center">
-                        <a href="{{route('posts.edit',1)}}">
-                            <button class="btn-sm btn-warning " title="ویرایش"><i class="far fa-edit"></i></button>
-                        </a>
+                        <button type="button" class="btn-sm btn-info " title="پاسخ" data-toggle="modal" data-target="#replay_comment_contactUs">
+                            <i class="fas fa-reply"></i></button>
                         <button class="btn-sm btn-danger warning confirm" title="حذف"><i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -264,14 +277,16 @@
                         <p class="align-self-center mb-0">فاطمه</p>
                     </div>
                 </td>
-                <td>نویسنده</td>
+                <td>test@gmail.com</td>
+                <td>09121234567</td>
+                <td>نمایندگی فروش</td>
                 <td>1399/12/12</td>
-                <td>120</td>
+                <td>من میخواستم نماینده فروش شما بشم چطوری میتونم این کار رو انجام بدم؟</td>
+                <td><span class="badge badge-warning">در انتظار پاسخ</span></td>
                 <td class="text-center">
                     <div class="d-flex flex-row justify-content-center">
-                        <a href="{{route('posts.edit',1)}}">
-                            <button class="btn-sm btn-warning " title="ویرایش"><i class="far fa-edit"></i></button>
-                        </a>
+                        <button type="button" class="btn-sm btn-info " title="پاسخ" data-toggle="modal" data-target="#replay_comment_contactUs">
+                            <i class="fas fa-reply"></i></button>
                         <button class="btn-sm btn-danger warning confirm" title="حذف"><i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -294,14 +309,16 @@
                         <p class="align-self-center mb-0">علی</p>
                     </div>
                 </td>
-                <td>مدیر</td>
+                <td>test@gmail.com</td>
+                <td>09121234567</td>
+                <td>انتقاد از شیوه ارسال کالا</td>
                 <td>1399/12/12</td>
-                <td>120</td>
+                <td>من خیلی لذت بردم از خریدم چون سریع به دستم رسید</td>
+                <td><span class="badge badge-success">پاسخ داده شده</span></td>
                 <td class="text-center">
                     <div class="d-flex flex-row justify-content-center">
-                        <a href="{{route('posts.edit',1)}}">
-                            <button class="btn-sm btn-warning " title="ویرایش"><i class="far fa-edit"></i></button>
-                        </a>
+                        <button type="button" class="btn-sm btn-info " title="پاسخ" data-toggle="modal" data-target="#replay_comment_contactUs">
+                            <i class="fas fa-reply"></i></button>
                         <button class="btn-sm btn-danger warning confirm" title="حذف"><i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -324,14 +341,16 @@
                         <p class="align-self-center mb-0">نگار</p>
                     </div>
                 </td>
-                <td>کاربر عادی</td>
+                <td>test@gmail.com</td>
+                <td>09121234567</td>
+                <td>سرعت ارسال کالا</td>
                 <td>1399/10/10</td>
-                <td>1</td>
+                <td>سرعت ارسال کالا رو بیشتر کنید</td>
+                <td><span class="badge badge-success">پاسخ داده شده</span></td>
                 <td class="text-center">
                     <div class="d-flex flex-row justify-content-center">
-                        <a href="{{route('posts.edit',1)}}">
-                            <button class="btn-sm btn-warning " title="ویرایش"><i class="far fa-edit"></i></button>
-                        </a>
+                        <button type="button" class="btn-sm btn-info " title="پاسخ" data-toggle="modal" data-target="#replay_comment_contactUs">
+                            <i class="fas fa-reply"></i></button>
                         <button class="btn-sm btn-danger warning confirm" title="حذف"><i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -357,9 +376,63 @@
             <li class="next"><a href="javascript:void(0);">بعدی</a></li>
         </ul>
     </div>
+
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="replay_comment_contactUs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">پاسخ به نظر تماس با ما </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+<div class="col-12">
+
+    <div class="form-group">
+        <label for="" class="font_black d-block">متن نظر کاربر</label>
+        <textarea name="description" class="description description_comment_contactUs" id="description" readonly></textarea>
+    </div><!--form-group-->
+
+    <div class="form-group mt-4">
+        <label for="user_email" class="font_black">ایمیل کاربر </label>
+        <input type="text" class="form-control" id="user_email" value=""
+               placeholder="" readonly>
+    </div>
+    {{--form-group--}}
+
+
+    <div class="form-group">
+        <label for="" class="font_black d-block">پاسخ به نظر کاربر</label>
+        <textarea name="" class=" description_comment_contactUs" id="" ></textarea>
+    </div><!--form-group-->
+
+
+</div>
+{{-- col-11--}}
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">لغو</button>
+                    <button type="button" class="btn btn-success">پاسخ به نظر</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 @endsection
 
 @section('script')
+    <script src="/Admin/js/select2.min.js"></script>
     <script src="/Admin/plugins/sweetalerts/promise-polyfill.js"></script>
     <script src="/Admin/plugins/sweetalerts/sweetalert2.min.js"></script>
     <script src="/Admin/plugins/sweetalerts/custom-sweetalert.js"></script>
@@ -370,7 +443,7 @@
         // sweetAlert
         $('.warning.confirm').on('click', function () {
             swal({
-                title: 'آیا می خواهید این کاربر را حذف نمایید؟',
+                title: 'آیا می خواهید این محصول را حذف نمایید؟',
                 text: "",
                 type: 'warning',
                 showCancelButton: true,
@@ -388,7 +461,7 @@
                     });
                     toast({
                         type: 'success',
-                        title: 'کاربر با موفقیت حذف شد',
+                        title: 'محصول با موفقیت حذف شد',
                         padding: '2em',
                     })
                 }
@@ -396,12 +469,14 @@
         });
 
 
+        // select2
+        $('.search_sel2').select2();
 
 
         // sweetAlert for delete all mark date
         $('.remove_all_marked_data').on('click', function () {
             swal({
-                title: 'آیا می خواهید تمام کاربران انتخاب شده را حذف نمایید؟',
+                title: 'آیا می خواهید تمام محصولات انتخاب شده را حذف نمایید؟',
                 text: "",
                 type: 'warning',
                 showCancelButton: true,
@@ -419,7 +494,7 @@
                     });
                     toast({
                         type: 'success',
-                        title: 'کاربران با موفقیت حذف شدند',
+                        title: 'محصولات با موفقیت حذف شدند',
                         padding: '2em',
                     })
                 }
@@ -433,6 +508,7 @@
             format: 'YYYY/MM/DD',
             persianDigit: false,
         });
+
+
     </script>
 @endsection
-

@@ -235,8 +235,8 @@
 
                 </div>
                 <i class='bx bxs-lock-alt'></i>
-                <span><a href="{{route('login')}}">ورود</a> یا <a
-                        href="{{route('register')}}">ثبت نام</a></span>
+                <span><a href="{{route('Login')}}">ورود</a> یا <a
+                        href="{{route('Register')}}">ثبت نام</a></span>
             </nav>
         </div>
     </div>
@@ -258,8 +258,8 @@
                         <div class="option-item">
                                     <span>
                                         <i class='bx bxs-lock-alt'></i>
-                        <span><a href="{{route('login')}}">ورود</a> یا <a
-                                href="{{route('register')}}">ثبت نام</a></span>
+                        <span><a href="{{route('Login')}}">ورود</a> یا <a
+                                href="{{route('Register')}}">ثبت نام</a></span>
                                     </span>
                         </div>
                     </div>

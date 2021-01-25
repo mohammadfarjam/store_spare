@@ -961,6 +961,7 @@ blockquote .icon, .blockquote .icon {
   .others-option-for-responsive .dot-menu {
     left: 60px;
     right: auto;
+      top: -57px!important;
   }
   .others-option-for-responsive .container .container {
     left: 10px;

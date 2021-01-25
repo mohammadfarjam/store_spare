@@ -7,3 +7,38 @@
     max-height: 260px!important;
     width: 100%;
 }
+
+.button_register{
+    border: none;
+    margin-top: 25px;
+    padding: 15px 30px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #113366;
+    color: #ffffff;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.input_register{
+    height: 60px;
+    padding: 0 0 0 15px;
+    line-height: initial;
+    color: #292929;
+    background-color: transparent !important;
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    -webkit-box-shadow: unset !important;
+    box-shadow: unset !important;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    font-size: 15px;
+    font-weight: 500;
+}
+.button_register:hover{
+    background-color: #ed1d24;
+}
+.font_black{
+    color:black;
+}

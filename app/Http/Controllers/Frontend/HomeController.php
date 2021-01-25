@@ -19,14 +19,7 @@ class HomeController extends Controller
     {
         return view('Frontend.product_detail.index');
     }
-    public function login()
-    {
-        return view('Frontend.login.index');
-    }
-    public function register()
-    {
-        return view('Frontend.register.index');
-    }
+
     public function contact()
     {
         return view('Frontend.contact.index');
