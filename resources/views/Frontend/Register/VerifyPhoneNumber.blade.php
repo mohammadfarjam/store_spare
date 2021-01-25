@@ -45,7 +45,7 @@
 
                 <form action="{{route('accept.phone.number')}}" method="post">
 @csrf
-                    <input type="text" class="form-control input_register p-4" value="" name="user_id">
+                    <input type="text" class="form-control input_register p-4" value="{{ Cookie::get('id') }}" name="user_id" hidden>
 
                     <div class="form-group ">
                         <input type="text" class="form-control input_register p-4"

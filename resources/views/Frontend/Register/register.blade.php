@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="form-group ">
-                        <input type="text" class="form-control input_register p-4" name="password" placeholder="گذرواژه"
+                        <input type="password" class="form-control input_register p-4" name="password" placeholder="گذرواژه"
                         >
                     </div>
 

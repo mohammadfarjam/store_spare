@@ -39,6 +39,12 @@
 .button_register:hover{
     background-color: #ed1d24;
 }
-.font_black{
-    color:black;
+.font_black {
+    color: black;
+}
+.bg_white{
+    background: white;
+}
+.font_gray {
+    color:rgba(17,17,69,0.57);
 }

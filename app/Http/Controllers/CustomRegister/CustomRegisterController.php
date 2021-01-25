@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -26,15 +27,14 @@ class CustomRegisterController extends Controller
     public function create_user(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'phone_number' => 'required|max:11|unique:users|digits:11',
+            'name' => 'required|string|max:255|alpha',
+            'phone_number' => 'required|max:11|digits:11|unique:users',
             'password' => 'required|string|min:8',
 
         ], [
             'name.required' => 'نام کاربری را وارد نمایید.',
-            'name.string' => 'نام کاربری باید شامل حروف باشد.',
+            'name.alpha' => 'نام کاربری باید شامل حروف باشد.',
             'phone_number.required' => 'شماره تلفن خود را وارد نمایید.',
-            'phone_number.number' => 'شماره تلفن فقط شامل اعداد می باشد.',
             'phone_number.unique' => 'این شماره تلفن قبلا ثبت شده است.',
             'phone_number.digits'=>'شماره تلفن باید شامل اعداد باشد.',
             'phone_number.max'=>'شماره تلفن باید 11 رقم باشد.',
@@ -55,12 +55,13 @@ class CustomRegisterController extends Controller
             $role = Role::where('title', 'کاربر عادی')->first();
             $new_user->roles()->attach($role->id);
 
-            return redirect('/register_step2')->with(['id' => $id]);
+            $cookie = Cookie::make('id', $id,time() + 60 * 60 * 2);
+            return redirect('/register_step2')->withCookie($cookie);
         }
 
     }
 
-    public function acceptPhoneNumber(Request $request )
+    public function acceptPhoneNumber(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
@@ -71,8 +72,7 @@ class CustomRegisterController extends Controller
            'sms_code_verify.digits' =>'تعداد رمز وارد شده صحیح نیست.',
         ]);
         if ($validator->fails()) {
-//            return back()->withErrors($validator)->withInput();
-            return redirect('/register_step2')->with(['id' => $user_id])->withErrors($validator)->withInput();
+            return back()->withErrors($validator)->withInput();
         } else {
 
             $user_id = $request['user_id'];
@@ -86,8 +86,8 @@ class CustomRegisterController extends Controller
                 $find_user->save();
                 return redirect('/');
             } else {
-                Session::flash('notmatch', 'کد وارد شده صیحیح نیست');
-                return redirect('/register_step2')->with(['id' => $user_id]);
+                Session::flash('notmatch', 'کد وارد شده صحیح نیست');
+                return redirect('/register_step2')->Cookie::forget('id');
             }
         }
     }

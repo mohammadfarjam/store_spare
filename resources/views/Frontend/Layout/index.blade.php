@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="/Frontend/assets/css/responsive.css">
     <!-- RTL CSS -->
     <link rel="stylesheet" href="/Frontend/assets/css/rtl.css">
-{{--    custom style frontend--}}
+    {{--    custom style frontend--}}
     <link rel="stylesheet" href="/Frontend/css/style_front.css">
 
     {{--    fontawesome--}}
@@ -58,7 +58,6 @@
     </div>
 </div>
 <!-- End Preloader Area -->
-
 
 
 <!-- Start Middle Header Area -->
@@ -237,18 +236,32 @@
 
                 </div>
                 <div class="">
-                    <a href="{{route('login')}}" class="p-3"><i class="far fa-user ml-2"></i>حساب کاربری</a>
+                    @if(\Illuminate\Support\Facades\Auth::check())
+                        <div class="dropdown">
+                            <button class="btn bg-white" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-user ml-2"></i> پنل کاربری
+                            </button>
+                            <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><i class="far fa-sticky-note ml-2"></i>سفارش های
+                                    من</a>
+                                <a class="dropdown-item" href="{{route('my_Profile.index')}}"><i class="fas fa-chalkboard-teacher ml-2"></i>پروفایل
+                                    من</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i
+                                        class="fas fa-sign-out-alt ml-2"></i> خروج از حساب
+                                    کاربری</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </div>
 
-{{--                    <div class="dropdown">--}}
-{{--                        <button class="btn bg-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                            <i class="far fa-user ml-2"></i>     پنل کاربری--}}
-{{--                        </button>--}}
-{{--                        <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">--}}
-{{--                            <a class="dropdown-item" href="#"><i class="far fa-sticky-note ml-2"></i>سفارش های من</a>--}}
-{{--                            <a class="dropdown-item" href="#"><i class="fas fa-chalkboard-teacher ml-2"></i>پروفایل من</a>--}}
-{{--                            <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt ml-2"></i> خروج از حساب کاربری</a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    @else
+                        <a href="{{route('login')}}" class="p-3"><i class="far fa-user ml-2"></i>حساب کاربری</a>
+                    @endif
+
 
                 </div>
 
@@ -261,9 +274,9 @@
             <div class="dot-menu">
                 <div class="inner">
                     <i class='bx bxs-lock-alt'></i>
-{{--                    <div class="circle circle-one"></div>--}}
-{{--                    <div class="circle circle-two"></div>--}}
-{{--                    <div class="circle circle-three"></div>--}}
+                    {{--                    <div class="circle circle-one"></div>--}}
+                    {{--                    <div class="circle circle-two"></div>--}}
+                    {{--                    <div class="circle circle-three"></div>--}}
                 </div>
             </div>
 
