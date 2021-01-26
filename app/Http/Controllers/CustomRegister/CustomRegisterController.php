@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -28,7 +29,7 @@ class CustomRegisterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|alpha',
-            'phone_number' => 'required|max:11|digits:11|unique:users',
+            'phone_number' => 'required|max:11|digits:11|unique:users|string',
             'password' => 'required|string|min:8',
 
         ], [
@@ -84,10 +85,11 @@ class CustomRegisterController extends Controller
                 $find_user->active = '1';
                 $find_user->sms_code_verify = $sms_code_verify;
                 $find_user->save();
+                Auth::loginUsingId($user_id);
                 return redirect('/');
             } else {
                 Session::flash('notmatch', 'کد وارد شده صحیح نیست');
-                return redirect('/register_step2')->Cookie::forget('id');
+                return redirect('/register_step2');
             }
         }
     }

@@ -83,3 +83,16 @@ Route::post('/accept_phone_number', [CustomRegisterController::class,'acceptPhon
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('my_Profile', MyProfileController::class);
 });
+
+
+
+//route ajax for update info my profile
+Route::PUT('/update_name_myProfile', [MyProfileController::class,'update_name_myProfile'])->name('update.name.myProfile');
+
+Route::PUT('/update_phone_number', [MyProfileController::class,'update_phone_number'])->name('update.phone.number');
+
+Route::PUT('/update_natinal_code', [MyProfileController::class,'update_natinal_code'])->name('update.natinal.code');
+
+Route::PUT('/update_email', [MyProfileController::class,'update_email'])->name('update.email');
+Route::PUT('/update_birthday', [MyProfileController::class,'update_birthday'])->name('update.birthday');
+Route::PUT('/update_password', [MyProfileController::class,'update_password'])->name('update.password');

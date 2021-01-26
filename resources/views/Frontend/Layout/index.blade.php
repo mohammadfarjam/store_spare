@@ -43,7 +43,7 @@
 @yield('style')
 
     <title>BM موتور</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" href="/Frontend/assets/img/favicon.png">
 </head>
 
@@ -285,7 +285,7 @@
                     <div class="others-option d-flex align-items-center">
                         <div class="option-item">
                             <div class="">
-                                <a href="{{route('Login')}}" class="p-3"> <i class='bx bxs-lock-alt'></i>حساب کاربری</a>
+                                <a href="" class="p-3"> <i class='bx bxs-lock-alt'></i>حساب کاربری</a>
                             </div>
                         </div>
                     </div>

@@ -57,7 +57,7 @@
                 </form>
 
                 <div class="important-text">
-                    <p>حساب کاربری دارید؟ <a href="{{route('Login')}}">وارد شوید!</a></p>
+                    <p>حساب کاربری دارید؟ <a href="">وارد شوید!</a></p>
                 </div>
             </div>
         </div>
