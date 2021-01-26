@@ -40,7 +40,7 @@
 
     {{--    fontawesome--}}
     <link href="/Admin/css/all.min.css" rel="stylesheet" type="text/css"/>
-
+@yield('style')
 
     <title>BM موتور</title>
 
@@ -1397,5 +1397,6 @@
 <script src="/Frontend/assets/js/main.js"></script>
 {{--font awesome js--}}
 <script src="/Admin/js/all.min.js"></script>
+@yield('script')
 </body>
 </html>

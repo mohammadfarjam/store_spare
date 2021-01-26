@@ -48,3 +48,12 @@
 .font_gray {
     color:rgba(17,17,69,0.57);
 }
+.width_select_birthday{
+    width: 150px;
+}
+.pointer{
+    cursor: pointer;
+}
+.mt_native{
+    margin-top: -66px;
+}
