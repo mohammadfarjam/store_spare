@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('phone_number')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('photo_profile')->nullable();
             $table->integer('user_block')->nullable();
             $table->bigInteger('sms_code')->unique()->default('123456');
             $table->bigInteger('sms_code_verify')->unique()->nullable();

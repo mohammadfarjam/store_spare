@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class MyProfileController extends Controller
@@ -183,8 +184,6 @@ class MyProfileController extends Controller
                 return response($validator->errors(), 401);
             } else {
                 $now_password = $request['now_password'];
-            $new_password = $request['new_password'];
-            $confirm_new_password = $request['confirm_new_password'];
                 $user_id = $request['user_id'];
 
                 $find_user = User::findOrFail($user_id);
@@ -194,6 +193,9 @@ class MyProfileController extends Controller
                         $find_user->password = Hash::make($request['new_password']);
                         $find_user->update();
                         return response()->json('success', 200);
+                    } else {
+                        return response()->json('current_password_not_exist', 401);
+
                     }
                 }
             }
@@ -205,4 +207,47 @@ class MyProfileController extends Controller
     }
 
 
-}
+    public function upload_photo(Request $request)
+    {
+        try {
+            $uploadedPhoto = $request->file('file');
+            if (!empty($uploadedPhoto)) {
+                $filename = time() . $uploadedPhoto->getClientOriginalName();
+                $original_name=$uploadedPhoto->getClientOriginalName();
+                Storage::disk('local')->putFileAs('public/photos_profile', $uploadedPhoto, $filename);
+
+                return response()->json([
+                    'photo_name' => $filename,
+                ]);
+
+            }
+
+        } catch (\Exception $e) {
+            alert($e);
+        }
+    }
+
+
+    public function save_upload_photo(Request $request)
+    {
+        try {
+            $photo_name = $request['photo_name'];
+            $user_id = $request['user_id'];
+
+            $find_user = User::findOrFail($user_id);
+            if ($find_user) {
+
+                $find_user->photo_profile=$photo_name;
+                $find_user->update();
+            }
+        }catch (\Exception $e) {
+            alert($e);
+        }
+
+
+    }
+
+
+
+
+    }

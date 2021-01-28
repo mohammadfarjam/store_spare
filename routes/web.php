@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\ManagmentController;
 use App\Http\Controllers\Admin\NameStoreController;
+use App\Http\Controllers\Admin\PhotosUploadController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SmsController;
@@ -82,17 +83,21 @@ Route::post('/accept_phone_number', [CustomRegisterController::class,'acceptPhon
 //if user login
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('my_Profile', MyProfileController::class);
+
+    //route ajax for update info my profile
+    Route::PUT('/update_name_myProfile', [MyProfileController::class,'update_name_myProfile'])->name('update.name.myProfile');
+
+    Route::PUT('/update_phone_number', [MyProfileController::class,'update_phone_number'])->name('update.phone.number');
+
+    Route::PUT('/update_natinal_code', [MyProfileController::class,'update_natinal_code'])->name('update.natinal.code');
+
+    Route::PUT('/update_email', [MyProfileController::class,'update_email'])->name('update.email');
+    Route::PUT('/update_birthday', [MyProfileController::class,'update_birthday'])->name('update.birthday');
+    Route::PUT('/update_password', [MyProfileController::class,'update_password'])->name('update.password');
+    Route::post('/photo_profile_upload', [MyProfileController::class,'upload_photo'])->name('photo.profile.upload');
+    Route::put('/save_photo_profile_upload', [MyProfileController::class,'save_upload_photo'])->name('save.photo.profile.upload');
+
 });
 
 
 
-//route ajax for update info my profile
-Route::PUT('/update_name_myProfile', [MyProfileController::class,'update_name_myProfile'])->name('update.name.myProfile');
-
-Route::PUT('/update_phone_number', [MyProfileController::class,'update_phone_number'])->name('update.phone.number');
-
-Route::PUT('/update_natinal_code', [MyProfileController::class,'update_natinal_code'])->name('update.natinal.code');
-
-Route::PUT('/update_email', [MyProfileController::class,'update_email'])->name('update.email');
-Route::PUT('/update_birthday', [MyProfileController::class,'update_birthday'])->name('update.birthday');
-Route::PUT('/update_password', [MyProfileController::class,'update_password'])->name('update.password');

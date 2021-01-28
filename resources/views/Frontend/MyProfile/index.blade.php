@@ -2,8 +2,9 @@
 
 @section('style')
     <link href="/Admin/css/select2.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/Admin/css/Dropify_min.css" rel="stylesheet" type="text/css"/>
+{{--    <link href="/Admin/css/Dropify_min.css" rel="stylesheet" type="text/css"/>--}}
     <link href="/Frontend/css/sweetalert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/Admin/css/dropzone.min.css" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section('content')
@@ -23,9 +24,17 @@
 
 
     <div class="container">
+
         <div class="row">
             <div class="col-lg-3 mt-5 mr-lg-5">
-                <input type="file" id="" class="dropify mx-auto">
+<div class="mx-auto">
+    <div class="form-group">
+        <div id="photo" class="dropzone" style="width: 200px;border-radius: 50%;height: 210px;"></div>
+        <input type="hidden" name="photo_name" id="photo_name">
+    </div>
+    <button class="btn btn-primary mr-5" onclick="update_photo_profile();">آپلود تصویر</button>
+</div>
+
             </div>
             <div class="col-lg-9">
 
@@ -35,13 +44,15 @@
 
         <div class="row align-items-center ptb-50">
             <div class="col-lg-6 p-1">
+
                 <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
                     <p class="d-inline-block mb-0">نام و نام خانوادگی :</p>
                     <p class="d-block font_gray" id="newName">@if($user_data->name){{ $user_data->name }}@endif </p>
                     <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
                          data-toggle="modal" data-target="#update_name_family">
                 </div>
-                {{--  col-lg-6  --}}
+                {{--  col-lg-10  --}}
+
 
                 <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
                     <p class="d-inline-block mb-0">شماره تلفن همراه :</p>
@@ -51,20 +62,24 @@
                          data-toggle="modal"
                          data-target="#update_phone_number">
                 </div>
+                {{--  col-lg-10  --}}
+
+
+                <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
+                    <p class="d-inline-block mb-0">تاریخ تولد :</p>
+                    <p class="d-block font_gray" id="birthday">@if($user_data->birthday){{ $user_data->birthday }}@else
+                            - @endif</p>
+                    <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
+                         data-toggle="modal"
+                         data-target="#update_birthday">
+                </div>
+                {{--  col-lg-10  --}}
+
             </div>
             {{--  col-lg-6  --}}
 
 
             <div class="col-lg-6 p-1">
-                <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
-                    <p class="d-inline-block mb-0">تاریخ تولد :</p>
-                    <p class="d-block font_gray" id="birthday">@if($user_data->birthday){{ $user_data->birthday }}@else - @endif</p>
-                    <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
-                         data-toggle="modal"
-                         data-target="#update_birthday">
-                </div>
-                {{--  col-lg-6  --}}
-
                 <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
                     <p class="d-inline-block mb-0"> کد ملی :</p>
                     <p class="d-block font_gray"
@@ -73,11 +88,8 @@
                          data-toggle="modal"
                          data-target="#update_natinal_code">
                 </div>
-                {{--  col-lg-6  --}}
-            </div>
+                {{--  col-lg-10  --}}
 
-
-            <div class="col-lg-6 p-1">
                 <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
                     <p class="d-inline-block mb-0"> پست الکترونیک :</p>
                     <p class="d-block font_gray" id="email"> @if($user_data->email){{ $user_data->email }}@else
@@ -86,7 +98,7 @@
                          data-toggle="modal"
                          data-target="#update_email">
                 </div>
-                {{--  col-lg-6  --}}
+                {{--  col-lg-10  --}}
 
                 <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
                     <p class="d-inline-block mb-0"> تغییر رمز عبور :</p>
@@ -95,6 +107,7 @@
                          data-toggle="modal"
                          data-target="#update_password">
                 </div>
+                {{--  col-lg-10  --}}
             </div>
             {{--  col-lg-6  --}}
         </div>
@@ -128,7 +141,9 @@
                         {{--form-group--}}
 
                         <div class="modal-footer" style="border-top:none;padding-left: 0px">
-                            <button type="button" class="btn btn-success" id="btn_name" disabled onclick="updateName();">ویرایش</button>
+                            <button type="button" class="btn btn-success" id="btn_name" disabled
+                                    onclick="updateName();">ویرایش
+                            </button>
                         </div>
                     </div>
                     {{--  col-12--}}
@@ -157,7 +172,8 @@
                 <div class="modal-body">
                     <div class="col-12">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="phone_number_modal" name="phone_number" value="{{$user_data->phone_number}}"
+                            <input type="text" class="form-control" id="phone_number_modal" name="phone_number"
+                                   value="{{$user_data->phone_number}}"
                                    placeholder="شماره تلفن همراه" maxlength="11">
                             <p class="error_phone_number error_my_profile mt-2"></p>
                         </div>
@@ -165,7 +181,8 @@
 
                         <div class="modal-footer" style="border-top:none;padding-left: 0px">
                             {{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
-                            <button type="button" class="btn btn-success" id="btn_phone_number" disabled onclick="update_phone_number();">ارسال کد
+                            <button type="button" class="btn btn-success" id="btn_phone_number" disabled
+                                    onclick="update_phone_number();">ارسال کد
                                 تایید
                             </button>
                         </div>
@@ -239,7 +256,9 @@
                     <div id="error_birthday"></div>
                     {{--  col-12--}}
                     <div class="modal-footer" style="border-top:none;padding-left: 0px">
-                        <button type="button" class="btn btn-success" id='btn_birthday_modal' onclick="update_birthday();">ویرایش</button>
+                        <button type="button" class="btn btn-success" id='btn_birthday_modal'
+                                onclick="update_birthday();">ویرایش
+                        </button>
                     </div>
                 </div>
             </div>
@@ -275,7 +294,8 @@
 
                         <div class="modal-footer" style="border-top:none;padding-left: 0px">
                             {{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
-                            <button type="button" class="btn btn-success" id="natinal_code_modal" onclick="update_natinal_code();">ویرایش
+                            <button type="button" class="btn btn-success" id="natinal_code_modal"
+                                    onclick="update_natinal_code();">ویرایش
                             </button>
                         </div>
                     </div>
@@ -305,13 +325,16 @@
                     <div class="col-12">
                         <div class="form-group">
                             <input type="text" class="form-control" id="email_modal"
-                                   value="@if($user_data->email){{ $user_data->email }} @else{{"بدون ایمیل" }}@endif" name="new_email" placeholder="پست الکترونیک">
+                                   value="{{$user_data->email ? $user_data->email : 'ایمیل'  }}"
+                                   name="new_email" placeholder="پست الکترونیک">
                             <ul class="error_email error_my_profile mt-2"></ul>
                         </div>
                         {{--form-group--}}
 
                         <div class="modal-footer" style="border-top:none;padding-left: 0px">
-                            <button type="button" class="btn btn-success" disabled id="btn_email"  onclick="update_email();">ویرایش</button>
+                            <button type="button" class="btn btn-success" disabled id="btn_email"
+                                    onclick="update_email();">ویرایش
+                            </button>
                         </div>
                     </div>
                     {{--  col-12--}}
@@ -339,16 +362,18 @@
                 <div class="modal-body">
                     <div class="col-12">
                         <ul id=error_password class="error_my_profile mt-2 mb-3"></ul>
-
+                        <p class="pass_user_not_find error_my_profile" style="display: none;">کاربری یافت نشد.</p>
                         <div class="form-group">
                             <label for="now_password">رمز عبور فعلی</label>
-                            <input type="password" class="form-control" id="now_password" name="now_password" value="" placeholder="رمز عبور فعلی">
+                            <input type="password" class="form-control" id="now_password" name="now_password" value=""
+                                   placeholder="رمز عبور فعلی">
                         </div>
                         {{--form-group--}}
 
                         <div class="form-group">
                             <label for="new_password">رمز عبور جدید</label>
-                            <input type="password" class="form-control" id="new_password" name="new_password" value="" placeholder="رمز عبور باید حداقل 8 کاراکتر باشد و شامل اعداد و حروف باشد.">
+                            <input type="password" class="form-control" id="new_password" name="new_password" value=""
+                                   placeholder="رمز عبور باید حداقل 8 کاراکتر باشد و شامل اعداد و حروف باشد.">
                         </div>
                         {{--form-group--}}
 
@@ -360,9 +385,10 @@
                                    placeholder="تکرار رمز عبور جدید ">
                         </div>
                         {{--form-group--}}
-<p class="mt-2 confirm_password error_my_profile" ></p>
+                        <p class="mt-2 confirm_password error_my_profile"></p>
                         <div class="modal-footer" style="border-top:none;padding-left: 0px">
-                            <button type="button" class="btn btn-success" disabled id='btn_password' onclick="update_password();">تغییر رمز عبور
+                            <button type="button" class="btn btn-success" disabled id='btn_password'
+                                    onclick="update_password();">تغییر رمز عبور
                             </button>
                         </div>
                     </div>
@@ -378,9 +404,9 @@
 
 @section('script')
     <script src="/Admin/js/select2.min.js"></script>
-    <script src="/Admin/js/Dropify_min.js"></script>
+{{--    <script src="/Admin/js/Dropify_min.js"></script>--}}
     <script src="/Frontend/js/sweetalert.min.js"></script>
-
+    <script src="/Admin/js/dropzone.min.js"></script>
 
     <script>
         // for search in select
@@ -388,68 +414,65 @@
 
 
         //dropify
-        $('.dropify').dropify({
-            messages: {
-                'default': 'ویرایش تصویر پروفایل',
-                'replace': 'کشیدن و رها کردن تصویر',
-                'remove': 'حذف کردن تصویر',
-                'error': 'حجم تصویر بزرگ تر از حد تعیین شده می باشد'
-            },
-            maxFileSize: 1
-
-        });
+        // $('.dropify').dropify({
+        //     messages: {
+        //         'default': 'ویرایش تصویر پروفایل',
+        //         'replace': 'کشیدن و رها کردن تصویر',
+        //         'remove': 'حذف کردن تصویر',
+        //         'error': 'حجم تصویر بزرگ تر از حد تعیین شده می باشد'
+        //     },
+        //
+        // });
 
 
         //for check valid name
-        $('#name').keyup(function (){
-            let val=$('input[name=name]').val();
-            if (val.length > 0){
-                $('#btn_name').attr("disabled",false);
-            }else {
-                $('#btn_name').attr("disabled",true);
+        $('#name').keyup(function () {
+            let val = $('input[name=name]').val();
+            if (val.length > 0) {
+                $('#btn_name').attr("disabled", false);
+            } else {
+                $('#btn_name').attr("disabled", true);
             }
         });
 
         //for check valid phone number
-        $('#phone_number_modal').keyup(function (){
-            let val=$('input[name=phone_number]').val();
-            if (val.length == 11){
-                $('#btn_phone_number').attr("disabled",false);
-            }else {
-                $('#btn_phone_number').attr("disabled",true);
+        $('#phone_number_modal').keyup(function () {
+            let val = $('input[name=phone_number]').val();
+            if (val.length == 11) {
+                $('#btn_phone_number').attr("disabled", false);
+            } else {
+                $('#btn_phone_number').attr("disabled", true);
             }
         });
 
         // for check valid email
-        $('#email_modal').keyup(function (){
-            let email=$('input[name=new_email]').val();
+        $('#email_modal').keyup(function () {
+            let email = $('input[name=new_email]').val();
             var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            let result_email=emailReg.test( email );
+            let result_email = emailReg.test(email);
 
-            if ( result_email === true && email.length > 0){
-                $('#btn_email').attr("disabled",false);
-            }else {
-                $('#btn_email').attr("disabled",true);
+            if (result_email === true && email.length > 0) {
+                $('#btn_email').attr("disabled", false);
+            } else {
+                $('#btn_email').attr("disabled", true);
             }
         });
 
 
         // for check confirm password
-        $('#confirm_new_password').keyup(function (){
-            let confirm_password=$('input[name=confirm_new_password]').val();
-            let new_password=$('input[name=new_password]').val();
+        $('#confirm_new_password').keyup(function () {
+            let confirm_password = $('input[name=confirm_new_password]').val();
+            let new_password = $('input[name=new_password]').val();
 
-            if ( new_password === confirm_password){
-                $('#btn_password').attr("disabled",false);
+            if (new_password === confirm_password) {
+                $('#btn_password').attr("disabled", false);
                 $('.confirm_password').html(' ');
-            }else {
+            } else {
                 $('.confirm_password').html(' ');
                 $('.confirm_password').append('تکرار رمز عبور همخوانی ندارد.')
-                $('#btn_password').attr("disabled",true);
+                $('#btn_password').attr("disabled", true);
             }
         });
-
-
 
 
         //update name
@@ -469,13 +492,13 @@
                         $('.close').click();
                         $('#newName').html('');
                         $('#newName').append(changeName);
-                        $('.error_name').css('display','none');
+                        $('.error_name').css('display', 'none');
                     }
-                },error: function (changeName) {
+                }, error: function (changeName) {
                     $('.error_name').html(' ');
                     $.each(changeName.responseJSON, function (index, value) {
                         $('.error_name').append(value);
-                        $('.error_name').css('display','block');
+                        $('.error_name').css('display', 'block');
 
                     });
                 }
@@ -500,13 +523,13 @@
                         $('.close').click();
                         $('#phone_number').html('');
                         $('#phone_number').append(changePhoneNumber);
-                        $('.error_phone_number').css('display','none');
+                        $('.error_phone_number').css('display', 'none');
                     }
-                },error: function (changePhoneNumber) {
+                }, error: function (changePhoneNumber) {
                     $('.error_phone_number').html(' ');
                     $.each(changePhoneNumber.responseJSON, function (index, value) {
                         $('.error_phone_number').append(value);
-                        $('.error_phone_number').css('display','block');
+                        $('.error_phone_number').css('display', 'block');
 
                     });
                 }
@@ -525,24 +548,23 @@
                 type: 'PUT',
                 url: '{{route('update.natinal.code')}}',
                 dataType: 'json',
-                data: {natinal_code:natinal_code, user_id: user_id},
+                data: {natinal_code: natinal_code, user_id: user_id},
                 success: function (changeNatinalCode) {
                     if (changeNatinalCode.length > 0) {
                         $('.close').click();
                         $('#natinal_code').html('');
                         $('#natinal_code').append(changeNatinalCode);
-                        $('.error_natinal_code').css('display','none');
+                        $('.error_natinal_code').css('display', 'none');
                     }
-                },error: function (changeNatinalCode) {
+                }, error: function (changeNatinalCode) {
                     $('.error_natinal_code').html(' ');
                     $.each(changeNatinalCode.responseJSON, function (index, value) {
-                        $('.error_natinal_code').append('<li>'+value+'</li>');
-                        $('.error_natinal_code').css('display','block');
+                        $('.error_natinal_code').append('<li>' + value + '</li>');
+                        $('.error_natinal_code').css('display', 'block');
                     });
                 }
             });
         };
-
 
 
         //update email
@@ -556,19 +578,19 @@
                 type: 'PUT',
                 url: '{{route('update.email')}}',
                 dataType: 'json',
-                data: {email:email, user_id: user_id},
+                data: {email: email, user_id: user_id},
                 success: function (changeEmail) {
                     if (changeEmail.length > 0) {
                         $('.close').click();
                         $('#email').html('');
                         $('#email').append(changeEmail);
-                        $('.error_email').css('display','none');
+                        $('.error_email').css('display', 'none');
                     }
-                },error: function (changeEmail) {
+                }, error: function (changeEmail) {
                     $('.error_email').html(' ');
                     $.each(changeEmail.responseJSON, function (index, value) {
-                        $('.error_email').append('<li> ' +value+'</li>');
-                        $('.error_email').css('display','block');
+                        $('.error_email').append('<li> ' + value + '</li>');
+                        $('.error_email').css('display', 'block');
                     });
                 }
             });
@@ -577,14 +599,14 @@
 
         //update birthday
         function update_birthday() {
-            let year=$('#year :selected').val();
-           let month=$('#month :selected').val();
-            let day=$('#day :selected').val();
-            if ( year === '' || month === '' || day === ''){
+            let year = $('#year :selected').val();
+            let month = $('#month :selected').val();
+            let day = $('#day :selected').val();
+            if (year === '' || month === '' || day === '') {
                 $('#error_birthday').html(' ');
                 $('#error_birthday').append('<p class="error_my_profile mt-2 mr-3">لطفا تاریخ تولد خود را صحیح وارد نمایید.</p>');
-                $('#error_birthday').css('display','block');
-            }else {
+                $('#error_birthday').css('display', 'block');
+            } else {
                 let new_year_birthday = $('#year :selected').val();
                 let new_month_birthday = $('#month :selected').val();
                 let new_day_birthday = $('#day :selected').val();
@@ -608,7 +630,7 @@
                             $('.close').click();
                             $('#birthday').html('');
                             $('#birthday').append(changeBirthday);
-                            $('#error_birthday').css('display','none');
+                            $('#error_birthday').css('display', 'none');
                         }
                     }
                 });
@@ -640,18 +662,69 @@
                 success: function (changePassword) {
                     if (changePassword == 'success') {
                         $('.close').click();
-                        $('#error_password').css('display','none');
+                        $('#error_password').css('display', 'none');
+                        $('.pass_user_not_find').css('display', 'none');
                     }
-                },error: function (changePassword) {
+                }, error: function (changePassword) {
+                    $('.pass_user_not_find').css('display', 'block');
                     $('#error_password').html(' ');
                     $.each(changePassword.responseJSON, function (index, value) {
-                        $('#error_password').append('<li>'+ value + '</li>');
-                        $('#error_password').css('display','block');
-                        $('#btn_password').attr("disabled",true);
+                        $('#error_password').append('<li>' + value + '</li>');
+                        $('#error_password').css('display', 'block');
+                        $('#btn_password').attr("disabled", true);
                     });
                 }
             });
         }
+
+
+
+
+        //for upload picture by dropzone
+        $("#photo").dropzone({
+            url: "{{route('photo.profile.upload')}}",
+            addRemoveLinks: true,
+            maxFiles:1,
+            maxFilesize: .5, // MB
+            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            parallelUploads: 1,
+            timeout: 1000000,
+            maxRequestSize: 800000, //Mb
+            autoProcessQueue: true,
+            autoDiscover: false,
+            dictDefaultMessage: "آپلود تصویر",
+            dictRemoveFile: "حذف تصویر",
+            sending: function (file, xhr, formData) {
+                formData.append("_token", "{{csrf_token()}}")
+            },
+            success: function (file, response) {
+                document.getElementById('photo_name').value = response.photo_name
+            }
+        });
+
+
+        //update password
+        function update_photo_profile() {
+            let photo_name = $('input[name=photo_name]').val();
+            let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'PUT',
+                url: '{{route('save.photo.profile.upload')}}',
+                dataType: 'json',
+                data: {user_id: user_id,photo_name:photo_name},
+                success: function (savePhoto) {
+
+                }, error: function (savePhoto) {
+
+                }
+            });
+        }
+
+
 
 
     </script>
