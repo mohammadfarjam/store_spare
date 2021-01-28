@@ -58,8 +58,7 @@
             <div class="col-lg-6 p-1">
                 <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
                     <p class="d-inline-block mb-0">تاریخ تولد :</p>
-                    <p class="d-block font_gray" id="birthday">@if($user_data->birthday){{ $user_data->birthday }}@else
-                            - @endif</p>
+                    <p class="d-block font_gray" id="birthday">@if($user_data->birthday){{ $user_data->birthday }}@else - @endif</p>
                     <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
                          data-toggle="modal"
                          data-target="#update_birthday">
@@ -122,7 +121,6 @@
                 <div class="modal-body">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="name" class="font_black"> نام و نام خانوادگی</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{$user_data->name}}"
                                    placeholder="نام و نام خانوادگی">
                             <p class="error_name error_my_profile mt-2"></p>
@@ -159,7 +157,6 @@
                 <div class="modal-body">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="name" class="font_black">شماره تلفن همراه</label>
                             <input type="text" class="form-control" id="phone_number_modal" name="phone_number" value="{{$user_data->phone_number}}"
                                    placeholder="شماره تلفن همراه" maxlength="11">
                             <p class="error_phone_number error_my_profile mt-2"></p>
@@ -198,7 +195,7 @@
                     <div class="col-12 d-flex">
                         <div class="form-group">
                             <select class="form-control sel2" name="year" id="year">
-                                <option >سال</option>
+                                <option value="">سال</option>
                                 @for($i=1382;$i>=1310;$i--)
                                     <option value="{{$i}}">{{$i}}</option>
                                 @endfor
@@ -209,7 +206,7 @@
 
                         <div class="form-group ml-4 mr-4">
                             <select class="form-control sel2" name="month" id="month">
-                                <option >ماه</option>
+                                <option value="">ماه</option>
 
                                 <option value="1">فروردین</option>
                                 <option value="2">اردیبهشت</option>
@@ -231,19 +228,18 @@
 
                         <div class="form-group">
                             <select class="form-control sel2" name="day" id="day">
-                                <option >روز</option>
+                                <option value="">روز</option>
                                 @for($i=1;$i<=31;$i++)
                                     <option value="{{$i}}">{{$i}}</option>
                                 @endfor
                             </select>
                         </div>
                         {{--form-group--}}
-
-
                     </div>
+                    <div id="error_birthday"></div>
                     {{--  col-12--}}
                     <div class="modal-footer" style="border-top:none;padding-left: 0px">
-                        <button type="button" class="btn btn-success" onclick="update_birthday();">ویرایش</button>
+                        <button type="button" class="btn btn-success" id='btn_birthday_modal' onclick="update_birthday();">ویرایش</button>
                     </div>
                 </div>
             </div>
@@ -270,15 +266,16 @@
                 <div class="modal-body">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="name" class="font_black"> کد ملی</label>
-                            <input type="text" class="form-control" id="" value="" name="natinal_code"
+                            <input type="text" class="form-control" id="natinal_code_modal
+" value="{{$user_data->natinal_code ? $user_data->natinal_code : ' کد ملی ' }}" name="natinal_code"
                                    placeholder="کد ملی">
+                            <ul class="error_natinal_code error_my_profile mt-2"></ul>
                         </div>
                         {{--form-group--}}
 
                         <div class="modal-footer" style="border-top:none;padding-left: 0px">
                             {{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
-                            <button type="button" class="btn btn-success" onclick="update_natinal_code();">ویرایش
+                            <button type="button" class="btn btn-success" id="natinal_code_modal" onclick="update_natinal_code();">ویرایش
                             </button>
                         </div>
                     </div>
@@ -307,13 +304,14 @@
                 <div class="modal-body">
                     <div class="col-12">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="" value="" name="email"
-                                   placeholder="پست الکترونیک">
+                            <input type="text" class="form-control" id="email_modal"
+                                   value="@if($user_data->email){{ $user_data->email }} @else{{"بدون ایمیل" }}@endif" name="new_email" placeholder="پست الکترونیک">
+                            <ul class="error_email error_my_profile mt-2"></ul>
                         </div>
                         {{--form-group--}}
 
                         <div class="modal-footer" style="border-top:none;padding-left: 0px">
-                            <button type="button" class="btn btn-success" onclick="update_email();">ویرایش</button>
+                            <button type="button" class="btn btn-success" disabled id="btn_email"  onclick="update_email();">ویرایش</button>
                         </div>
                     </div>
                     {{--  col-12--}}
@@ -340,18 +338,17 @@
                 </div>
                 <div class="modal-body">
                     <div class="col-12">
-                        <p><i class="fas fa-info-circle ml-2 align-middle"></i>رمز عبور باید حداقل 8 کاراکتر باشد و شامل
-                            اعداد و حروف باشد.</p>
+                        <ul id=error_password class="error_my_profile mt-2 mb-3"></ul>
 
                         <div class="form-group">
                             <label for="now_password">رمز عبور فعلی</label>
-                            <input type="password" class="form-control" id="now_password" name="now_password" value="">
+                            <input type="password" class="form-control" id="now_password" name="now_password" value="" placeholder="رمز عبور فعلی">
                         </div>
                         {{--form-group--}}
 
                         <div class="form-group">
                             <label for="new_password">رمز عبور جدید</label>
-                            <input type="password" class="form-control" id="new_password" name="new_password" value="">
+                            <input type="password" class="form-control" id="new_password" name="new_password" value="" placeholder="رمز عبور باید حداقل 8 کاراکتر باشد و شامل اعداد و حروف باشد.">
                         </div>
                         {{--form-group--}}
 
@@ -360,12 +357,12 @@
                             <label for="confirm_new_password">تکرار رمز عبور جدید </label>
                             <input type="password" class="form-control" id="confirm_new_password"
                                    name="confirm_new_password" value=""
-                                   placeholder="">
+                                   placeholder="تکرار رمز عبور جدید ">
                         </div>
                         {{--form-group--}}
-
+<p class="mt-2 confirm_password error_my_profile" ></p>
                         <div class="modal-footer" style="border-top:none;padding-left: 0px">
-                            <button type="button" class="btn btn-success" onclick="update_password();">تغییر رمز عبور
+                            <button type="button" class="btn btn-success" disabled id='btn_password' onclick="update_password();">تغییر رمز عبور
                             </button>
                         </div>
                     </div>
@@ -423,16 +420,41 @@
             }
         });
 
+        // for check valid email
+        $('#email_modal').keyup(function (){
+            let email=$('input[name=new_email]').val();
+            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            let result_email=emailReg.test( email );
+
+            if ( result_email === true && email.length > 0){
+                $('#btn_email').attr("disabled",false);
+            }else {
+                $('#btn_email').attr("disabled",true);
+            }
+        });
 
 
+        // for check confirm password
+        $('#confirm_new_password').keyup(function (){
+            let confirm_password=$('input[name=confirm_new_password]').val();
+            let new_password=$('input[name=new_password]').val();
 
+            if ( new_password === confirm_password){
+                $('#btn_password').attr("disabled",false);
+                $('.confirm_password').html(' ');
+            }else {
+                $('.confirm_password').html(' ');
+                $('.confirm_password').append('تکرار رمز عبور همخوانی ندارد.')
+                $('#btn_password').attr("disabled",true);
+            }
+        });
 
 
 
 
         //update name
         function updateName() {
-            let newName = $('input[name=name]').val();
+            let name = $('input[name=name]').val();
             let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
             $.ajax({
                 headers: {
@@ -441,7 +463,7 @@
                 type: 'PUT',
                 url: '{{route('update.name.myProfile')}}',
                 dataType: 'json',
-                data: {newName: newName, user_id: user_id},
+                data: {name: name, user_id: user_id},
                 success: function (changeName) {
                     if (changeName.length > 0) {
                         $('.close').click();
@@ -453,6 +475,8 @@
                     $('.error_name').html(' ');
                     $.each(changeName.responseJSON, function (index, value) {
                         $('.error_name').append(value);
+                        $('.error_name').css('display','block');
+
                     });
                 }
             });
@@ -461,7 +485,7 @@
 
         //update phone number
         function update_phone_number() {
-            let newPhone = $('input[name=phone_number]').val();
+            let phone_number = $('input[name=phone_number]').val();
             let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
             $.ajax({
                 headers: {
@@ -470,7 +494,7 @@
                 type: 'PUT',
                 url: '{{route('update.phone.number')}}',
                 dataType: 'json',
-                data: {newPhone: newPhone, user_id: user_id},
+                data: {phone_number: phone_number, user_id: user_id},
                 success: function (changePhoneNumber) {
                     if (changePhoneNumber.length > 0) {
                         $('.close').click();
@@ -482,6 +506,8 @@
                     $('.error_phone_number').html(' ');
                     $.each(changePhoneNumber.responseJSON, function (index, value) {
                         $('.error_phone_number').append(value);
+                        $('.error_phone_number').css('display','block');
+
                     });
                 }
             });
@@ -490,7 +516,7 @@
 
         //update natinal code
         function update_natinal_code() {
-            let new_natinal_code = $('input[name=natinal_code]').val();
+            let natinal_code = $('input[name=natinal_code]').val();
             let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
             $.ajax({
                 headers: {
@@ -499,21 +525,29 @@
                 type: 'PUT',
                 url: '{{route('update.natinal.code')}}',
                 dataType: 'json',
-                data: {new_natinal_code: new_natinal_code, user_id: user_id},
+                data: {natinal_code:natinal_code, user_id: user_id},
                 success: function (changeNatinalCode) {
                     if (changeNatinalCode.length > 0) {
                         $('.close').click();
                         $('#natinal_code').html('');
                         $('#natinal_code').append(changeNatinalCode);
+                        $('.error_natinal_code').css('display','none');
                     }
+                },error: function (changeNatinalCode) {
+                    $('.error_natinal_code').html(' ');
+                    $.each(changeNatinalCode.responseJSON, function (index, value) {
+                        $('.error_natinal_code').append('<li>'+value+'</li>');
+                        $('.error_natinal_code').css('display','block');
+                    });
                 }
             });
-        }
+        };
+
 
 
         //update email
         function update_email() {
-            let new_email = $('input[name=email]').val();
+            let email = $('input[name=new_email]').val();
             let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
             $.ajax({
                 headers: {
@@ -522,50 +556,67 @@
                 type: 'PUT',
                 url: '{{route('update.email')}}',
                 dataType: 'json',
-                data: {new_email: new_email, user_id: user_id},
+                data: {email:email, user_id: user_id},
                 success: function (changeEmail) {
                     if (changeEmail.length > 0) {
                         $('.close').click();
                         $('#email').html('');
                         $('#email').append(changeEmail);
+                        $('.error_email').css('display','none');
                     }
+                },error: function (changeEmail) {
+                    $('.error_email').html(' ');
+                    $.each(changeEmail.responseJSON, function (index, value) {
+                        $('.error_email').append('<li> ' +value+'</li>');
+                        $('.error_email').css('display','block');
+                    });
                 }
             });
         }
 
 
-        //update email
+        //update birthday
         function update_birthday() {
-            let new_year_birthday = $('#year :selected').val();
-            let new_month_birthday = $('#month :selected').val();
-            let new_day_birthday = $('#day :selected').val();
-            let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
+            let year=$('#year :selected').val();
+           let month=$('#month :selected').val();
+            let day=$('#day :selected').val();
+            if ( year === '' || month === '' || day === ''){
+                $('#error_birthday').html(' ');
+                $('#error_birthday').append('<p class="error_my_profile mt-2 mr-3">لطفا تاریخ تولد خود را صحیح وارد نمایید.</p>');
+                $('#error_birthday').css('display','block');
+            }else {
+                let new_year_birthday = $('#year :selected').val();
+                let new_month_birthday = $('#month :selected').val();
+                let new_day_birthday = $('#day :selected').val();
+                let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
 
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'PUT',
-                url: '{{route('update.birthday')}}',
-                dataType: 'json',
-                data: {
-                    new_year_birthday: new_year_birthday,
-                    new_month_birthday: new_month_birthday,
-                    new_day_birthday: new_day_birthday,
-                    user_id: user_id
-                },
-                success: function (changeBirthday) {
-                    if (changeBirthday.length > 0) {
-                        $('.close').click();
-                        $('#birthday').html('');
-                        $('#birthday').append(changeBirthday);
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'PUT',
+                    url: '{{route('update.birthday')}}',
+                    dataType: 'json',
+                    data: {
+                        new_year_birthday: new_year_birthday,
+                        new_month_birthday: new_month_birthday,
+                        new_day_birthday: new_day_birthday,
+                        user_id: user_id
+                    },
+                    success: function (changeBirthday) {
+                        if (changeBirthday.length > 0) {
+                            $('.close').click();
+                            $('#birthday').html('');
+                            $('#birthday').append(changeBirthday);
+                            $('#error_birthday').css('display','none');
+                        }
                     }
-                }
-            });
+                });
+            }
         }
 
 
-        //update email
+        //update password
         function update_password() {
             let now_password = $('input[name=now_password]').val();
             let new_password = $('input[name=new_password]').val();
@@ -587,10 +638,17 @@
                     user_id: user_id
                 },
                 success: function (changePassword) {
-                    console.log(changePassword)
                     if (changePassword == 'success') {
                         $('.close').click();
+                        $('#error_password').css('display','none');
                     }
+                },error: function (changePassword) {
+                    $('#error_password').html(' ');
+                    $.each(changePassword.responseJSON, function (index, value) {
+                        $('#error_password').append('<li>'+ value + '</li>');
+                        $('#error_password').css('display','block');
+                        $('#btn_password').attr("disabled",true);
+                    });
                 }
             });
         }

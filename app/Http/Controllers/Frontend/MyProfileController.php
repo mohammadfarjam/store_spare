@@ -21,15 +21,15 @@ class MyProfileController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'newName' => 'required|alpha|string'
+                'name' => 'required|alpha|string'
             ], [
-                'newName.required' => 'نام و نام خانوادگی خود را صحیح وارد نمایید.',
-                'newName.alpha' => 'نام و نام خانوادگی باید شامل حروف باشد.',
+                'name.required' => 'نام و نام خانوادگی خود را صحیح وارد نمایید.',
+                'name.alpha' => 'نام و نام خانوادگی باید شامل حروف باشد.',
             ]);
             if ($validator->fails()) {
                 return response($validator->errors(), 401);
             } else {
-                $newName = $request['newName'];
+                $newName = $request['name'];
                 $user_id = $request['user_id'];
 
                 $find_user = User::findOrFail($user_id);
@@ -55,22 +55,22 @@ class MyProfileController extends Controller
             ], [
                 'newPhone.required' => 'شماره تلفن همراه خود را وارد نمایید.',
                 'newPhone.digits' => 'شماره تلفن فقط شامل اعداد صحیح می باشد.',
-                'newPhone.unique'=>'این شماره تلفن قبلا ثبت شده است.'
+                'newPhone.unique' => 'این شماره تلفن قبلا ثبت شده است.'
             ]);
             if ($validator->fails()) {
                 return response($validator->errors(), 401);
             } else {
 
-            $newPhone = $request['newPhone'];
-            $user_id = $request['user_id'];
+                $newPhone = $request['newPhone'];
+                $user_id = $request['user_id'];
 
-            $find_user = User::findOrFail($user_id);
-            if ($find_user) {
-                $find_user->phone_number = $newPhone;
-                $find_user->update();
-                $response_newPhoneNumber = $find_user->phone_number;
-                return response()->json($response_newPhoneNumber, 200);
-            }
+                $find_user = User::findOrFail($user_id);
+                if ($find_user) {
+                    $find_user->phone_number = $newPhone;
+                    $find_user->update();
+                    $response_newPhoneNumber = $find_user->phone_number;
+                    return response()->json($response_newPhoneNumber, 200);
+                }
             }
 
         } catch (\Exception $e) {
@@ -82,15 +82,26 @@ class MyProfileController extends Controller
     public function update_natinal_code(Request $request)
     {
         try {
-            $new_natinal_code = $request['new_natinal_code'];
-            $user_id = $request['user_id'];
+            $validator = Validator::make($request->all(), [
+                'natinal_code' => 'required|string|numeric'
+            ], [
+                'natinal_code.required' => 'کد ملی خود را وارد نمایید.',
+                'natinal_code.numeric' => 'کد ملی خود را صحیح وارد نمایید.',
+            ]);
+            if ($validator->fails()) {
+                return response($validator->errors(), 401);
+            } else {
 
-            $find_user = User::findOrFail($user_id);
-            if ($find_user) {
-                $find_user->natinal_code = $new_natinal_code;
-                $find_user->update();
-                $response_new_natinal_code = $find_user->natinal_code;
-                return response()->json($response_new_natinal_code, 200);
+                $new_natinal_code = $request['natinal_code'];
+                $user_id = $request['user_id'];
+
+                $find_user = User::findOrFail($user_id);
+                if ($find_user) {
+                    $find_user->natinal_code = $new_natinal_code;
+                    $find_user->update();
+                    $response_new_natinal_code = $find_user->natinal_code;
+                    return response()->json($response_new_natinal_code, 200);
+                }
             }
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -102,15 +113,27 @@ class MyProfileController extends Controller
     public function update_email(Request $request)
     {
         try {
-            $new_email = $request['new_email'];
-            $user_id = $request['user_id'];
+            $validator = Validator::make($request->all(),
+                [
+                    'email' => 'required|unique:users|string|email',
+                ], [
+                    'email.required' => 'ایمیل خود را وارد نمایید.',
+                    'email.unique' => 'آدرس ایمیل قبلا ثبت شده است.',
+                ]);
 
-            $find_user = User::findOrFail($user_id);
-            if ($find_user) {
-                $find_user->email = $new_email;
-                $find_user->update();
-                $response_new_email = $find_user->email;
-                return response()->json($response_new_email, 200);
+            if ($validator->fails()) {
+                return response($validator->errors(), 401);
+            } else {
+                $newEmail = $request['email'];
+                $user_id = $request['user_id'];
+
+                $find_user = User::findOrFail($user_id);
+                if ($find_user) {
+                    $find_user->email = $newEmail;
+                    $find_user->update();
+                    $response_new_email = $find_user->email;
+                    return response()->json($response_new_email, 200);
+                }
             }
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -145,20 +168,36 @@ class MyProfileController extends Controller
     public function update_password(Request $request)
     {
         try {
-            $now_password = $request['now_password'];
+            $validator = Validator::make($request->all(),
+                [
+                    'now_password' => 'required|string|min:8',
+                    'new_password' => 'required|string|min:8',
+                ], [
+                    'now_password.required' => 'لطفا رمز عبور فعلی خود را وارد نمایید.',
+                    'now_password.min' => 'رمز عبور فعلی خود را صحیح وارد نمایید.',
+                    'new_password.required' => 'لطفا رمز عبور جدید را وارد نمایید.',
+                    'new_password.min' => 'رمز عبور جدید باید حداقل 8 کاراکتر باشد و شامل اعداد و حروف باشد.',
+                ]);
+
+            if ($validator->fails()) {
+                return response($validator->errors(), 401);
+            } else {
+                $now_password = $request['now_password'];
             $new_password = $request['new_password'];
             $confirm_new_password = $request['confirm_new_password'];
-            $user_id = $request['user_id'];
+                $user_id = $request['user_id'];
 
-            $find_user = User::findOrFail($user_id);
-            if ($find_user) {
-                $old_password = $find_user->password;
-                if (Hash::check($now_password, $old_password)) {
-                    $find_user->password = Hash::make($request['new_password']);
-                    $find_user->update();
-                    return response()->json('success', 200);
+                $find_user = User::findOrFail($user_id);
+                if ($find_user) {
+                    $old_password = $find_user->password;
+                    if (Hash::check($now_password, $old_password)) {
+                        $find_user->password = Hash::make($request['new_password']);
+                        $find_user->update();
+                        return response()->json('success', 200);
+                    }
                 }
             }
+
         } catch (\Exception $e) {
             return $e->getMessage();
         }
