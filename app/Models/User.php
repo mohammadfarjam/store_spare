@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-
+    protected $upload='/storage/photos_profile/';
     /**
      * The attributes that are mass assignable.
      *
@@ -45,5 +45,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+
+    public function getPathAttribute($photos)
+    {
+        return $this->upload.$photos;
     }
 }
