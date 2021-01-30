@@ -7,9 +7,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class MyProfileController extends Controller
 {
     public function index()
@@ -38,6 +39,7 @@ class MyProfileController extends Controller
                     $find_user->name = $newName;
                     $find_user->update();
                     $response_newName = $find_user->name;
+                    Session::flash('updated_name','نام و نام خانوادگی با موفقیت ویرایش شد.');
                     return response()->json($response_newName, 200);
                 }
             }

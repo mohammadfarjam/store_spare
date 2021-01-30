@@ -1398,5 +1398,6 @@
 {{--font awesome js--}}
 <script src="/Admin/js/all.min.js"></script>
 @yield('script')
+
 </body>
 </html>

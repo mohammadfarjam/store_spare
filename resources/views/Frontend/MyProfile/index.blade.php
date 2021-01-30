@@ -2,9 +2,14 @@
 
 @section('style')
     <link href="/Admin/css/select2.min.css" rel="stylesheet" type="text/css"/>
-{{--    <link href="/Admin/css/Dropify_min.css" rel="stylesheet" type="text/css"/>--}}
-    <link href="/Frontend/css/sweetalert.min.css" rel="stylesheet" type="text/css"/>
+    {{--    <link href="/Admin/css/Dropify_min.css" rel="stylesheet" type="text/css"/>--}}
+    {{--    <link href="/Frontend/css/sweetalert.min.css" rel="stylesheet" type="text/css"/>--}}
     <link href="/Admin/css/dropzone.min.css" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+          integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+          crossorigin="anonymous"/>
+
 @endsection
 
 @section('content')
@@ -27,13 +32,13 @@
 
         <div class="row">
             <div class="col-lg-3 mt-5 mr-lg-5">
-<div class="mx-auto">
-    <div class="form-group">
-        <div id="photo" class="dropzone" style="width: 200px;border-radius: 50%;height: 210px;"></div>
-        <input type="hidden" name="photo_name" id="photo_name">
-    </div>
-    <button class="btn btn-primary mr-5" onclick="update_photo_profile();">آپلود تصویر</button>
-</div>
+                <div class="mx-auto">
+                    <div class="form-group">
+                        <div id="photo" class="dropzone" style="width: 200px;border-radius: 50%;height: 210px;"></div>
+                        <input type="hidden" name="photo_name" id="photo_name">
+                    </div>
+                    <button class="btn btn-primary mr-5" onclick="update_photo_profile();">آپلود تصویر</button>
+                </div>
 
             </div>
             <div class="col-lg-9">
@@ -404,9 +409,13 @@
 
 @section('script')
     <script src="/Admin/js/select2.min.js"></script>
-{{--    <script src="/Admin/js/Dropify_min.js"></script>--}}
-    <script src="/Frontend/js/sweetalert.min.js"></script>
+    {{--    <script src="/Admin/js/Dropify_min.js"></script>--}}
+    {{--    <script src="/Frontend/js/sweetalert.min.js"></script>--}}
     <script src="/Admin/js/dropzone.min.js"></script>
+    {{--    @include('sweetalert::alert')--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+            integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+            crossorigin="anonymous"></script>
 
     <script>
         // for search in select
@@ -493,6 +502,7 @@
                         $('#newName').html('');
                         $('#newName').append(changeName);
                         $('.error_name').css('display', 'none');
+                        alertName();
                     }
                 }, error: function (changeName) {
                     $('.error_name').html(' ');
@@ -503,6 +513,7 @@
                     });
                 }
             });
+
         }
 
 
@@ -555,6 +566,7 @@
                         $('#natinal_code').html('');
                         $('#natinal_code').append(changeNatinalCode);
                         $('.error_natinal_code').css('display', 'none');
+                        alertNatinalCode();
                     }
                 }, error: function (changeNatinalCode) {
                     $('.error_natinal_code').html(' ');
@@ -585,6 +597,7 @@
                         $('#email').html('');
                         $('#email').append(changeEmail);
                         $('.error_email').css('display', 'none');
+                        alertEmail();
                     }
                 }, error: function (changeEmail) {
                     $('.error_email').html(' ');
@@ -631,6 +644,7 @@
                             $('#birthday').html('');
                             $('#birthday').append(changeBirthday);
                             $('#error_birthday').css('display', 'none');
+                            alertBirthday();
                         }
                     }
                 });
@@ -664,6 +678,7 @@
                         $('.close').click();
                         $('#error_password').css('display', 'none');
                         $('.pass_user_not_find').css('display', 'none');
+                        alertPassword();
                     }
                 }, error: function (changePassword) {
                     $('.pass_user_not_find').css('display', 'block');
@@ -678,13 +693,11 @@
         }
 
 
-
-
         //for upload picture by dropzone
         $("#photo").dropzone({
             url: "{{route('photo.profile.upload')}}",
             addRemoveLinks: true,
-            maxFiles:1,
+            maxFiles: 1,
             maxFilesize: .5, // MB
             acceptedFiles: ".jpeg,.jpg,.png,.gif",
             parallelUploads: 1,
@@ -715,7 +728,7 @@
                 type: 'PUT',
                 url: '{{route('save.photo.profile.upload')}}',
                 dataType: 'json',
-                data: {user_id: user_id,photo_name:photo_name},
+                data: {user_id: user_id, photo_name: photo_name},
                 success: function (savePhoto) {
 
                 }, error: function (savePhoto) {
@@ -724,9 +737,43 @@
             });
         }
 
+        function alertName() {
+            toastr.options.progressBar = true;
+            toastr.options.closeButton = false;
+            toastr.success("نام کاربری با موفقیت  تغییر کرد.");
+        }
+
+        function alertBirthday() {
+            toastr.options.progressBar = true;
+            toastr.options.closeButton = false;
+            toastr.success("تاریخ تولد با موفقیت  تغییر کرد.");
+        }
 
 
+        function alertPassword() {
+            toastr.options.progressBar = true;
+            toastr.options.closeButton = false;
+            toastr.success("رمز عبور با موفقیت تغییر کرد.");
+        }
 
+        function alertNatinalCode() {
+            toastr.options.progressBar = true;
+            toastr.options.closeButton = false;
+            toastr.success("کد ملی با موفقیت تغییر کرد.");
+        }
+
+        function alertEmail() {
+            toastr.options.progressBar = true;
+            toastr.options.closeButton = false;
+            toastr.success("ایمیل با موفقیت تغییر کرد.");
+        }
+
+        function alertPhoneNumber() {
+            toastr.options.progressBar = true;
+            toastr.options.closeButton = false;
+            toastr.success("شماره تلفن همراه با موفقیت تغییر کرد.");
+        }
     </script>
+
 
 @endsection

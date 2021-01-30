@@ -45,11 +45,12 @@ class CustomRegisterController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         } else {
-
+            $code = rand(100000, 999999);
             $new_user = new User();
             $new_user->name = $request['name'];
             $new_user->phone_number = $request['phone_number'];
             $new_user->password = Hash::make($request['password']);
+            $new_user->sms_code = $code;
             $new_user->save();
             $id = $new_user->id;
 
