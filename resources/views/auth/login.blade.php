@@ -15,7 +15,7 @@
 
 
     @if(count($errors)>0)
-        <div class="col-3 mx-auto mt-5">
+        <div class="col-lg-3 mx-auto mt-5">
             <div class="alert alert-danger font_black">
                 <ul style="list-style-type: none">
                     @foreach($errors->all() as $error)

@@ -97,6 +97,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/photo_profile_upload', [MyProfileController::class,'upload_photo'])->name('photo.profile.upload');
     Route::put('/save_photo_profile_upload', [MyProfileController::class,'save_upload_photo'])->name('save.photo.profile.upload');
 
+    Route::post('/verify_phone_number', [MyProfileController::class,'verify_phone_number'])->name('verify.phone.number');
+
 });
 
 

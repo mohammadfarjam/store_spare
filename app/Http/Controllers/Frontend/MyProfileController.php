@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+
 class MyProfileController extends Controller
 {
     public function index()
@@ -23,7 +24,7 @@ class MyProfileController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'name' => 'required|alpha|string'
+                'name' => 'required|string|max:255'
             ], [
                 'name.required' => 'نام و نام خانوادگی خود را صحیح وارد نمایید.',
                 'name.alpha' => 'نام و نام خانوادگی باید شامل حروف باشد.',
@@ -39,7 +40,7 @@ class MyProfileController extends Controller
                     $find_user->name = $newName;
                     $find_user->update();
                     $response_newName = $find_user->name;
-                    Session::flash('updated_name','نام و نام خانوادگی با موفقیت ویرایش شد.');
+                    Session::flash('updated_name', 'نام و نام خانوادگی با موفقیت ویرایش شد.');
                     return response()->json($response_newName, 200);
                 }
             }
@@ -54,25 +55,60 @@ class MyProfileController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'newPhone' => 'required|max:11|digits:11|unique:users|string'
+                'phone_number' => 'required|max:11|digits:11|unique:users|string'
             ], [
-                'newPhone.required' => 'شماره تلفن همراه خود را وارد نمایید.',
-                'newPhone.digits' => 'شماره تلفن فقط شامل اعداد صحیح می باشد.',
-                'newPhone.unique' => 'این شماره تلفن قبلا ثبت شده است.'
+                'phone_number.required' => 'شماره تلفن همراه خود را وارد نمایید.',
+                'phone_number.digits' => 'شماره تلفن فقط شامل اعداد صحیح می باشد.',
+                'phone_number.unique' => 'این شماره تلفن قبلا ثبت شده است.',
             ]);
             if ($validator->fails()) {
                 return response($validator->errors(), 401);
             } else {
-
-                $newPhone = $request['newPhone'];
+                $code = rand(100000, 999999);
                 $user_id = $request['user_id'];
 
                 $find_user = User::findOrFail($user_id);
                 if ($find_user) {
-                    $find_user->phone_number = $newPhone;
+                    $find_user->sms_code = $code;
                     $find_user->update();
-                    $response_newPhoneNumber = $find_user->phone_number;
-                    return response()->json($response_newPhoneNumber, 200);
+                    return response()->json('updated', 200);
+                }
+            }
+
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+
+    public function verify_phone_number(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'sms_code_verify' => 'required|max:6|digits:6|unique:users|string'
+            ], [
+                'sms_code_verify.required' => 'رمز تایید را وارد نمایید.',
+                'sms_code_verify.digits' => 'رمز تایید فقط شامل اعداد صحیح می باشد.',
+                'sms_code_verify.unique' => 'رمز تایید قبلا استفاده شده است.',
+                'sms_code_verify.max' => 'رمز تایید بیش از 6 کاراکتر می باشد.',
+            ]);
+            if ($validator->fails()) {
+                return response($validator->errors(), 401);
+            } else {
+                $new_verify_phone_number = $request['sms_code_verify'];
+                $user_id = $request['user_id'];
+                $phone_number = $request['phone_number'];
+
+                $find_user = User::findOrFail($user_id);
+                if ($find_user) {
+                    if ($find_user->sms_code == $new_verify_phone_number) {
+                        $find_user->sms_code_verify = $new_verify_phone_number;
+                        $find_user->phone_number = $phone_number;
+                        $find_user->update();
+                        return response()->json('success', 200);
+                    } else {
+                        return response()->json('unMatch_code', 200);
+                    }
                 }
             }
 
@@ -211,19 +247,19 @@ class MyProfileController extends Controller
 
     public function upload_photo(Request $request)
     {
+
         try {
+
             $uploadedPhoto = $request->file('file');
-            if (!empty($uploadedPhoto)) {
+
+            if (isset($uploadedPhoto)) {
                 $filename = time() . $uploadedPhoto->getClientOriginalName();
-                $original_name=$uploadedPhoto->getClientOriginalName();
                 Storage::disk('local')->putFileAs('public/photos_profile', $uploadedPhoto, $filename);
 
                 return response()->json([
                     'photo_name' => $filename,
                 ]);
-
             }
-
         } catch (\Exception $e) {
             alert($e);
         }
@@ -233,18 +269,31 @@ class MyProfileController extends Controller
     public function save_upload_photo(Request $request)
     {
         try {
-            $photo_name = $request['photo_name'];
-            $user_id = $request['user_id'];
+            $validator = Validator::make($request->all(),
+                [
+                    'photo_profile' => 'required|string',
+                ], [
+                    'photo_profile.required' => 'تصویر مورد نظر را انتخاب نمایید.',
+                ]);
 
-            $find_user = User::findOrFail($user_id);
-            if ($find_user) {
+            if ($validator->fails()) {
+                return response($validator->errors(), 401);
+            } else {
+                $photo_name = $request['photo_profile'];
+                $user_id = $request['user_id'];
 
-                $find_user->photo_profile=$photo_name;
-                $find_user->update();
+                $find_user = User::findOrFail($user_id);
+                if ($find_user) {
+                    $find_user->photo_profile = $photo_name;
+                    $find_user->update();
+                    return response()->json('success', 200);
+
+                }
             }
-        }catch (\Exception $e) {
-            alert($e);
-        }
+            } catch
+            (\Exception $e) {
+                alert($e);
+            }
 
 
     }

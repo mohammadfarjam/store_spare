@@ -31,92 +31,147 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-3 mt-5 mr-lg-5">
-                <div class="mx-auto">
-                    <div class="form-group">
-                        <div id="photo" class="dropzone" style="width: 200px;border-radius: 50%;height: 210px;"></div>
-                        <input type="hidden" name="photo_name" id="photo_name">
+            <div class="col-lg-3 col-md-12 mt-5 rounded">
+                <aside class="widget-area bg-white">
+                    <div class="widget widget_categories p-3 ">
+                        <img src="/storage/photos_profile/{{$user_data->photo_profile}}" class="img-fluid" width="50">
+                        <h3 class="widget-title mt-4 mb-5">{{$user_data->name}}</h3>
+
+                        <ul class="categories">
+                            <li>
+                                <a href="#" class="nav-link rounded">
+                                    <i class="fas fa-cubes f15 ml-2"></i>
+                                    سفارش های من
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link rounded">
+                                    <i class="fas fa-id-badge f15 ml-2"></i>
+                                    پروفایل من
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link rounded">
+                                    <i class="fas fa-map-marker-alt f15 ml-2"></i>
+                                    نشانی
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link rounded">
+                                    <i class="far fa-heart f15 ml-2"></i>
+                                    علاقه مندی ها
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link rounded">
+                                    <i class="far fa-comment f15 ml-2"></i>
+                                    نظرات
+                                </a>
+                            </li>
+
+                        </ul>
                     </div>
-                    <button class="btn btn-primary mr-5" onclick="update_photo_profile();">آپلود تصویر</button>
-                </div>
-
+                </aside>
             </div>
+
+
+
+
+
             <div class="col-lg-9">
+                <div class="col-lg-3 mt-5 mr-lg-5">
+                    <div class="mx-auto">
+                        <div class="form-group">
+                            <div id="photo" class="dropzone" style="width: 200px;border-radius: 50%;height: 210px;"></div>
+                            <input type="hidden" name="photo_name" id="photo_name">
+                        </div>
+                        <ul class='error_photo error_my_profile'></ul>
+                        <button class="btn btn-primary mr-5" onclick="update_photo_profile();">آپلود تصویر</button>
+                    </div>
 
+                </div>
+                <div class="col-lg-9">
+                </div>
+                <div class="row align-items-center ptb-50">
+                    <div class="col-lg-6 p-1">
+
+                        <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
+                            <p class="d-inline-block mb-0">نام و نام خانوادگی :</p>
+                            <p class="d-block font_gray" id="newName">@if($user_data->name){{ $user_data->name }}@endif </p>
+                            <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
+                                 data-toggle="modal" data-target="#update_name_family">
+                        </div>
+                        {{--  col-lg-10  --}}
+
+
+                        <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
+                            <p class="d-inline-block mb-0">شماره تلفن همراه :</p>
+                            <p class="d-block font_gray"
+                               id="phone_number">@if($user_data->phone_number){{ $user_data->phone_number }}@endif </p>
+                            <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
+                                 data-toggle="modal"
+                                 data-target="#update_phone_number">
+                        </div>
+                        {{--  col-lg-10  --}}
+
+
+                        <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
+                            <p class="d-inline-block mb-0">تاریخ تولد :</p>
+                            <p class="d-block font_gray" id="birthday">@if($user_data->birthday){{ $user_data->birthday }}@else
+                                    - @endif</p>
+                            <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20" data-toggle="modal" data-target="#update_birthday">
+                        </div>
+                        {{--  col-lg-10  --}}
+
+                    </div>
+                    {{--  col-lg-6  --}}
+
+
+                    <div class="col-lg-6 p-1">
+                        <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
+                            <p class="d-inline-block mb-0"> کد ملی :</p>
+                            <p class="d-block font_gray"
+                               id="natinal_code">@if($user_data->natinal_code){{ $user_data->natinal_code }}@else - @endif</p>
+                            <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
+                                 data-toggle="modal"
+                                 data-target="#update_natinal_code">
+                        </div>
+                        {{--  col-lg-10  --}}
+
+                        <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
+                            <p class="d-inline-block mb-0"> پست الکترونیک :</p>
+                            <p class="d-block font_gray" id="email"> @if($user_data->email){{ $user_data->email }}@else
+                                    - @endif</p>
+                            <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
+                                 data-toggle="modal"
+                                 data-target="#update_email">
+                        </div>
+                        {{--  col-lg-10  --}}
+
+                        <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
+                            <p class="d-inline-block mb-0"> تغییر رمز عبور :</p>
+                            <p class="d-block font_gray">********</p>
+                            <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
+                                 data-toggle="modal"
+                                 data-target="#update_password">
+                        </div>
+                        {{--  col-lg-10  --}}
+                    </div>
+                    {{--  col-lg-6  --}}
+                </div>
+                {{-- row align-items-center--}}
             </div>
+{{--            col-lg-9--}}
+
+
+
 
         </div>
-
-        <div class="row align-items-center ptb-50">
-            <div class="col-lg-6 p-1">
-
-                <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
-                    <p class="d-inline-block mb-0">نام و نام خانوادگی :</p>
-                    <p class="d-block font_gray" id="newName">@if($user_data->name){{ $user_data->name }}@endif </p>
-                    <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
-                         data-toggle="modal" data-target="#update_name_family">
-                </div>
-                {{--  col-lg-10  --}}
-
-
-                <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
-                    <p class="d-inline-block mb-0">شماره تلفن همراه :</p>
-                    <p class="d-block font_gray"
-                       id="phone_number">@if($user_data->phone_number){{ $user_data->phone_number }}@endif </p>
-                    <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
-                         data-toggle="modal"
-                         data-target="#update_phone_number">
-                </div>
-                {{--  col-lg-10  --}}
-
-
-                <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
-                    <p class="d-inline-block mb-0">تاریخ تولد :</p>
-                    <p class="d-block font_gray" id="birthday">@if($user_data->birthday){{ $user_data->birthday }}@else
-                            - @endif</p>
-                    <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
-                         data-toggle="modal"
-                         data-target="#update_birthday">
-                </div>
-                {{--  col-lg-10  --}}
-
-            </div>
-            {{--  col-lg-6  --}}
-
-
-            <div class="col-lg-6 p-1">
-                <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
-                    <p class="d-inline-block mb-0"> کد ملی :</p>
-                    <p class="d-block font_gray"
-                       id="natinal_code">@if($user_data->natinal_code){{ $user_data->natinal_code }}@else - @endif</p>
-                    <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
-                         data-toggle="modal"
-                         data-target="#update_natinal_code">
-                </div>
-                {{--  col-lg-10  --}}
-
-                <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
-                    <p class="d-inline-block mb-0"> پست الکترونیک :</p>
-                    <p class="d-block font_gray" id="email"> @if($user_data->email){{ $user_data->email }}@else
-                            - @endif</p>
-                    <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
-                         data-toggle="modal"
-                         data-target="#update_email">
-                </div>
-                {{--  col-lg-10  --}}
-
-                <div class="col-lg-10 bg_white border rounded p-4 mx-auto mb-3">
-                    <p class="d-inline-block mb-0"> تغییر رمز عبور :</p>
-                    <p class="d-block font_gray">********</p>
-                    <img src="frontend/image/static/edit.png" class="img-fluid float-left pointer mt_native" width="20"
-                         data-toggle="modal"
-                         data-target="#update_password">
-                </div>
-                {{--  col-lg-10  --}}
-            </div>
-            {{--  col-lg-6  --}}
-        </div>
-        {{-- row align-items-center--}}
+{{--row--}}
     </div>
     {{-- container--}}
 
@@ -188,6 +243,44 @@
                             {{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
                             <button type="button" class="btn btn-success" id="btn_phone_number" disabled
                                     onclick="update_phone_number();">ارسال کد
+                                تایید
+                            </button>
+                        </div>
+                    </div>
+                    {{--  col-12--}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--    end modal update --}}
+
+
+
+    <button data-toggle="modal" data-target="#verify_code_send" class="verify_code_send" data-keyboard="false" data-backdrop="static" hidden></button>
+
+    <!-- Modal for verify code send-->
+    <div class="modal fade" id="verify_code_send" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">تایید رمز ارسال شده</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin: -1rem 0rem -2rem;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="verify_phone_number" name="verify_phone_number" value="" placeholder="وارد کردن رمز ارسال شده" maxlength="6">
+
+                            <ul class="error_verify_phone_number error_my_profile mt-2"></ul>
+                        </div>
+                        {{--form-group--}}
+
+                        <div class="modal-footer" style="border-top:none;padding-left: 0px">
+                            <button type="button" class="btn btn-success" id="btn_verify_phone_number" disabled
+                                    onclick="">تایید رمز
                                 تایید
                             </button>
                         </div>
@@ -298,7 +391,6 @@
                         {{--form-group--}}
 
                         <div class="modal-footer" style="border-top:none;padding-left: 0px">
-                            {{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
                             <button type="button" class="btn btn-success" id="natinal_code_modal"
                                     onclick="update_natinal_code();">ویرایش
                             </button>
@@ -468,6 +560,23 @@
         });
 
 
+
+
+
+
+        // for check valid verify phone number
+        $('#verify_phone_number').keyup(function () {
+            let verify_phone_number = $('input[name=verify_phone_number]').val();
+            if (verify_phone_number.length === 6) {
+                $('#btn_verify_phone_number').attr("disabled", false);
+            } else {
+                $('#btn_verify_phone_number').attr("disabled", true);
+            }
+        });
+
+
+
+
         // for check confirm password
         $('#confirm_new_password').keyup(function () {
             let confirm_password = $('input[name=confirm_new_password]').val();
@@ -500,9 +609,12 @@
                     if (changeName.length > 0) {
                         $('.close').click();
                         $('#newName').html('');
+                        $('.widget-title').html('');
                         $('#newName').append(changeName);
+                        $('.widget-title').append(changeName);
                         $('.error_name').css('display', 'none');
-                        alertName();
+                        let data='نام کاربری';
+                        alertToastr(data);
                     }
                 }, error: function (changeName) {
                     $('.error_name').html(' ');
@@ -519,7 +631,7 @@
 
         //update phone number
         function update_phone_number() {
-            let phone_number = $('input[name=phone_number]').val();
+           window.phone_number = $('input[name=phone_number]').val();
             let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
             $.ajax({
                 headers: {
@@ -530,11 +642,10 @@
                 dataType: 'json',
                 data: {phone_number: phone_number, user_id: user_id},
                 success: function (changePhoneNumber) {
-                    if (changePhoneNumber.length > 0) {
+                    if (changePhoneNumber == 'updated') {
                         $('.close').click();
-                        $('#phone_number').html('');
-                        $('#phone_number').append(changePhoneNumber);
                         $('.error_phone_number').css('display', 'none');
+                        $('.verify_code_send').click();
                     }
                 }, error: function (changePhoneNumber) {
                     $('.error_phone_number').html(' ');
@@ -546,6 +657,54 @@
                 }
             });
         }
+
+
+
+
+
+
+
+        //verify_code_send
+        $(document).on('click', '#btn_verify_phone_number', function () {
+            let sms_code= $('input[name=verify_phone_number]').val();
+            let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: '{{route('verify.phone.number')}}',
+                dataType: 'json',
+                data: {sms_code_verify: sms_code,phone_number:phone_number, user_id: user_id},
+                success: function (verifyPhoneNumber) {
+                    if(verifyPhoneNumber == 'success'){
+                        $('.close').click();
+                        $('#phone_number').html('');
+                        $('#phone_number').append(phone_number);
+                        $('.error_verify_phone_number').css('display', 'none');
+                        let data='شماره تلفن همراه';
+                        alertToastr(data);
+                    }
+                    if(verifyPhoneNumber === 'unMatch_code'){
+                        $('.error_verify_phone_number').html(' ');
+                        $('.error_verify_phone_number').append('<li>عدم تطابق رمز</li>');
+                        $('.error_verify_phone_number').css('display', 'block');
+                    }
+                }, error: function (verifyPhoneNumber) {
+                    $('.error_verify_phone_number').html(' ');
+                    $.each(verifyPhoneNumber.responseJSON, function (index, value) {
+                        $('.error_verify_phone_number').append('<li>'+value+'</li>');
+                        $('.error_verify_phone_number').css('display', 'block');
+
+                    });
+                }
+            });
+        });
+
+
+
+
+
 
 
         //update natinal code
@@ -566,7 +725,8 @@
                         $('#natinal_code').html('');
                         $('#natinal_code').append(changeNatinalCode);
                         $('.error_natinal_code').css('display', 'none');
-                        alertNatinalCode();
+                        let data='کد ملی';
+                        alertToastr(data);
                     }
                 }, error: function (changeNatinalCode) {
                     $('.error_natinal_code').html(' ');
@@ -597,7 +757,8 @@
                         $('#email').html('');
                         $('#email').append(changeEmail);
                         $('.error_email').css('display', 'none');
-                        alertEmail();
+                        let data='ایمیل';
+                        alertToastr(data);
                     }
                 }, error: function (changeEmail) {
                     $('.error_email').html(' ');
@@ -644,7 +805,8 @@
                             $('#birthday').html('');
                             $('#birthday').append(changeBirthday);
                             $('#error_birthday').css('display', 'none');
-                            alertBirthday();
+                            let data=' تاریخ تولد';
+                            alertToastr(data);
                         }
                     }
                 });
@@ -678,7 +840,8 @@
                         $('.close').click();
                         $('#error_password').css('display', 'none');
                         $('.pass_user_not_find').css('display', 'none');
-                        alertPassword();
+                        let data='رمز عبور';
+                        alertToastr(data);
                     }
                 }, error: function (changePassword) {
                     $('.pass_user_not_find').css('display', 'block');
@@ -716,9 +879,13 @@
         });
 
 
+
+
+
+
         //update password
         function update_photo_profile() {
-            let photo_name = $('input[name=photo_name]').val();
+            let photo_profile = $('input[name=photo_name]').val();
             let user_id = {{\Illuminate\Support\Facades\Auth::user()->id}};
 
             $.ajax({
@@ -728,50 +895,28 @@
                 type: 'PUT',
                 url: '{{route('save.photo.profile.upload')}}',
                 dataType: 'json',
-                data: {user_id: user_id, photo_name: photo_name},
+                data: {user_id: user_id, photo_profile: photo_profile},
                 success: function (savePhoto) {
-
+                    if (savePhoto == 'success'){
+                        let data='تصویر پروفایل';
+                        alertToastr(data);
+                    }
                 }, error: function (savePhoto) {
+                    $('.error_photo').html('');
+                    $.each(savePhoto.responseJSON, function (index, value) {
+                        $('.error_photo').append('<li>' + value + '</li>');
+                        $('.error_photo').css('display', 'block');
 
+                });
                 }
             });
         }
 
-        function alertName() {
+
+        function alertToastr(data) {
             toastr.options.progressBar = true;
             toastr.options.closeButton = false;
-            toastr.success("نام کاربری با موفقیت  تغییر کرد.");
-        }
-
-        function alertBirthday() {
-            toastr.options.progressBar = true;
-            toastr.options.closeButton = false;
-            toastr.success("تاریخ تولد با موفقیت  تغییر کرد.");
-        }
-
-
-        function alertPassword() {
-            toastr.options.progressBar = true;
-            toastr.options.closeButton = false;
-            toastr.success("رمز عبور با موفقیت تغییر کرد.");
-        }
-
-        function alertNatinalCode() {
-            toastr.options.progressBar = true;
-            toastr.options.closeButton = false;
-            toastr.success("کد ملی با موفقیت تغییر کرد.");
-        }
-
-        function alertEmail() {
-            toastr.options.progressBar = true;
-            toastr.options.closeButton = false;
-            toastr.success("ایمیل با موفقیت تغییر کرد.");
-        }
-
-        function alertPhoneNumber() {
-            toastr.options.progressBar = true;
-            toastr.options.closeButton = false;
-            toastr.success("شماره تلفن همراه با موفقیت تغییر کرد.");
+            toastr.success(''.concat(data).concat(' با موفقیت تغییر کرد. '));
         }
     </script>
 
