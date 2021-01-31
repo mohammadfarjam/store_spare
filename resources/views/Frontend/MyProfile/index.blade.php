@@ -34,8 +34,15 @@
             <div class="col-lg-3 col-md-12 mt-5 rounded">
                 <aside class="widget-area bg-white">
                     <div class="widget widget_categories p-3 ">
-                        <img src="/storage/photos_profile/{{$user_data->photo_profile}}" class="img-fluid" width="50">
-                        <h3 class="widget-title mt-4 mb-5">{{$user_data->name}}</h3>
+                        <div class="d-flex flex-row">
+                            <div class="ml-3 mt-2 " style="width: 80px;height: 80px;">
+                                <img src="/storage/photos_profile/{{$user_data->photo_profile}}" class="img-fluid img_profile append_img ">
+                            </div>
+                            <h3 class="widget-title mt-4 mb-5 w-100">{{$user_data->name}}</h3>
+
+                        </div>
+                        {{--d-flex flex-row--}}
+
 
                         <ul class="categories">
                             <li>
@@ -46,7 +53,7 @@
                             </li>
 
                             <li>
-                                <a href="#" class="nav-link rounded">
+                                 <a href="{{route('')}}" class="nav-link rounded">
                                     <i class="fas fa-id-badge f15 ml-2"></i>
                                     پروفایل من
                                 </a>
@@ -83,7 +90,7 @@
 
 
             <div class="col-lg-9">
-                <div class="col-lg-3 mt-5 mr-lg-5">
+                <div class="col-lg-4 mt-5 mr-lg-5">
                     <div class="mx-auto">
                         <div class="form-group">
                             <div id="photo" class="dropzone" style="width: 200px;border-radius: 50%;height: 210px;"></div>
@@ -92,9 +99,9 @@
                         <ul class='error_photo error_my_profile'></ul>
                         <button class="btn btn-primary mr-5" onclick="update_photo_profile();">آپلود تصویر</button>
                     </div>
-
                 </div>
-                <div class="col-lg-9">
+
+                <div class="col-lg-8">
                 </div>
                 <div class="row align-items-center ptb-50">
                     <div class="col-lg-6 p-1">
@@ -868,12 +875,13 @@
             maxRequestSize: 800000, //Mb
             autoProcessQueue: true,
             autoDiscover: false,
-            dictDefaultMessage: "آپلود تصویر",
+            dictDefaultMessage: "حداکثر حجم تصویر 500 کیلوبایت",
             dictRemoveFile: "حذف تصویر",
             sending: function (file, xhr, formData) {
                 formData.append("_token", "{{csrf_token()}}")
             },
             success: function (file, response) {
+
                 document.getElementById('photo_name').value = response.photo_name
             }
         });
@@ -897,9 +905,12 @@
                 dataType: 'json',
                 data: {user_id: user_id, photo_profile: photo_profile},
                 success: function (savePhoto) {
-                    if (savePhoto == 'success'){
+                    if (savePhoto.length > 0){
+                        $('.append_img').attr('src','/storage/photos_profile/'+ savePhoto +' ');
                         let data='تصویر پروفایل';
                         alertToastr(data);
+                        $('.error_photo').css('display', 'none');
+
                     }
                 }, error: function (savePhoto) {
                     $('.error_photo').html('');

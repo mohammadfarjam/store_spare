@@ -252,7 +252,7 @@ class MyProfileController extends Controller
 
             $uploadedPhoto = $request->file('file');
 
-            if (isset($uploadedPhoto)) {
+            if (!empty($uploadedPhoto)) {
                 $filename = time() . $uploadedPhoto->getClientOriginalName();
                 Storage::disk('local')->putFileAs('public/photos_profile', $uploadedPhoto, $filename);
 
@@ -286,8 +286,8 @@ class MyProfileController extends Controller
                 if ($find_user) {
                     $find_user->photo_profile = $photo_name;
                     $find_user->update();
-                    return response()->json('success', 200);
-
+                   $file_name= $find_user->photo_profile;
+                    return response()->json($file_name, 200);
                 }
             }
             } catch

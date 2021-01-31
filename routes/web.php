@@ -71,10 +71,9 @@ Route::get('/products', [HomeController::class,'products'])->name('products');
 
 
 
-//auth user
+//auth user register
 Route::get('/register_step1', [CustomRegisterController::class,'customRegister'])->name('register.step1');
 Route::post('/create_user', [CustomRegisterController::class,'create_user'])->name('create.user');
-//
 Route::get('/register_step2', [CustomRegisterController::class,'VerifyPhoneNumber'])->name('register.step2');
 Route::post('/accept_phone_number', [CustomRegisterController::class,'acceptPhoneNumber'])->name('accept.phone.number');
 
@@ -86,17 +85,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     //route ajax for update info my profile
     Route::PUT('/update_name_myProfile', [MyProfileController::class,'update_name_myProfile'])->name('update.name.myProfile');
-
     Route::PUT('/update_phone_number', [MyProfileController::class,'update_phone_number'])->name('update.phone.number');
-
     Route::PUT('/update_natinal_code', [MyProfileController::class,'update_natinal_code'])->name('update.natinal.code');
-
     Route::PUT('/update_email', [MyProfileController::class,'update_email'])->name('update.email');
     Route::PUT('/update_birthday', [MyProfileController::class,'update_birthday'])->name('update.birthday');
     Route::PUT('/update_password', [MyProfileController::class,'update_password'])->name('update.password');
     Route::post('/photo_profile_upload', [MyProfileController::class,'upload_photo'])->name('photo.profile.upload');
     Route::put('/save_photo_profile_upload', [MyProfileController::class,'save_upload_photo'])->name('save.photo.profile.upload');
-
     Route::post('/verify_phone_number', [MyProfileController::class,'verify_phone_number'])->name('verify.phone.number');
 
 });
