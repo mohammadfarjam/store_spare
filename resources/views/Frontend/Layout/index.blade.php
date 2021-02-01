@@ -225,7 +225,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
+                            <a href="{{route('contactUs')}}" class="nav-link">تماس با ما</a>
                         </li>
 
                         <li class="nav-item">

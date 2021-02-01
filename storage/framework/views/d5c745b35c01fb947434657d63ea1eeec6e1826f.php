@@ -51,7 +51,7 @@
                             </li>
 
                             <li>
-                                <a href="#" class="nav-link rounded">
+                                 <a href="<?php echo e(route('')); ?>" class="nav-link rounded">
                                     <i class="fas fa-id-badge f15 ml-2"></i>
                                     پروفایل من
                                 </a>

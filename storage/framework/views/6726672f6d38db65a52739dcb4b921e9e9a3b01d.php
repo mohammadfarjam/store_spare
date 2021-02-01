@@ -225,7 +225,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?php echo e(route('contact')); ?>" class="nav-link">تماس با ما</a>
+                            <a href="<?php echo e(route('contactUs')); ?>" class="nav-link">تماس با ما</a>
                         </li>
 
                         <li class="nav-item">

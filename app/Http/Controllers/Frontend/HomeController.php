@@ -22,7 +22,7 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('Frontend.contact.index');
+        return view('Frontend.ContactUs.index');
     }
     public function aboutUs()
     {

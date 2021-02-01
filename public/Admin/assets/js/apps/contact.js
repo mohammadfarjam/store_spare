@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  checkall('contact-check-all', 'contact-chkbox');
+  checkall('ContactUs-check-all', 'ContactUs-chkbox');
 
   $('#input-search').on('keyup', function() {
     var rex = new RegExp($(this).val(), 'i');
@@ -38,7 +38,7 @@ $(document).ready(function() {
     $(this).parents('.searchable-container').find('.searchable-items').addClass('list');
   });
 
-  $('#btn-add-contact').on('click', function(event) {
+  $('#btn-add-ContactUs').on('click', function(event) {
     $('#addContactModal #btn-add').show();
     $('#addContactModal #btn-edit').hide();
     $('#addContactModal').modal('show');
@@ -110,7 +110,7 @@ function addContact() {
 
                       '<div class="n-chk align-self-center text-center">' +
                           '<label class="new-control new-checkbox checkbox-primary">' +
-                            '<input type="checkbox" class="new-control-input contact-chkbox">' +
+                            '<input type="checkbox" class="new-control-input ContactUs-chkbox">' +
                             '<span class="new-control-indicator"></span>' +
                           '</label>' +
                       '</div>' +
@@ -151,7 +151,7 @@ function addContact() {
 
     deleteContact();
     editContact();
-    checkall('contact-check-all', 'contact-chkbox');
+    checkall('ContactUs-check-all', 'ContactUs-chkbox');
   });
 }
 
@@ -249,7 +249,7 @@ function editContact() {
 }
 
 $(".delete-multiple").on("click", function() {
-    var inboxCheckboxParents = $(".contact-chkbox:checked").parents('.items');
+    var inboxCheckboxParents = $(".ContactUs-chkbox:checked").parents('.items');
       inboxCheckboxParents.remove();
 });
 

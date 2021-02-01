@@ -11,7 +11,6 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\ManagmentController;
 use App\Http\Controllers\Admin\NameStoreController;
-use App\Http\Controllers\Admin\PhotosUploadController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SmsController;
@@ -60,7 +59,7 @@ Route::prefix('/p-admin')->group(function () {
 Route::get('/', [HomeController::class,'index'])->name('/');
 Route::get('/cart', [HomeController::class,'cart'])->name('cart');
 Route::get('/product_detail', [HomeController::class,'product_detail'])->name('product.detail');
-Route::get('/contact', [HomeController::class,'contact'])->name('contact');
+Route::get('/ContactUs', [HomeController::class,'contact'])->name('ContactUs');
 Route::get('/aboutUs', [HomeController::class,'aboutUs'])->name('aboutUs');
 Route::get('/news', [HomeController::class,'news'])->name('news');
 Route::get('/detail_news', [HomeController::class,'detail_news'])->name('detail.news');
@@ -98,3 +97,5 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
+Route::get('contactUs',[App\Http\Controllers\Frontend\ContactUsController::class,'index'])->name('contactUs');
+Route::get('refresh_captcha',[App\Http\Controllers\Frontend\ContactUsController::class,'refreshCaptcha'])->name('refresh.captcha');
