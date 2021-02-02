@@ -28,7 +28,7 @@
 {{--    <link href="/Admin/assets/css/dashboard/dash_2.css" rel="stylesheet" type="text/css" />--}}
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="sidebar-noneoverflow">
 <!-- BEGIN LOADER -->

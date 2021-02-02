@@ -51,6 +51,12 @@ Route::prefix('/p-admin')->group(function () {
     Route::resource('name_store', NameStoreController::class);
     Route::get('products_sold', [StatusProductSoldController::class,'index'])->name('products.sold');
     Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
+
+    Route::post('get_data_replay', [CommentContactUsController::class,'getDataReplay'])->name('get.data.replay');
+
+    Route::post('send_email_to_user', [CommentContactUsController::class,'sendEmailToUser'])->name('send.Email.To.User');
+
+
 });
 
 
@@ -97,5 +103,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
+
+//for insert comment contact us
 Route::get('contactUs',[App\Http\Controllers\Frontend\ContactUsController::class,'index'])->name('contactUs');
 Route::get('refresh_captcha',[App\Http\Controllers\Frontend\ContactUsController::class,'refreshCaptcha'])->name('refresh.captcha');

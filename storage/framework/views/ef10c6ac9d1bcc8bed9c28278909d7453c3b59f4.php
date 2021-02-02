@@ -28,7 +28,7 @@
 
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 </head>
 <body class="sidebar-noneoverflow">
 <!-- BEGIN LOADER -->

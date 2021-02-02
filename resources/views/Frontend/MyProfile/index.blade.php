@@ -6,9 +6,7 @@
     {{--    <link href="/Frontend/css/sweetalert.min.css" rel="stylesheet" type="text/css"/>--}}
     <link href="/Admin/css/dropzone.min.css" rel="stylesheet" type="text/css"/>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-          integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
-          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/Frontend/css/toastr.min.css">
 
 @endsection
 
@@ -512,9 +510,7 @@
     {{--    <script src="/Frontend/js/sweetalert.min.js"></script>--}}
     <script src="/Admin/js/dropzone.min.js"></script>
     {{--    @include('sweetalert::alert')--}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-            integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-            crossorigin="anonymous"></script>
+    <script src="/Frontend/js/toastr.min.js"></script>
 
     <script>
         // for search in select

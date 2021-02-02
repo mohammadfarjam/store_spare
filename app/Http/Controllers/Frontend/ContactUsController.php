@@ -7,6 +7,7 @@ use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Mews\Captcha\Facades\Captcha;
 
 class ContactUsController extends Controller
 {
@@ -32,9 +33,9 @@ class ContactUsController extends Controller
                 'email' => 'required|email|string',
                 'phone' => 'required|digits:11|max:11',
                 'subject' => 'required|string',
-                'captcha'=> 'required|captcha',
+                'captcha' => 'required|min:5',
             ], [
-                'message.required' => 'متن پیام شما خالی است.',
+                'message.required' => 'متن پیام شما خالی می باشد.',
                 'name.required' => 'نام خود را وارد نمایید.',
                 'email.email' => 'آدرس ایمیل خود را صحیح وارد نمایید.',
                 'email.required' => 'آدرس ایمیل خود را وارد نمایید.',
@@ -42,6 +43,9 @@ class ContactUsController extends Controller
                 'phone.digits' => 'شماره تلفن باید شامل اعداد صحیح باشد.',
                 'phone.max' => 'تعداد ارقام شماره تلفن صحیح نمی باشد.',
                 'subject.required' => 'موضوع پیام خود را وارد نمایید.',
+                'captcha.required' =>'کد درون تصویر را وارد نمایید.',
+                'captcha.min'=>'کد وارد شده صحیح نمی باشد.',
+
             ]);
 
             if ($validator->fails()) {
@@ -59,7 +63,9 @@ class ContactUsController extends Controller
                 $new_comment->phone = $phone;
                 $new_comment->subject = $subject;
                 $new_comment->message = $message;
+                $new_comment->status =0;
                 $new_comment->save();
+                return response()->json('success',200);
             }
         } catch (\Exception $e) {
             alert($e);
