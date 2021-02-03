@@ -107,8 +107,8 @@ class CommentContactUsController extends Controller
         $find_person->status=1;
         $find_person->update();
 
-        Mail::to($user_email)->send(new ReplayContactUs());
+        Mail::to($user_email)->send(new ReplayContactUs($request));
 
-        return response()->json('success',200);
+        return response()->json(['success'=>'success','user_id'=>$user_id],200);
     }
 }

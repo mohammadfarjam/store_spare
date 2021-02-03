@@ -16,9 +16,12 @@ class ReplayContactUs extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $data;
+
+    public function __construct($data)
     {
-        //
+       $this->data=$data;
     }
 
     /**
@@ -28,7 +31,9 @@ class ReplayContactUs extends Mailable
      */
     public function build()
     {
-        return $this->from('test@gmail.com')
-            ->view('Mails.replayEmailContactUs');
+        return $this->subject(' پاسخ به پیام کاربر')
+            ->view('Mails.replayEmailContactUs')->with(['data'=>$this->data,
+                'answer'=>$this->data->replay_to_user,
+                ]);
     }
 }

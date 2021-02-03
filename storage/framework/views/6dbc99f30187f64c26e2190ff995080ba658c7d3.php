@@ -117,8 +117,8 @@
                     <td><?php echo e($data->phone); ?></td>
                     <td><?php echo e($data->subject); ?></td>
                     <td><?php echo e($data->created_at); ?></td>
-                    <td><?php echo e($data->message); ?></td>
-                    <td>
+                    <td><?php echo e(Str::limit($data->message, 70)); ?></td>
+                    <td class="answer" data-id="<?php echo e($data->id); ?>">
                         <?php if($data->status == 0): ?>
                             <span class="badge badge-warning">در انتظار پاسخ</span>
                         <?php else: ?>
@@ -201,11 +201,12 @@
 
                     </div>
                     
-<input type="text" name="user_id">
+                    <input type="text" name="user_id">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">لغو</button>
-                    <button type="button" class="btn btn-success" disabled id="btn_replay" onclick="sendEmail()">پاسخ</button>
+                    <button type="button" class="btn btn-success" disabled id="btn_replay" onclick="sendEmail()">پاسخ
+                    </button>
                 </div>
             </div>
         </div>
@@ -327,13 +328,11 @@
         });
 
 
-
-
-        function sendEmail(){
-            let message=$('#description').val();
-            let user_email=$('#user_email').val();
-            let replay_to_user=$('#replay_to_user').val();
-            let user_id=$('input[name=user_id]').val();
+        function sendEmail() {
+            let message = $('#description').val();
+            let user_email = $('#user_email').val();
+            let replay_to_user = $('#replay_to_user').val();
+            let user_id = $('input[name=user_id]').val();
 
 
             $.ajax({
@@ -343,18 +342,23 @@
                 type: 'post',
                 url: '<?php echo e(route('send.Email.To.User')); ?>',
                 dataType: 'json',
-                data: {message,user_email,replay_to_user,user_id},
+                data: {message, user_email, replay_to_user, user_id},
                 success: function (sendEmail) {
-                    if (sendEmail=='success'){
+
+                    if (sendEmail.success == 'success') {
+                        $('.close').click();
                         $('#replay_to_user').val(' ');
+                        $('#btn_replay').attr("disabled", true);
+
+                            $(".answer[data-id='" + sendEmail.user_id + "']").html(' ');
+                            $(".answer[data-id='" + sendEmail.user_id + "']").append('<span class="badge badge-success">پاسخ داده شده</span>');
                     }
                 }, error: function (sendEmail) {
 
                 }
 
-        });
+            });
         }
-
 
 
     </script>
