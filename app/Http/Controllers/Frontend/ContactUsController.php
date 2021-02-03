@@ -68,7 +68,7 @@ class ContactUsController extends Controller
                 return response()->json('success',200);
             }
         } catch (\Exception $e) {
-            alert($e);
+            return response()->json($e,200);
         }
 
 

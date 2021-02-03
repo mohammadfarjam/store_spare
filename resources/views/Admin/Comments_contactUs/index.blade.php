@@ -6,7 +6,8 @@
     <link href="/Admin/assets/css/components/custom-sweetalert.css" rel="stylesheet" type="text/css"/>
     <link href="/Admin/assets/css/elements/custom-pagination.css" rel="stylesheet" type="text/css"/>
     <link href="/Admin/css/select2.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="/Admin/css/persian_datepicker.min.css">
+    <link href="/Admin/css/persian_datepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="/Frontend/css/toastr.min.css" rel="stylesheet" type="text/css">
 @endsection
 @section('content')
 
@@ -203,7 +204,7 @@
 
                     </div>
                     {{-- col-11--}}
-                    <input type="text" name="user_id">
+                    <input type="hidden" name="user_id">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">لغو</button>
@@ -225,6 +226,7 @@
     <script src="/Admin/plugins/sweetalerts/custom-sweetalert.js"></script>
     <script src="/Admin/js/persian_date.min.js"></script>
     <script src="/Admin/js/persian_datepicker.min.js"></script>
+    <script src="/Frontend/js/toastr.min.js"></script>
     <script>
 
         // sweetAlert
@@ -352,8 +354,10 @@
                         $('#replay_to_user').val(' ');
                         $('#btn_replay').attr("disabled", true);
 
-                            $(".answer[data-id='" + sendEmail.user_id + "']").html(' ');
-                            $(".answer[data-id='" + sendEmail.user_id + "']").append('<span class="badge badge-success">پاسخ داده شده</span>');
+                        $(".answer[data-id='" + sendEmail.user_id + "']").html(' ');
+                        $(".answer[data-id='" + sendEmail.user_id + "']").append('<span class="badge badge-success">پاسخ داده شده</span>');
+
+                        alertSuccessAnswer();
                     }
                 }, error: function (sendEmail) {
 
@@ -362,6 +366,15 @@
             });
         }
 
+
+
+
+
+        function alertSuccessAnswer(){
+            toastr.options.progressBar = true;
+            toastr.options.closeButton = false;
+            toastr.success('پیام کاربر با موفقیت پاسخ داده شد.');
+        }
 
     </script>
 @endsection

@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('style'); ?>
     <link rel="stylesheet" href="/Frontend/css/toastr.min.css">
 <?php $__env->stopSection(); ?>
