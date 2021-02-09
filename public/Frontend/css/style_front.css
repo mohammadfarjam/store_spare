@@ -1,3 +1,12 @@
+
+@font-face {
+    font-family:codeCaptcha;
+    /*src: url('/Frontend/fonts/Captcha_code.otf');*/
+    src: url('/Frontend/fonts/font28.ttf');
+}
+
+
+
 .f15{
     font-size: 15pt;
 }
@@ -74,4 +83,20 @@
 
 .dz-button{
     margin-top: 30px;
+}
+.span_captcha{
+    width: 180px;
+    height: 50px;
+    display: inline-block;
+    border: 2px solid;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 25pt;
+    font-weight: 600;
+    background-image: url("/Frontend/image/static/bg_captcha.jpg");
+}
+
+.font_captcha{
+    font-family:codeCaptcha;
 }

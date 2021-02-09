@@ -13,7 +13,8 @@ class ContactUsController extends Controller
 {
     public function index()
     {
-        return view('Frontend.ContactUs.index');
+        $code = rand(10000, 99999);
+        return view('Frontend.ContactUs.index',compact('code'));
     }
 
 
@@ -33,7 +34,7 @@ class ContactUsController extends Controller
                 'email' => 'required|email|string',
                 'phone' => 'required|digits:11|max:11',
                 'subject' => 'required|string',
-                'captcha' => 'required|min:5',
+                'captcha' => 'required|min:5|captcha_api:'. $request['ckey'].',default',
             ], [
                 'message.required' => 'متن پیام شما خالی می باشد.',
                 'name.required' => 'نام خود را وارد نمایید.',

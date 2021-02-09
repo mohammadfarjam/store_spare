@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('style'); ?>
     <link rel="stylesheet" href="/Frontend/css/toastr.min.css">
 <?php $__env->stopSection(); ?>
@@ -82,13 +81,14 @@
                             </div>
 
                             <div class="captcha form-group col-lg-12 col-md-12">
-                                <span><?php echo captcha_img(); ?></span>
+                                <span class=""><?php echo captcha_img(); ?></span>
+                                <input name="ckey" value="<?php echo e(csrf_token()); ?>">
                                 <button id='refresh_captcha' class="btn btn-success mr-3 align-middle" onclick="refresh_captcha()"><i
                                         class="fas fa-sync-alt align-middle"></i></button>
                             </div>
 
-                            <div class="col-lg-6 col-md-12">
-                                <input type="text" name="captcha" id="captcha" class="form-control"
+                            <div class="form-group col-lg-6 col-md-12">
+                                <input type="text" id="captcha" name="captcha" autocomplete="off"
                                        placeholder="کد درون تصویر را وارد نمایید" value="" maxlength="5">
                             </div>
 
@@ -159,7 +159,7 @@
             let phone = $('input[name=phone_number]').val();
             let subject = $('input[name=subject]').val();
             let captcha = $('input[name=captcha]').val();
-
+            let ckey = $('input[name=ckey]').val();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -167,7 +167,7 @@
                 type: 'post',
                 url: '<?php echo e(route('insert.contactUs')); ?>',
                 dataType: 'json',
-                data: {message, name, email, phone, subject,captcha},
+                data: {message, name, email, phone, subject,captcha,ckey},
                 success: function (insertData) {
                     if (insertData == 'success') {
                         $('.error_contactUs').css('display', 'none');
